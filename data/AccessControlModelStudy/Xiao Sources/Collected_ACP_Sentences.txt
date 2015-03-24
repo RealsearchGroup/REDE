@@ -1,0 +1,134 @@
+﻿Employees ranked as professors or tenured assistant professors can select from, insert into, and delete from graduate admission related tables in the database. 
+Customer Service Reps, Pharmacists, and Billing Reps can collect and use customer name and date of birth to help confirm identity. 
+Customer service reps can use credit card number for the purpose of updating records if requested by a patient. 
+Customer Service Reps, Pharmacists, and Billing Reps can collect and use customer name and e-mail addresses. 
+Shipping Reps can use customer name and customer mailing addresses to ship orders. 
+Billing Reps can use credit card numbers for order processing. 
+Customer Service Reps can modify credit card numbers for order processing, if the customer is notified by email of the change. 
+Customer service reps, ducks or Lawyers can use credit card number for the purpose of making treatment decisions if customer has opted-in. 
+Admission nurses use SSN for reviewing eligibility if requested by a patient who is returning. 
+Customer service reps and managers may collect and use name and social security number for the purpose of confirming identity. 
+The organisation may use email addresses to answer inquiries. 
+Supervisors can collect personal information if required by law. 
+Financial consultants can collect and use customer name for the purpose of confirming identity. 
+Financial analysts can use customer accounts to make loan decisions. 
+Management can report customer transactions if required by law. 
+It is used to enforce authorisation rules on bonus allocation among the employees of a company.
+A bonus package with a fixed number of options, such as a-day-off, is available for employees. 
+The director chooses options from the package to give to all employees. 
+He/she can also read the information about the distribution of options. 
+The director can promote an employee to be a  manager. 
+Managers can read and set ordinary employees’ bonuses, but not those of other managers or the director. 
+An employee can appoint another employee to be his advocate, and have read access to his bonus information – for example, this might be useful if he needs help from a trade union. 
+Use cases such as record invoice arrival, verify invoice validity, authorize payment and write a check are to be applied in the specified order.  
+Each use case should be executed by an actor playing an authorized role(s) as shown in Figure 1. For example, write a check use case should be invoked by (authorized to) clerk role. In addition, the role hierarchy implicitly authorizes a specialized role to inherit permissions. For example, according to Figure 2, supervisor role inherits purchasing officer’s permissions and purchasing officer inherits clerk’s permissions. 
+Supervisor can not execute the write a check use case. 
+No user should perform more than one use case on each object. This one type of Dynamic Separation of Duty (DSOD) policy. For example, a user should not record and verify the same invoice. This policy is claimed to prevent fraud and errors. 
+If the invoice’s total amount exceeds one million, then two different supervisors must authorize the invoice. 
+A subject cannot belong to more than one role. 
+Every subject in the hierarchy except the business office manager can submit a project. 
+Every professor, except assistant professors, can review a project. 
+A subject cannot review a project he/she has submitted. 
+A professor can review the same project at most one time. 
+Only the business office manager and the dean can approve a project. 
+A subject cannot approve projects he/she has reviewed or submitted. 
+PC members and authors of papers are known to everybody. Authors of papers cannot be changed. 
+The PC chair appoints the PC members. A PC member can resign his membership. 
+The PC chair can assign a paper to a PC member for reviewing, except if he is one of its authors. 
+All PC members, except the author(s) of a paper can know who are the reviewers for this paper. 
+The reviewer of a paper can assign the paper to be sub-reviewed by an agent who is not an author of the paper and has not been assigned the same paper by another reviewer. 
+A reviewer of a paper p can resign, unless he has already appointed a sub-reviewer for the paper. 
+Subreviewers are known to all PC members who are not authors of the respective papers. 
+A sub-reviewer can resign, unless he has already submitted his review. 
+There do not exist members of Student who can Assign ExternalGrades. 
+All members of Faculty can Assign both InternalGrades and ExternalGrades. 
+No combination of roles exists such that a user with those roles can both Receive and Assign the resource ExternalGrades. 
+Requests for students to Receive ExternalGrades, and for faculty to Assign and View both InternalGrades and ExternalGrades, will succeed. 
+The sole counter-example shows that a student with the freedom to assign external grades is also a ta but not a faculty member. 
+TA can view and assign InternalGrades but not ExternalGrades (since faculty must take final responsibility for all external grades), combined with Pol3. 
+All members of role Faculty Family can receive External-Grades. 
+If the subject is a faculty member, then permit that subject to assign grades. 
+If the subject is a student, then do not permit that subject to assign grades. 
+If the subject is not a faculty member, then permit that subject to enroll in courses. 
+The manager has the broadest access to the information, including access to personal, financial, clinical and medical information about each resident. 
+This does not mean, however, that she has unrestricted access. 
+Although she can enter the past medical records when a resident is admitted, she cannot subsequently add medical entries to the system. 
+In the current paper-based system, this is prevented by requiring that any new entry be signed by the doctor making that entry. 
+Also, she cannot view the private notes of doctors and clearly she cannot sign the legal agreement on behalf of a resident.  
+Only the manager is allowed to add a new resident to the system and to start or update the care plan of a resident. 
+The care plan is updated in consultation with the resident or the responsible person.  
+Only the manager is allowed to delete the information about a resident but here also that right is restricted. 
+Privacy laws require that the information be held for a certain period after a resident leaves the facility. 
+This period is seven years for someone who is not of Aboriginal or Torres Strait Islander descent and nine years for someone who is.  
+The health care workers are required to sign a confidentiality agreement before they have access to any resident data. 
+Their main form of access is to view the care plan for each resident and to add progress note entries based on their observations. 
+Access to emergency details is available for all staff. 
+Health care workers can view recent medical records of residents (up to one year old) but cannot normally view older medical information. 
+For a special purpose, access to an older medical record can be sought and obtained from the manager. 
+Because of the physical access control in the current paper system, the manager has an overview of who has accessed what information. 
+In an electronic system this overview must be supplied by some form of logging of accesses and access attempts. 
+Clearly, the manager does not wish to be informed about every access but some logging is still necessary. 
+So, for example, the manager should be made aware of repeated attempts by a health care worker to access information beyond their rights.  
+A visiting doctor has access to all the medical information of residents who are his/her patients and can add entries to their medical records.
+Doctors can also add private notes about a resident, which, on the basis of doctor-patient confidentiality, are not visible to health care staff or the manager. 
+Doctors need not sign a confidentiality agreement since they are bound by a code of professional conduct. 
+Occasionally, due to pressing circumstances, it may be necessary for a visiting doctor to examine a resident who is not normally his/her patient.
+This is permitted with the consent of the resident or the responsible person and the notification of the manager.
+The doctor then has temporary access to the resident’s medical records (but not to the private notes of the resident’s usual doctor).      
+The principals involved in an information system are usually thought of as staff members of a certain organisation. 
+Privacy laws require, however, that a person should have full access to any information stored about them (unless the well-being of a third party would be jeopardised by revealing the information). 
+In our case study this means that the residents themselves must also be regarded as principals for whom we define access rights. 
+In the current paper system, all the information stored about a resident is accessible to the resident by arrangement with the manager. 
+The need to make this arrangement is only to allow the manager and resident to set a time that is convenient to both of them. 
+In an electronic system we can allow residents to hook into the network at any time as long as they can view only their own data and cannot make arbitrary changes. 
+This includes the right to view even the private notes entered by a doctor. 
+Loading medicines to medicine dispenser, creating medicine order and picking medicines from the medicine dispenser are operations forming a critical task. 
+This critical task should not be performed by a single user.  
+A user should already grant diagnosing right to create medicine orders.  
+Only one user, here is the Pharmacy System, can load medicines to the medicine dispenser.  
+Pharmacy System may get reports and status information of the medicine dispenser. 
+However, it should not perform these operations when it is loading medicines to the medicine dispenser. 
+Pharmacy System can load medicines to the dispenser only at a time interval 12:00-13:00 in a day.  
+Only Doctors and Nurses can read patient records. 
+Pharmacy System should not read patient records even if it can read patient medicine orders. 
+Any subject with an e-mail name in the med.example.com domain can perform any action on any resource. 
+A person, identified by his or her patient number, may read any record for which he or she is the designated patient. 
+A person may read any record for which he or she is the designated parent or guardian, and for which the patient is under 16 years of age. 
+A physician may write to any medical element for which he or she is the designated primary care physician, provided an email is sent to the patient. 
+An administrator shall not be permitted to read or write to medical elements of a patient record. 
+Administrators can access only the administrative pages 
+Guests can access all the public areas of the site 
+Owners can access their account, move funds, and review transactions 
+Users can view an Owner's account, but not make changes 
+Planners can access the sites financial planning and tax preparation functions 
+Payers can use the site's bill paying function .
+Data Owners can transfer ownership of information to other users. 
+Data Owners can determine the type of access given to other users (read, write, copy, etc.).
+Repetitive authorization failures to access the same resource or object generates an alarm and/or restricts the user's access 
+Special add-on or plug-in software required to apply to an HTTP client to prevent indiscriminant copying by users ("cutting and pasting" of information) 
+Users who do not have access to information should not be able to determine its characteristics (file size, file name, directory path, etc.) 
+Access to information is determined based on authorizations to access control lists based on user identifier and group membership. 
+Only administrators, not data owners, make changes to a resource's security label. 
+All data is assigned security level that reflects its relative sensitivity, confidentiality, and protection value. 
+All users can read from a lower classification than the one they are granted (A "secret" user can read an unclassified document). 
+All users can write to a higher classification (A "secret" user can post information to a Top Secret resource). 
+All users are given read/write access to objects only of the same classification (a "secret" user can only read/write to a secret document). 
+Access is authorized or restricted to objects based on the time of day depending on the labeling on the resource and the user's credentials (driven by policy). 
+Access is authorized or restricted to objects based on the security characteristics of the HTTP client (e.g. SSL bit length, version information, originating IP address or domain, etc.) 
+Staff can print on HP Laserjet 1. 
+David can assign the manager role to Alice. 
+John can assign clerk to users from department A 
+Clerk can read from database. 
+Owners can read Name. 
+Clerks can add and change Name, date of birth, Address and Postcode. 
+Owners cannot change any data but can read it all.
+There do not exist members of STUDENT who can ASSIGN EXTERNALGRADES. 
+All members of FACULTY can ASSIGN both INTERNALGRADES and EXTERNALGRADES. 
+There exists no combination of roles such that a user with those roles can both RECEIVE and ASSIGN the resource EXTERNALGRADES. 
+All members of STUDENT can RECEIVE EXTERNALGRADES. 
+If a subject is not a pc-chair or admin, then he/she may not set the meeting ﬂag. 
+If someone is not a pc-chair or admin, then he/she can never see paper-review-rc for which he/she is conﬂicted. 
+During the submission phase, an author may submit a paper.
+During the review phase, reviewer may submit a review for paper if reviewer is assigned to review paper. 
+During the meeting phase, reviewer can read the scores for paper if reviewer has submitted a review for paper.
+Authors may never read scores.

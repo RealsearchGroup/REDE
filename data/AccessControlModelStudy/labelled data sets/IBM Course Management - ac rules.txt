@@ -1,0 +1,780 @@
+1.0:Course Registration Requirements
+2.0:Version  2004
+3.0:Problem Statement
+4.0:As the head of information systems for Wylie College you are tasked with developing a new student registration system.
+5.0:The college would like a new client-server system to replace its much older system developed around mainframe technology.
+6.0:The new system will allow students to register for courses and view report cards from personal computers attached to the campus LAN.
+          student;view;card - R
+          student;register;course - C
+7.0:Professors will be able to access the system to sign up to teach courses as well as record grades.
+          professors;access;system - E
+          professors;sign;teach course - C
+          professors;record;grade - C
+8.0:Due to a decrease in federal funding, the college cannot afford to replace the entire system at once.
+9.0:The college will keep the existing course catalog database where all course information is maintained.
+10.0:This database is an Ingres relational database running on a DEC VAX.
+11.0:Fortunately the college has invested in an open SQL interface that allows access to this database from college’s Unix servers.
+12.0:The legacy system performance is rather poor, so the new system must ensure that access to the data on the legacy system occurs in a timely manner.
+13.0:The new system will access course information from the legacy database but will not update it.
+          system;access;legacy database - R
+          system;access;course information - R
+          system;update;it;NEG-not - CUD
+14.0:The registrar’s office will continue to maintain course information through another system.
+15.0:At the beginning of each semester, students may request a course catalogue containing a list of course offerings for the semester.
+          student;request;course catalogue - C
+          student;request;list - R
+          student;request;course offering - R
+          student;request;semester - R
+16.0:Information about each course, such as professor, department, and prerequisites, will be included to help students make informed decisions.
+          student;include;course - R
+          student;include;professor - R
+          student;include;department - R
+          student;include;prerequisite - R
+17.0:The new system will allow students to select four course offerings for the coming semester.
+          student;select;course offering - C
+          student;select;semester - R
+18.0:In addition, each student will indicate two alternative choices in case the student cannot be assigned to a primary selection.
+          student;indicate;alternative choice - 
+19.0:Course offerings will have a maximum of ten students and a minimum of three students.
+20.0:A course offering with fewer than three students will be canceled.
+21.0:For each semester, there is a period of time that students can change their schedule.
+          student;change;schedule - U
+22.0:Students must be able to access the system during this time to add or drop courses.
+          student;access;system - E
+          student;add;course - C
+          student;drop;course - D
+23.0:Once the registration process is completed for a student, the registration system sends information to the billing system so the student can be billed for the semester.
+          registration system;send;information - R
+          registration system;send;information - R
+24.0:If a course fills up during the actual registration process, the student must be notified of the change before submitting the schedule for processing.
+          student;notify;change - R
+25.0:At the end of the semester, the student will be able to access the system to view an electronic report card.
+          student;access;system - E
+          student;view;electronic report card - R
+26.0:Since student grades are sensitive information, the system must employ extra security measures to prevent unauthorized access.
+27.0:Professors must be able to access the on-line system to indicate which courses they will be teaching.
+          professors;access;on-line system - E
+          professors;indicate;teaching course - C
+28.0:They will also need to see which students signed up for their course offerings.
+          they;see;student - R
+          they;see;course offering - R
+29.0:In addition, the professors will be able to record the grades for the students in each class.
+          professor;record;class - R
+          professor;record;student - R
+          professor;record;grade - C
+30.0:Introduction
+31.0:Glossary
+32.0:This document is used to define terminology specific to the problem domain, explaining terms, which may be unfamiliar to the reader of the use-case descriptions or other project documents.
+33.0:Often, this document can be used as an informal data dictionary, capturing data definitions so that use-case descriptions and other project documents can focus on what the system must do with the information.
+34.0:Definitions
+35.0:The glossary contains the working definitions for the key concepts in the Course Registration System.
+36.0:Course
+37.0:A class offered by the university.
+38.0:Course Offering
+39.0:A specific delivery of the course for a specific semester – you could run the same course in parallel sessions in the semester.
+40.0:Includes the days of the week and times it is offered.
+41.0:Course Catalog
+42.0:The unabridged catalog of all courses offered by the university.
+43.0:Faculty
+44.0:All the professors teaching at the university.
+45.0:Finance System
+46.0:The system used for processing billing information.
+47.0:Grade
+48.0:The evaluation of a particular student for a particular course offering.
+49.0:Professor
+50.0:A person teaching classes at the university.
+51.0:Report Card
+52.0:All the grades for all courses taken by a student in a given semester.
+53.0:Roster
+54.0:All the students enrolled in a particular course offering.
+55.0:Student
+56.0:A person enrolled in classes at the university.
+57.0:Schedule
+58.0:The courses a student has selected for the current semester.
+59.0:Transcript
+60.0:The history of the grades for all courses, for a particular student sent to the finance system, which in turn bills the students.
+61.0:Objectives
+62.0:Supplementary Specification
+63.0:The purpose of this document is to define requirements of the Course Registration System.
+64.0:This Supplementary Specification lists the requirements that are not readily captured in the use cases of the use- case model.
+65.0:The Supplementary Specifications and the use-case model together capture a complete set of requirements on the system.
+66.0:Scope
+67.0:This Supplementary Specification applies to the Course Registration System, which will be developed by the OOAD students.
+68.0:This specification defines the non-functional requirements of the system; such as reliability, usability, performance, and supportability, as well as functional requirements that are common across a number of use cases.
+69.0:(The functional requirements are defined in the Use Case Specifications.)
+70.0:References
+71.0:None.
+72.0:Functionality
+73.0:Multiple users must be able to perform their work concurrently.
+74.0:If a course offering becomes full while a student is building a schedule including that offering, the student must be notified.
+          student;notify;course offering - R
+          student;build;course offering - C
+75.0:Usability
+76.0:The desktop user-interface shall be Windows 95 or 98 compliant.
+77.0:Reliability
+78.0:The system shall be available 24 hours a day 7 days a week, with no more than 10% down time.
+79.0:Performance
+80.0:The system shall support up to 2000 simultaneous users against the central database at any given time, and up to 500 simultaneous users against the local servers at any one time.
+81.0:The system shall provide access to the legacy course catalog database with no more than a 10 second latency.
+82.0:Note: Risk-based prototypes have found that the legacy course catalog database cannot meet our performance needs without some creative use of mid-tier processing power
+83.0:The system must be able to complete 80% of all transactions within 2 minutes.
+84.0:Supportability
+85.0:None.
+86.0:Security
+87.0:The system must prevent students from changing any schedules other than their own, and professors from modifying assigned course offerings for other professors.
+          student;change;other schedule;NEG-prevent - CUD
+          professor;modify;course offering assign professor other - CUD
+88.0:Only Professors can enter grades for students.
+          professors;enter;student - R
+          professors;enter;grade;ONLY-only - C
+89.0:Only the Registrar is allowed to change any student information.
+          registrar;allow change;student information;ONLY-only - U
+90.0:Design Constraints
+91.0:The system shall integrate with an existing legacy system, the Course Catalog System, which is an RDBMS database.
+92.0:The system shall provide a Windows-based desktop interface.
+93.0:Use-Case Model
+94.0:Course Registration System Use-Case Model Main Diagram
+95.0:Close Registration
+96.0:Brief Description
+97.0:This use case allows a Registrar to close the registration process.
+          registrar;close;registration process - U
+98.0:Course offerings that do not have enough students are cancelled.
+99.0:Course offerings must have a minimum of three students in them.
+100.0:The billing system is notified for each student in each course offering that is not cancelled, so the student can be billed for the course offering.
+          billing system;notify;course offering - R
+          billing system;notify;student - R
+          student;notify bill;course offering - C
+101.0:Flow of Events
+102.0:Basic Flow
+103.0:This use case starts when the Registrar requests that the system close registration.
+          registrar;when;system close registration - C
+104.0:1) 	The system checks to see if registration is in progress.
+          system;check;registration - R
+105.0:If it is, then a message is displayed to the Registrar, and the use case terminates.
+          registrar;display;message - R
+106.0:The Close Registration processing cannot be performed if registration is in progress.
+          ;perform;close registration processing - U
+107.0:2) For each course offering, the system checks if a professor has signed up to teach the course offering and at least three students have registered.
+          student;register;course offering - C
+          professor;sign teach;course offering - CU
+108.0:If so, the system commits the course offering for each schedule that contains it.
+          system;commit;schedule - R
+          system;commit;course offering - U
+          system;commit contain;it - R
+109.0:3) For each schedule, the system levels the schedule: if the schedule does not have the maximum number of primary courses selected, the system attempts to select alternates from the schedule’s list of alternates.
+          system;level;schedule - CU
+          system;have;schedule - R
+          system;select;alternate - R
+          system;select;list - R
+          system;select;schedule - R
+110.0:The first available alternate course offerings will be selected.
+          ;select;alternate course offering - R
+111.0:If no alternates are available, then no substitution will be made.
+          ;available;alternate - R
+          ;make;substitution - E
+112.0:4) For each course offering, the system closes all course offerings.
+          system;close;course offering - U
+          system;close;course offering - R
+113.0:If the course offerings do not have at least three students at this point (some may have been added as a result of leveling), then the system cancels the course offering.
+          system;cancel have;student - R
+          system;cancel have;course offering - R
+          system;cancel;course offering - U
+114.0:The system cancels the course offering for each schedule that contains it.
+          system;cancel;course offering - U
+          system;cancel;schedule - R
+          system;cancel contain;it - R
+115.0:5) The system calculates the tuition owed by each student for his current semester schedule and sends a transaction to the Billing System.
+          system;calculate;tuition - C
+          system;calculate send;transaction - C
+          system;calculate send;billing system - R
+          system;calculate owe;semester schedule - R
+          system;calculate owe;student - R
+116.0:The Billing System will send the bill to the students, which will include a copy of their final schedule.
+          ;include;final schedule - R
+117.0:Alternative Flows
+118.0:No Professor for the Course Offering
+119.0:If, in the Basic Flow, there is no professor signed up to teach the course offering, the system will cancel the course offering.
+          system;cancel;course offering - U
+          professor;sign teach;course offering - C
+120.0:The system cancels the course offering for each schedule that contains it.
+          system;cancel;course offering - R
+          system;cancel;schedule - U
+          system;contain;it - R
+121.0:Billing System Unavailable
+122.0:If the system is unable to communicate with the Billing System, the system will attempt to re-send the request after a specified period.
+123.0:The system will continue to attempt to re-send until the Billing System becomes available.
+124.0:Special Requirements
+125.0:None.
+126.0:Pre-Conditions
+127.0:The Registrar must be logged onto the system in order for this use case to begin.
+128.0:Post-Conditions
+129.0:If the use case was successful, registration is now closed.
+130.0:If not, the system state remains unchanged.
+131.0:Extension Points
+132.0:None.
+133.0:Login
+134.0:Brief Description
+135.0:This use case describes how a user logs into the Course Registration System.
+136.0:Flow of Events
+137.0:Basic Flow
+138.0:This use case starts when the actor wishes to log into the Course Registration System.
+139.0:1) The actor enters his or her name and password.
+140.0:2) The system validates the entered name and password and logs the actor into the system.
+141.0:Alternative Flows
+142.0:Invalid Name or Password
+143.0:If, in the Basic Flow, the actor enters an invalid name possibly and possibly password, the system displays an error message.
+144.0:The actor can choose to either return to the beginning of the Basic Flow or cancel the login, at which point the use case ends.
+145.0:Special Requirements
+146.0:None.
+147.0:Pre-Conditions
+148.0:The system is in the login state and has the login screen displayed.
+149.0:Post-Conditions
+150.0:If the use case was successful, the actor is now logged into the system.
+151.0:If not, the system state is unchanged.
+152.0:Extension Points
+153.0:None.
+154.0:Maintain Professor Information
+155.0:Brief Description
+156.0:This use case allows the Registrar to maintain professor information in the registration system.
+          registrar;maintain;professor information - CRUD
+          registrar;maintain;registration system - R
+157.0:This includes adding, modifying, and deleting professors from the system.
+          ;add;professor - C
+          ;modify;professor - U
+          ;deleting;professor - D
+158.0:Flow of Events
+159.0:Basic Flow
+160.0:This use case starts when the Registrar wishes to add, change, possibly and possibly delete professor information in the system.
+          registrar;change;professor information - U
+          registrar;delete;professor information - D
+          registrar;add;professor information - C
+161.0:1) The system requests that the Registrar specify the function he or she would like to perform (either Add a Professor, Update a Professor, or Delete a Professor)
+          registrar;specify;function - E
+162.0:2) Once the Registrar provides the requested information, one of the sub flows is executed.
+          registrar;provide;information - 
+163.0:If the Registrar selected “Add a Professor”, the Add a Professor  subflow is executed.
+          registrar;select add;professor - C
+164.0:If the Registrar selected “update a professor”, the Update a Professor  subflow is executed.
+          registrar;select update;professor - U
+165.0:If the Registrar selected “Delete a Professor”, the Delete a Professor subflow is executed.
+          registrar;select delete;professor - D
+166.0:Add a Professor
+167.0:The system requests that the Registrar enter the professor information.
+          registrar;enter;professor information - UDRC
+168.0:This includes:
+169.0:- date of birth
+          ;include;date - C
+170.0:- social security number
+          ;include;social security number - C
+171.0:1) Once the Registrar provides the requested information, the system generates and assigns a unique id number to the professor.
+          registrar;provide;information - 
+          system;generate;unique id number - C
+          system;assign;unique id number - C
+          system;generate;professor - R
+172.0:The professor is added to the system.
+          system;add;professor - C
+173.0:2) The system provides the Registrar with the new professor id.
+          system;provide;professor id - R
+174.0:Update a Professor
+175.0:1) The system requests that the Registrar enter the professor id.
+          registrar;enter;professor id - C
+176.0:2) The Registrar enters the professor id.
+          registrar;enter;professor id - C
+177.0:The system retrieves and displays the professor information.
+          system;retrieve;professor information - R
+          system;display;professor information - R
+178.0:3) The Registrar makes the desired changes to the professor information.
+          registrar;make;professor information - U
+179.0:This includes any of the information specified in the Add a Professor sub-flow.
+180.0:4) Once the Registrar updates the necessary information, the system updates the professor record.
+          registrar;update;professor record - U
+          registrar;update;necessary information - U
+181.0:Delete a Professor
+182.0:1) The system requests that the Registrar enter the professor id
+          registrar;enter;professor id - C
+183.0:2) The Registrar enters the professor id.
+          registrar;enter;professor id - C
+184.0:The system retrieves and displays the professor information.
+          system;retrieve;professor information - R
+          system;display;professor information - R
+185.0:3) The system prompts the Registrar to confirm the deletion of the professor.
+          registrar;confirm;deletion - E
+186.0:4) The Registrar verifies the deletion.
+          registrar;verify;deletion - D
+187.0:5) The system deletes the professor from the system.
+          system;delete;professor - D
+188.0:Alternative Flows
+189.0:Professor Not Found
+190.0:If, in the Update a Professor  or Delete a Professor sub-flows, a professor with the specified id number does not exist, the system displays an error message.
+          system;display;error message - R
+          system;display exist;professor - R
+191.0:The Registrar can then enter a different id number or cancel the operation, at which point the use case ends.
+          registrar;enter;id number - C
+          registrar;cancel;operation - E
+192.0:Delete Cancelled
+193.0:If, in the Delete A Professor sub-flow, the Registrar decides not to delete the professor, the delete is cancelled, and the Basic Flow is re-started at the beginning.
+          registrar;decide delete;professor - E
+194.0:Special Requirements
+195.0:None.
+196.0:Pre-Conditions
+197.0:The Registrar must be logged onto the system before this use case begins.
+198.0:Post-Conditions
+199.0:If the use case was successful, the professor information is added, updated, or deleted from the system.
+          ;add;professor information - C
+          ;update;professor information - U
+          ;delete;professor information - D
+200.0:Otherwise, the system state is unchanged.
+201.0:Extension Points
+202.0:None.
+203.0:Maintain Student Information
+204.0:Brief Description
+205.0:This use case allows the Registrar to maintain student information in the registration system.
+          registrar;maintain;registration system - R
+          registrar;maintain;student information - CRUD
+206.0:This includes adding, modifying, and deleting Students from the system.
+          ;add;student - C
+          ;modify;student - RU
+          ;delete;student - D
+207.0:Flow of Events
+208.0:Basic Flow
+209.0:This use case starts when the Registrar wishes to add, change, possibly and possibly delete student information in the system.
+          registrar;add;student information - C
+          registrar;change;student information - U
+          registrar;delete;student information - D
+210.0:1) The system requests that the Registrar specify the function he or she would like to perform (either Add a Student, Update a Student, or Delete a Student)
+          registrar;specify;function - E
+211.0:2) Once the Registrar provides the requested information, one of the sub flows is executed.
+          registrar;provide;information - C
+212.0:If the Registrar selected “Add a Student”, the Add a Student  subflow is executed.
+          registrar;select;add student - C
+213.0:If the Registrar selected “Update a Student”, the Update a Student  subflow is executed.
+          registrar;select;student update - U
+214.0:If the Registrar selected “Delete a Student”, the Delete a Student  subflow is executed.
+          registrar;select;delete student - D
+215.0:Add a Student
+216.0:1) The system requests that the Registrar enter the student information.
+          registrar;enter;student information - UDRC
+217.0:This includes:
+218.0:- date of birth
+          ;include;date - C
+219.0:- social security number
+          ;include;social security number - C
+220.0:- graduation date
+          ;include;graduation date - C
+221.0:2) Once the Registrar provides the requested information, the system generates and assigns a unique id number to the student.
+          system;generate;student - R
+          system;generate;unique id number - C
+          system;assign;unique id number - C
+          registrar;provide;information - C
+222.0:The student is added to the system.
+          system;add;student - C
+223.0:3) The system provides the Registrar with the new student id.
+          system;provide;student id - R
+224.0:Update a Student
+225.0:1) The system requests that the Registrar enter the student id.
+          registrar;enter;student id - C
+226.0:2) The Registrar enters the student id.
+          registrar;enter;student id - C
+227.0:The system retrieves and displays the student information.
+          system;retrieve;student information - R
+          system;display;student information - R
+228.0:3) The Registrar makes the desired changes to the student information.
+          registrar;make change;student information - U
+229.0:This includes any of the information specified in the Add a Student  sub-flow.
+230.0:4) Once the Registrar updates the necessary information, the system updates the student information.
+          system;update;student information - U
+          registrar;update;necessary information - U
+231.0:Delete a Student
+232.0:1) The system requests that the Registrar enter the student id
+          registrar;enter;student id - C
+233.0:2) The Registrar enters the student id.
+          registrar;enter;student id - C
+234.0:The system retrieves and displays the student information.
+          system;retrieve;student information - R
+          system;display;student information - R
+235.0:3) The system prompts the Registrar to confirm the deletion of the student.
+          registrar;confirm;deletion - D
+          registrar;confirm;student - R
+236.0:4) The Registrar verifies the deletion.
+          registrar;verify;deletion - D
+237.0:5) The system deletes the student from the system.
+          system;delete;student - D
+238.0:Alternative Flows
+239.0:Student Not Found
+240.0:If, in the Update a Student  or Delete a Student  sub-flows, a student with the specified id number does not exist, the system displays an error message.
+          system;display;error message - R
+          system;display exist;student - R
+241.0:The Registrar can then enter a different id number or cancel the operation, at which point the use case ends.
+          registrar;cancel;operation - E
+          registrar;enter;id number - C
+242.0:Delete Cancelled
+243.0:If, in the Delete A Student  sub-flow, the Registrar decides not to delete the student, the delete is cancelled and the Basic Flow is re-started at the beginning.
+          registrar;delete;student - D
+244.0:Special Requirements
+245.0:None.
+246.0:Pre-Conditions
+247.0:The Registrar must be logged onto the system before this use case begins.
+248.0:Post-Conditions
+249.0:If the use case was successful, the student information is added, updated, or deleted from the system.
+          ;update;student information - R
+          ;add;student information - R
+          ;delete;student information - R
+250.0:Otherwise, the system state is unchanged.
+251.0:Extension Points
+252.0:None.
+253.0:Register for Courses
+254.0:Brief Description
+255.0:This use case allows a Student to register for course offerings in the current semester.
+          student;register;course offering - C
+          student;register;semester - R
+256.0:The Student can also update or delete course selections if changes are made within the add or drop period at the beginning of the semester.
+          student;update;course selection - U
+          student;delete;course selection - D
+257.0:The Course Catalog System provides a list of all the course offerings for the current semester.
+          course catalog system;provide;list - R
+          course catalog system;provide;semester - R
+          course catalog system;provide;course offering - R
+258.0:Flow of Events
+259.0:Basic Flow
+260.0:This use case starts when a Student wishes to register for course offerings, or to change his or her existing course schedule.
+          student;wish register;course offering - C
+          student;wish change;existing course schedule - RU
+261.0:1)    The Student provides the function to perform (one of the sub flows is executed):
+          student;provide;function - E
+262.0:If the Student selected “Create a Schedule”, the Create  a Schedule subflow is executed.
+          student;create;schedule - C
+263.0:If the Student selected “update a schedule”, the Update a Schedule subflow is executed.
+          student;update;schedule - U
+264.0:If the Student selected “Delete a Schedule”, the Delete a Schedule subflow is executed.
+          student;delete;schedule - D
+265.0:Create a Schedule
+266.0:1) The system retrieves a list of available course offerings from the Course Catalog System and displays the list to the Student.
+          system;retrieve display;student - R
+          system;retrieve display;list - R
+          system;retrieve;list - R
+          student;retrieve display;list - R
+          system;retrieve;course offering - R
+          student;display;course offering - R
+267.0:2) The Select Offerings subflow is executed.
+268.0:3) The Submit Schedule subflow is executed.
+269.0:Update a Schedule
+270.0:1) The system retrieves and displays the Student’s current schedule (e.g., the schedule for the current semester).
+          system;retrieve;schedule - R
+          system;retrieve;student - R
+271.0:2) The system retrieves a list of available course offerings from the Course Catalog System and displays the list to the Student.
+          system;display;student - R
+          system;display;list - R
+          student;display;list - R
+          system;retrieve;list - R
+          system;retrieve;course offering - R
+          student;display;list - R
+          student;display;course offering - R
+272.0:3) The Student may update the course selections on the current selection by deleting and adding new course offerings.
+          student;delete;course offering - D
+          student;add;course offering - C
+          student;update;course selection - U
+273.0:The Student selects the course offerings to add from the list of available course offerings.
+          student;add;list - CR
+          student;add;course offering - R
+          student;add;course offering - R
+274.0:The Student also selects any course offerings to delete from the existing schedule.
+          student;select delete;schedule - R
+          student;select delete;course offering - U
+275.0:4) Once the student has made his or her selections, the system updates the schedule for the Student using the selected course offerings.
+          student;make;selection - E
+          system;update;schedule - U
+          system;update;student - R
+276.0:5) The Submit Schedule subflow is executed.
+277.0:Delete a Schedule
+278.0:1) The system retrieves and displays the Student’s current schedule (e.g., the schedule for the current semester).
+          system;retrieve;schedule - R
+          system;retrieve;student - R
+279.0:2) The system prompts the Student to confirm the deletion of the schedule.
+          system;prompt confirm;schedule - R
+          system;prompt;student - R
+280.0:3) The Student verifies the deletion.
+          student;verify;deletion - E
+281.0:4) The system deletes the Schedule.
+          system;delete;schedule - D
+282.0:If the schedule contains “enrolled in” course offerings, the Student must be removed from the course offering.
+          student;remove contain;schedule - R
+          student;remove contain enrol;course offering - D
+283.0:Select Offerings
+284.0:The Student selects 4 primary course offerings and 2 alternate course offerings from the list of available offerings.
+          student;select;list - R
+          student;select;course offering - R
+          student;select;alternate course offering - R
+          student;select;offering - R
+285.0:Once the student has made his or her selections, the system creates a schedule for the Student containing the selected course offerings.
+          system;create;schedule - C
+          system;create;student - R
+          system;create;course offering - R
+          student;make;selection - E
+286.0:Submit  Schedule
+287.0:For each selected course offering on the schedule not already marked as “enrolled in”, the system verifies that the Student has the necessary prerequisites, that the course offering is open, and that there are no schedule conflicts.
+          system;verify;schedule - 
+          system;verify have;student - 
+          system;verify have;course offering - 
+          system;verify have;necessary prerequisite - 
+          system;verify have;schedule conflict - 
+          system;verify;course offering - 
+288.0:The system then adds the Student to the selected course offering.
+          system;add;student - R
+          system;add;course offering - CU
+289.0:The course offering is marked as "enrolled in" in the schedule.
+          ;mark;course offering - U
+          ;mark;schedule - R
+290.0:The schedule is saved in the system.
+          system;save;schedule - C
+291.0:Alternative Flows
+292.0:Save a Schedule
+293.0:At any point, the Student may choose to save a schedule rather than submitting it.
+          student;choose save;schedule - 
+294.0:If this occurs, the Submit Schedule step is replaced with the following:
+295.0:The course offerings not marked as “enrolled in” are marked as “selected” in the schedule.
+          ;mark;schedule - R
+          ;mark;course - RU
+296.0:The schedule is saved in the system.
+          system;save;schedule - C
+297.0:Unfulfilled Prerequisites, Course Full, or Schedule Conflicts
+298.0:If, in the Submit Schedule sub-flow, the system determines that the Student has not satisfied the necessary prerequisites, or that the selected course offering is full, or that there are schedule conflicts, an error message is displayed.
+          system;display;error message - R
+          system;determine satisfy;schedule conflict - R
+          system;determine satisfy;student - R
+          system;determine satisfy;necessary prerequisite - R
+          system;determine satisfy;course offering - R
+299.0:The Student can either select a different course offering and the use case continues, save the schedule, as is (see Save a Schedule subflow), or cancel the operation, at which point the Basic Flow is re-started at the beginning.
+          student;select save;schedule - R
+          student;select continue;course offering - CU
+          student;select cancel;operation - E
+300.0:No Schedule Found
+301.0:If, in the Update a Schedule or Delete a Schedule sub-flows, the system is unable to retrieve the Student’s schedule, an error message is displayed.
+          system;display;error message - R
+          system;retrieve;schedule - R
+          system;retrieve;student - R
+302.0:The Student acknowledges the error, and the Basic Flow is re- started at the beginning.
+          student;acknowledge;error - E
+303.0:Course Catalog System Unavailable
+304.0:If the system is unable to communicate with the Course Catalog System, the system will display an error message to the Student.
+          student;display;error message - R
+          system;communicate;course catalog system - E
+          system;display;error message - R
+305.0:The Student acknowledges the error message, and the use case terminates.
+          student;acknowledge;error message - E
+306.0:Course Registration Closed
+307.0:When the use case starts, if it is determined that registration for the current semester has been closed, a message is displayed to the Student, and the use case terminates.
+          student;display;message - R
+          ;determine;registration - R
+          ;determine;semester - R
+308.0:Students cannot register for course offerings after registration for the current semester has been closed.
+          student;register;course offering;NEG-not - C
+          student;have close;registration - R
+          student;have close;semester - R
+309.0:Delete Cancelled
+310.0:If, in the Delete A Schedule sub-flow, the Student decides not to delete the schedule, the delete is cancelled, and the Basic Flow is re-started at the beginning.
+          student;decide delete;schedule - D
+311.0:Special Requirements
+312.0:None.
+313.0:Pre-Conditions
+314.0:The Student must be logged onto the system before this use case begins.
+315.0:Post-Conditions
+316.0:If the use case was successful, the student schedule is created, updated, or deleted.
+          ;create;student schedule - C
+          ;update;student schedule - U
+          ;delete;student schedule - D
+317.0:Otherwise, the system state is unchanged.
+318.0:Extension Points
+319.0:None.
+320.0:Select Courses to Teach
+321.0:Brief Description
+322.0:This use case allows a Professor to select the course offerings from the course catalog for the courses that he or she is eligible for and wishes to teach in the upcoming semester.
+          professor;select;course offering - C
+          professor;select;course catalog - R
+          professor;select;semester - R
+323.0:Flow of Events
+324.0:Basic Flow
+325.0:This use case starts when a Professor wishes to sign up to teach some course offerings for the upcoming semester.
+          professor;sign teach;course - C
+          professor;sign teach;semester - R
+326.0:1) The system retrieves and displays the list of course offerings the professor is eligible to teach for the current semester.
+          system;retrieve;list - R
+          system;display;list - R
+          system;retrieve;semester - R
+          system;retrieve;professor - R
+          system;retrieve;course offering - R
+327.0:The system also retrieves and displays the list of courses the professor has previously selected to teach.
+          system;retrieve;list - R
+          system;display;list - R
+          system;retrieve;professor - R
+          professor;select;course - R
+          system;retrieve;course - R
+328.0:2) The professor selects possibly and possibly de-selects the course offerings that he or she wishes to teach for the upcoming semester.
+          professor;select;course offering - C
+          professor;de-select;course offering - D
+          professor;select;semester - R
+329.0:3) The system removes the professor from teaching the de-selected course offerings.
+          system;remove teach;de-selected course offering - D
+330.0:4) The system verifies that the selected offerings do not conflict (i.e., have the same dates and times) with each other or any course offerings that the professor has previously signed up to teach.
+          system;verify do;course offering - R
+          system;verify do;offering - R
+          professor;sign;course offering - C
+          system;verify;professor - R
+331.0:If there is no conflict, the system updates the course offering information for each offering the professor selects (i.e., records the professor as the instructor for the course offering).
+          system;update;offer - R
+          system;update;course information - UR
+          system;update;select - R
+          system;record;course offering - U
+          system;record;instructor - R
+          system;record;professor - R
+332.0:Alternative Flows
+333.0:No Course Offerings Available
+334.0:If, in the Basic Flow, the professor is not eligible to teach any course offerings in the upcoming semester, the system will display an error message.
+          system;display;error message - R
+          system;display teach;course - R
+          system;display;professor - R
+          system;display teach;semester - R
+          professor;teach;course - R
+          professor;teach;semester - R
+335.0:The professor acknowledges the message and the use case ends.
+336.0:Schedule Conflict
+337.0:If the systems find a schedule conflict when trying to establish the course offerings the Professor should take, the system will display an error message indicating that a schedule conflict has occurred.
+          system;find;schedule conflict - R
+          system;establish;course offering - R
+          professor;take;course offering - C
+          system;display;error message - R
+338.0:The system will also indicate which are the conflicting courses.
+          system;indicate;course - R
+339.0:The Professor can either resolve the schedule conflict (i.e., by canceling his selection to teach one of the course offerings), or cancel the operation, in which case, any selections will be lost, and the use case ends.
+          professor;resolve cancel;operation - E
+          professor;resolve;schedule - U
+          professor;cancel;selection - D
+          professor;cancel;course offering - R
+340.0:Course Catalog System Unavailable
+341.0:If the system is unable to communicate with the Course Catalog System, the system will display an error message to the Student.
+          system;display;error message - R
+          student;display;error message - R
+          system;communicate;course catalog system - E
+342.0:The Student acknowledges the error message, and the use case terminates.
+          student;acknowledge;error message - E
+343.0:Course Registration Closed
+344.0:When the use case starts, if it is determined that registration for the current semester has been closed, a message is displayed to the Professor, and the use case terminates.
+          ;determine;registration - R
+          ;determine;semester - R
+          professor;display;message - R
+345.0:Professors cannot change the course offerings they teach after registration for the current semester has been closed.
+          professors;change;course offering;NEG-not - U
+          professors;change teach close;registration - R
+          they;teach;course offering - R
+          they;teach close;semester - R
+          they;teach close;registration - R
+346.0:If a professor change is needed after registration has been closed, it is handled outside the scope of this system.
+347.0:Special Requirements
+348.0:None.
+349.0:Pre-Conditions
+350.0:The Professor must be logged onto the system before this use case begins.
+351.0:Post-Conditions
+352.0:If the use case was successful, the course offerings a Professor is scheduled to teach have been updated.
+          professor;update;course offering - U
+353.0:Otherwise, the system state is unchanged.
+354.0:Extension Points
+355.0:None.
+356.0:Submit Grades
+357.0:Brief Description
+358.0:This use case allows a Professor to submit student grades for one or more classes completed in the previous semester.
+          professor;submit;class - R
+          professor;submit complete;semester - R
+          professor;submit;student grade - C
+359.0:Flow of Events
+360.0:Basic Flow
+361.0:This use case starts when a Professor wishes to submit student grades for one or more classes completed in the previous semester.
+          professor;wish submit;class - R
+          professor;wish submit complete;semester - R
+          professor;wish submit;student grade - C
+362.0:1) The system displays a list of course offerings the Professor taught in the previous semester.
+          system;display;list - R
+          professor;teach;course offering - R
+          professor;teach;semester - R
+          system;display;course offering - R
+363.0:2) The Professor selects a course offering.
+          professor;select;course offering - 
+364.0:3) The system retrieves a list of all students who were registered for the course offering.
+          system;retrieve;list - R
+          student;register;course offering - C
+          system;retrieve;student - R
+365.0:The system displays each student and any grade that was previously assigned for the offering.
+          system;display;student - R
+          system;display;grade - R
+          system;display assign;offering - R
+366.0:4) For each student on the list, the Professor enters a grade: A, B, C, D, F, or I.  The system records the student’s grade for the course offering.
+          professor;enter;grade - C
+          professor;enter;student - R
+          system;record;student - R
+          system;record;course offering - R
+          system;record;grade - C
+          professor;enter;list - R
+          professor;enter;d - C
+          professor;enter;a - C
+          professor;enter;b - C
+          professor;enter;c - C
+          professor;enter;f - C
+          professor;enter;i. - C
+367.0:If the Professor wishes to skip a particular student, the grade information can be left blank and filled in at a later time.
+          professor;wish skip;student - R
+368.0:The Professor may also change the grade for a student by entering a new grade.
+          professor;change;grade - R
+          professor;change;student - R
+          professor;enter;grade - U
+369.0:Alternative Flows
+370.0:No Course Offerings Taught
+371.0:If, in the Basic Flow, the Professor did not teach any course offerings in the previous semester, the system will display an error message.
+          system;display;error message - R
+          professor;teach;course - R
+          professor;teach;semester - R
+          professor;teach;offering - R
+372.0:The Professor acknowledges the message, and the use case ends.
+373.0:Special Requirements
+374.0:None.
+375.0:Pre-Conditions
+376.0:The Professor must be logged onto the system before this use case begins.
+377.0:Post-Conditions
+378.0:If the use case was successful, student grades for a course offering are updated.
+          ;update;course offering - U
+          ;update;student grade - R
+379.0:Otherwise, the system state is unchanged.
+380.0:Extension Points
+381.0:None.
+382.0:View Report Card
+383.0:Brief Description
+384.0:This use case allows a Student to view his or her report card for the previously completed semester.
+          student;view;report card - R
+          student;view;semester - R
+385.0:Flow of Events
+386.0:Basic Flow
+387.0:This use case starts when a Student wishes to view his or her report card for the previously completed semester.
+          student;wish view;semester - R
+          student;wish view;report card - R
+388.0:1) The system retrieves and displays the grade information for each of the course offerings the Student completed during the previous semester.
+          system;retrieve;student - R
+          system;retrieve display;course offering - R
+          system;retrieve display;grade information - R
+          system;display;student - R
+389.0:2) When the Student indicates that he or she is done viewing the grades, the use case terminates.
+          student;indicate do view;grade - R
+390.0:Alternative Flows
+391.0:No Grade Information Available
+392.0:If, in the Basic Flow, the system cannot find any grade information from the previous semester for the Student, a message is displayed.
+          student;find;grade information - R
+          student;find;semester - R
+          student;display;message - R
+          system;find;grade information - R
+          system;find;semester - R
+393.0:Once the Student acknowledges the message, the use case terminates.
+          student;acknowledge;message - E
+394.0:Special Requirements
+395.0:None.
+396.0:Pre-Conditions
+397.0:The Student must be logged onto the system before this use case begins.
+398.0:Post-Conditions
+399.0:The system state is unchanged by this use case.
+400.0:Extension Points
+401.0:None.

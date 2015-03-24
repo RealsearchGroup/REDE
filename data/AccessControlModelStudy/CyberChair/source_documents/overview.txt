@@ -1,0 +1,39 @@
+Nowadays it is common practise to use electronic submissions for conferences, workshops and journals. Usually, people are allowed to send their submission by email. Although, compared to sending hardcopies by surface mail, this is a big step forward, it may still be quite cumbersome to maintain the administration. Moreover, collecting, maintaining and comparing reviews by the program committee chair may also become quite tedious, if not troublesome, due to the large amount of material, even when submitted by email. 
+
+A very important issue for the conference organization is that using CyberChair will save them a lot of money on copying papers and mailing the papers to the reviewers (which might open up room to delegate the management of the submission and review process - see below). 
+
+In short, CyberChair fully supports all activities that come with the review process: the abstract and (camera-ready) paper submission, the reviewer assignment (based on the reviewers' preferences and expertise), the review submission process, the notifications of acceptance and rejection, the preparation of the proceedings (according to the Springer-Verlag procedure), and the abstracts for the conference website and program booklet. It was first developed for ECOOP'97, and has been extended since, based on new ideas and the suggestions and remarks of its users (the chairs, the reviewers and submitters). Here is an overview of the activities CyberChair supports or carries out.
+
+
+
+CyberChair is based on the paper Identify the Champion, an organisational pattern language for programme committees, by Professor Oscar Nierstrasz (University of Berne, Switzerland). CyberChair's functionality is described in detail in a paper, which is titled CyberChair: A Web-Based Groupware Application to Facilitate the Paper Reviewing Process. Jean-Guy Schneider, Markus Lumpe and Oscar Nierstrasz describe CyberChair in Agent Coordination via Scripting Languages, Chapter 6 of the book Coordination of Internet Agents: Models, Technologies and Applications, Andrea Omicini, Fanco Zambonelli, Matthias Klusch and Robert Tolksdorf (Eds.), Springer, March 2001 (section 6.4.1, page 168). 
+
+Below is a description of the latest version of CyberChair. You may also want to take a look at 2 posters: an overview (pdf, 140 Kb) and a picture containing screenshots (pdf, 1.71 Mb). The original poster is in B1 format, so you may need to zoom in to read all details.
+
+You may try a demonstration version of CyberChair, by acting as: Currently, the demo system cannot be used.
+an author. This only allows submission of abstracts. The submission form in phase 2 is the same as the submission form in phase 1, except that authors must use it to upload their full paper file. To avoid 'pollution' of the demo data, uploading of files has been blocked.
+a reviewer. Use the first and last name (in lowercase) as login and password, respectively. You can submit reviews and find out what happens. Please put/leave the 'Would you like to receive a copy of your review per e-mail?' at 'No', because each 'reviewer' has been assigned a bogus email address, which will bounce. Please note that when you click on a paper number, this causes files to be copied, and generation of links to those files. Depending on how busy our webserver is, the copying may not be completed before you click on a link. Just retry a few seconds later if this happens.
+a chair. Use chair/chair as login & password combination. You will see a list of overviews that are available to the chair. These overviews are currently updated at 5 minutes before the hour.
+Authors can submit their abstracts and papers using the web (uploading). CyberChair provides web pages for the reviewers to indicate their preference for papers they would like to review. Based on the preferences and the reviewers' expertise, CyberChair calculates a paper assignment proposal for the chair, where as many as possible preferences of the reviewers are honored, provided that all papers are assigned to an equal number of reviewers (so also the papers that did not get any preferences), and all reviewers are assigned as much as possible an equal number of papers. When done by hand, the paper assignment usually is a very time consuming job. 
+
+Each reviewer gets a personal, password-protected webpage, that contains links to the papers (s)he is assigned to review, so they can be downloaded. Reviews can either be submitted via a webpage, or filled in off-line and emailed. After submission of a review, reviewers will be able to read the other reviewers' reviews and prepare for the PC meeting. The reviewers' pages are regenerated frequently in order to reflect changes (such as conflicting reviews). Downloading of papers by the reviewers can start as soon as papers are submitted. There is no need to wait until the submission process has finished. 
+
+The level of agreement among reviewers is indicated on each reviewer's personal page, using a coloring scheme. When the level of agreement differs too much, the reviewers and chair may give it special attention, even before the PC meeting takes place. Reviews can be updated. 
+
+The review process can be monitored by the chair. Papers are classified, using the highest and the lowest classification given by the reviewers (A to D), as described in the paper mentioned above. 
+
+After the program committee meeting has taken place, and papers have been selected, the (anonymous) comments can be automatically sent to the authors. 
+
+CyberChair provides direct reflection on submitted reviews (for easy comparison with the other reviewers' opinions), without the maintainer's interference. 
+
+Furthermore, there is support for the preparation of the proceedings. The Table of Contents and Author Index are automatically generated. The resulting TeX file is according to Springer's editor's instructions. Other formats will be included in future versions of CyberChair.
+
+There is also support for the preparation of the proceedings (using the format required for Springer Verlag, the publisher of the proceedings of ECOOP). 
+
+The result is a significant decrease of the work-load of the program chair and the ease of submitting author information, papers and reviews instantly in electronic form. Although CyberChair is not something to sit in (please refer to www.cyberchair.com if you are looking for that), when you are a program chair, you can sit back, relax and watch the progress of the submission and review process. All you have to do is prepare the PC meeting, write acceptance and rejection messages, and the preface of the proceedings. CyberChair takes care of the rest. 
+
+CyberChair is written in the Python programming language. It is known to run on versions 1.5.2, 2.0.1 and 2.1.3, be it that the latter may cause deprication warnings (2.1 does not, while 2.2.1 does for sure). (Deprication warnings indicate that certain language constructs may no longer be supported in next versions of the language.) 
+
+Until approx. March 2000, CyberChair was regularly updated to include new ideas, and suggestions by its users. After that, only bugfixes were made. The version that is currently available for download was introduced for ECOOP 2000. Other conferences and workshops that use(d) CyberChair can be found on an overview. 
+
+If you'd like to use CyberChair, which is free software (GNU General Public License), please fill in a customization form. If you'd like to use CyberChair, but would rather not be bugged by installing and customizing CyberChair yourself (and use the latest, greatest version of CyberChairPRO, which is easier to work with, which has more tools, and streamlined versions of existing tools), you might want to consider delegating the submission and review process organization to a spin-off company specialized in managing this process, set up by the author of CyberChair: Borbala Online Conference Services.

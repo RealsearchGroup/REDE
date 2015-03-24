@@ -1,0 +1,1541 @@
+1.0:UC1 Create and Disable Patients Use Case
+2.0:An HCP creates patients.
+          hcp;create;patient - C
+3.0:The HCP enters a patient as a new user of system.
+          hcp;enter;patient - C
+4.0:Only the name and email are provided by the HCP.
+          hcp;provide;name - C
+          hcp;provide;email - C
+5.0:The HCP can edit the patient according to data format.
+          hcp;edit;patient - U
+6.0:Patient MID should be the number.
+7.0:The patient’s MID can not be edited.
+          ;edit;mid;NEG-not - U
+8.0:The HCP does not have the ability to enter the patient's security question and password.
+          hcp;enter;security question;NEG-not - C
+          hcp;enter;password;NEG-not - C
+9.0:The HCP does not have the ability to edit the patient's security question and password.
+          hcp;edit;security question;NEG-not - U
+          hcp;edit;password;NEG-not - U
+10.0:The HCP does not have the ability to view the patient's security question and password.
+          hcp;view;security question;NEG-not - R
+          hcp;view;password;NEG-not - R
+11.0:UC2 Create, Disable, and Edit Personnel Use Case
+12.0:An admin creates a LHCP, an ER and a public health agent.
+          admin;create;lhcp - C
+          admin;create;er - C
+          admin;create;public health agent - C
+13.0:A LHCP creates UAPs.
+          lhcp;create;uap - C
+14.0:System presents an approvel screen.
+          system;present;approvel screen - R
+15.0:An administrator enters a LHCP, an ER, or a public healh agent.
+          administrator;enter;lhcp - C
+          administrator;enter;er - C
+          administrator;enter;public healh agent - C
+16.0:A secret key is personally provided to the user, with which the user can reset his or her password.
+          user;provide;secret key - R
+          user;reset;password - U
+17.0:The admin must specify a specialty for a new LHCP (one of: General Physician, Heart Surgeon, OB or GYN, Pediatrician, Surgeon).
+          admin;specify;specialty - C
+          admin;specify;lhcp - R
+18.0:The data for personnel can be edited according to Data Format.
+          ;edit;datum - U
+19.0:The administrator shall be allowed to assign a LHCP to multiple hospitals.
+          administrator;assign;lhcp - R
+          administrator;assign;hospital - CRUD
+20.0:The administrator can choose the hospitals.
+          administrator;choose;hospital - R
+21.0:The hospital ID numbers for a LHCP are stored in the Medical Care Personnel Affiliation database.
+22.0:UC3 Authenticate Users Use Case
+23.0:A user enters their MID and their password to gain role-based entry into iTrust.
+          user;enter;mid - R
+          user;enter;password - R
+24.0:A user can request to change their password.
+          user;request change;password - C
+25.0:A session that has been inactive for too long is terminated.
+26.0:An authenticated session ends when the user logs out or closes the iTrust application.
+          user;log out;itrust application - E
+          user;close;itrust application - E
+27.0:Electronic sessions must terminate after a "pre-determined" period of inactivity.
+28.0:The administrator is allowed to set the length of this period of time.
+          administrator;set;length - 
+29.0:All authorization is disabled after a period of inactivity that exceeds this length.
+30.0:UC4 Enter or Edit Demographics Use Case
+31.0:Demographic information is entered.
+          ;enter;demographic information - C
+32.0:Demographic information is edited.
+          ;edit;demographic information - 
+33.0:System presents a success or failure message to the editor.
+          editor;present;message - R
+34.0:The editor may correct the form or add more information.
+          editor;correct;form - U
+          editor;add;information - C
+35.0:An administrator enters a LHCP, an ER or a public health agent as a user of system.
+          administrator;enter;lhcp - UC
+          administrator;enter;er - UC
+          administrator;enter;public health agent - UC
+36.0:Initially only the name and email are provided.
+          ;provide;email - C
+          ;provide;name - C
+37.0:A secret key is personally provided to the user, with which the user can reset his or her password.
+          user;reset;password - 
+          user;provide;secret key - R
+38.0:The admin must specify a specialty for a new LHCP (General Physician, Heart Surgeon, OB, GYN, Pediatrician, or Surgeon).
+          admin;specify;specialty - C
+          admin;specify;lhcp - R
+39.0:The data for personnel can be edited according to Data Format 6.2 (all fields mandatory except for associated MID and Street Address 2).
+          ;edit;datum - U
+40.0:The administrator shall be allowed to assign a LHCP to multiple hospitals.
+          administrator;assign;lhcp - R
+          administrator;assign;hospital - CRUD
+41.0:The administrator can choose the hospitals.
+          administrator;choose;hospital - R
+42.0:The hospital ID numbers for a LHCP are stored in the Medical Care Personnel Affiliation database (data format 5.11).
+43.0:A LHCP enters an UAP as a user of system according to data format 6.2 (all fields mandatory).
+          lhcp;enter;uap - C
+44.0:UC5 Log Transaction Use Case
+45.0:Any event which views, creates, edits or deletes information is logged.
+          ;delete;event - D
+          ;log;event - C
+          ;create;event - C
+          ;edit;event - RU
+46.0:Loggin failures, valid authentication and log outs are also logged.
+          ;log;loggin failure - C
+          ;log;valid authentication - C
+          ;log;log out - C
+47.0:These audit codes are summarized in the Audit & Transaction Codetable.
+48.0:UC6 View HCP Designate or Undesignate Designated Licensed Health Care Professional Use Case
+49.0:The patient views all LHCPs the patient has ever had an office visit with and those whom he or she had designated.
+          patient;view;lhcp - R
+          patient;view have;office visit - R
+50.0:The patient can add also a LHCP to their provider list by searching for the name possibly and possibly specialty of a LHCP.
+          patient;add;lhcp - R
+          patient;add;provider list - CRU
+          patient;search;specialty - R
+          patient;search;name - R
+51.0:The patient can add the HCP to their list of providers.
+          patient;add;hcp - R
+          patient;add;list - CU
+          patient;add;provider - R
+52.0:The LHCP's name, specialty, address, date of office visit, and whether or not the LHCP is a DLHCP for this patient is indicated.
+          patient;indicate;name - R
+          patient;indicate;specialty - R
+          patient;indicate;address - R
+          patient;indicate;date - R
+          patient;indicate;lhcp - R
+          patient;indicate;dlhcp - R
+53.0:The list is sorted by the date of the last office visit (most recent first).
+          ;sort;list - R
+          ;sort;date - R
+54.0:The patient can designate any LHCP as being a DLHCP for them.
+          patient;designate;lhcp - U
+55.0:The patient can undesignate any LHCP as being a DLHCP for them.
+          patient;undesignate;lhcp - U
+56.0:The patient may type a last name or partial last name, and optionally reduces the list of choices by providing the specialty.
+          patient;type;name - R
+          patient;provide;specialty - R
+57.0:The patient may optionally enter a zip code (match on first three numbers of zip code), in addition to the name possibly and possibly specialty.
+          patient;enter;zip code - R
+          patient;enter;name - R
+          patient;enter;specialty - R
+58.0:The LHCP name, specialty, and  address are provided.
+          ;provide;lhcp name - R
+          ;provide;specialty - R
+          ;provide;address - R
+59.0:UC8 View Access Log Use Case
+60.0:The patient views his access log.
+          patient;view;access log - R
+61.0:The patient then chooses the beginning and end date for the period of time.
+          patient;choose;date - R
+62.0:The resulting list should include Name of accessor, Role of accessor relative to the patient, Date and time of access and Transaction Type (See Section 6.3).
+          ;include;name - R
+          ;include;role - R
+          ;include;date - R
+          ;include;time - R
+          ;include;type - R
+63.0:The patient views the list sorted by dates, most recent access first.
+          patient;view;list - R
+          patient;sort;date - R
+          patient;sort;list - R
+64.0:The patient views the list sorted by the role of the accessor relative to the patient (personal health representative, DLHCP, LHCP, UAP, Emergency Responder; any order is fine as long as the list is sorted by role) as well as by date for each role type.
+          patient;view;list - R
+          patient;sort;role - R
+          patient;sort;list - R
+          patient;sort;list - R
+          patient;sort;role - R
+          patient;sort;date - R
+65.0:UC9 View Records Use Case
+66.0:A patient or personal representative may view medical records including family history.
+          patient;view;medical record - R
+          personal representative;view;medical record - R
+          patient;view;family history - R
+          personal representative;view;family history - R
+67.0:The patient or personal representative can see patient personal health information, immunizations, and office visit information for their own records and the records for whom the user is a personal representative.
+          patient;see;personal health information - R
+          patient;see;immunization - R
+          patient;see;office visit information - R
+          personal representative;see;personal health information - R
+          personal representative;see;immunization - R
+          personal representative;see;office visit information - R
+68.0:(If a patient or personal representative has not taken an office visit satisfaction survey for an office visit yet) The patient may take the survey for an office visit (if the survey has already been taken, the patient or personal health representative will not have the ability to take the survey or view their previously submitted survey).
+          patient;take;survey - C
+          patient;take;office visit - R
+          patient;take;office visit - R
+          representative;take;office visit satisfaction survey - R
+          patient;take;survey;NEG-have - C
+          personal health representative;take;survey;NEG-have - C
+          patient;take;personal health representative;NEG-have - R
+          patient;take;personal health representative;NEG-have - R
+69.0:The patient or personal representative can see an abbreviated health history of their siblings, parents, and both sets of grandparents for which MIDs are available in iTrust.
+          patient;see;abbreviated health history - R
+          personal representative;see;abbreviated health history - R
+70.0:They can see diagnoses of blood pressure, high cholesterol, diabetes, cancer, heart disease, smoking, and the cause of death.
+          they;see;diagnosis - R
+71.0:UC10 Enter Or Edit Personal Health Records Use Case
+72.0:An HCP enters a patient.
+          hcp;enter;patient - C
+73.0:An HCP edits patient.
+          hcp;edit;patient - U
+74.0:The information is viewed.
+          ;view;information - R
+75.0:The information is edited.
+          ;edit;information - U
+76.0:The health care personnel enters a MID of a patient and confirms their selection.
+          health care personnel;enter;mid - R
+          health care personnel;confirm;selection - 
+77.0:The HCP can edit patient's historical values, patient's immunizations, patient's office visit information, patient's family history, and patient's BMI.
+          hcp;edit;historical value - U
+          hcp;edit;immunization - U
+          hcp;edit;information - U
+          hcp;edit;history - U
+          hcp;edit;bmi - U
+78.0:The HCP can indicate that the patient has passed away, providing an appropriate diagnosis code.
+          hcp;indicate;pass away - U
+          hcp;provide;diagnosis code - C
+79.0:The HCP can graph height or weight of the patient over the last 3 calendar years.
+          hcp;graph;weight - R
+          hcp;graph;height - R
+80.0:For the patient, the HCP can choose height or weight to graph.
+          hcp;choose;height - R
+          hcp;choose;weight - R
+          hcp;choose;patient - R
+81.0:System presents a line chart giving the chosen measurements (either height or weight) of the patient spanning the last 3 calendar years of data, averaged by quarters (January-March, April-June, July-September, October-December).
+          system;present;line chart - R
+82.0:System presents an automatically-calculated value of BMI calculated based on the formula.
+          system;present;automatically-calculated value - R
+83.0:UC11 Document Office Visit Use Case
+84.0:An HCP may document an office visit.
+          hcp;document;office visit - 
+85.0:An HCP edits an office visit.
+          hcp;edit;office visit - 
+86.0:The HCP enters a MID  or name of a patient and confirms their selection.
+          hcp;enter;mid - R
+          hcp;enter;name - R
+          hcp;confirm;selection - C
+87.0:The HCP then documents the office visit date and hospital location of the office visit.
+          hcp;document;office visit date - C
+          hcp;document;hospital location - C
+          hcp;document;office visit - R
+88.0:The HCP notes about an office visit.
+          hcp;note;office visit - C
+89.0:The HCP's medical identification number should also be maintained.
+          ;also;medical identification number - C
+90.0:Additionally, the HCP can document none, one, or more medications prescribed; none, one, or more lab procedures that are ordered (LOINC code, see Data Format 6.11); none, one, or more diagnoses (via the ICD-9CM code); none, one, or more medical procedures performed; and none, one, or more immunizations given chosen from appropriate pull-down lists.
+          hcp;document;medication - C
+          hcp;document;procedure - C
+          hcp;document;immunization - C
+          hcp;document;procedure - C
+          hcp;document;diagnosis - C
+91.0:All events are logged.
+          ;log;event - C
+92.0:HCPs can return to an office visit.
+          hcp;return;office visit - 
+93.0:HCPs can modify or delete the fields of the office visit information (date, hospital, notes, prescriptions, laboratory procedures, diagnoses, procedures, possibly and possibly immunizations).
+          hcp;modify;office visit information - 
+          hcp;delete;office visit information - 
+94.0:The event is logged and the HCP is returned in the specific office visit record to verify his changes.
+          hcp;log;event - C
+          hcp;return;office visit record - R
+95.0:The HCP selects a medication prescribed from a pull down list.
+          hcp;select;medication - R
+96.0:The HCP provides the dosage in milligrams, the start and end date for the prescription, and any special instructions.
+          hcp;provide;dosage - 
+          hcp;provide;date - 
+          hcp;provide;special instruction - 
+97.0:The instructions can contain numbers, characters, symbols, blankspace and carriage return.
+98.0:The HCP must provide instructions, or else they cannot add the prescription.
+          hcp;provide;instruction - 
+99.0:The HCP can add the prescription to the list of medications.
+          hcp;add;prescription - R
+          hcp;add;list - CRUD
+          hcp;add;medication - R
+100.0:UC12 Determine Operational Profile Use Case
+101.0:The software tester authenticates himself in the iTrust.
+          software tester;authenticate;itrust - R
+102.0:System presents the actual operational profile of the operations of the iTrust.
+          system;present;actual operational profile - 
+103.0:UC13 Declare or Undeclare Personal Representative Use Case
+104.0:A patient's DLHCP adds a patient's personal representative by typing that person's MID.
+          dlhcp;add;personal representative - C
+105.0:A patient's DLHCP deletes a patient's personal representative by typing that person's MID.
+          dlhcp;delete;personal representative - D
+106.0:UC15 Maintain Standards Lists Use Case
+107.0:An administrator maintains the standards list for immunizations, diagnoses, allowable drugs, or allowable physical services.
+          administrator;maintain;standard list - CRUD
+          administrator;maintain;immunization - R
+          administrator;maintain;diagnosis - R
+          administrator;maintain;drug - R
+          administrator;maintain;allowable - R
+108.0:The administrator maintains a listing of allowable immunizations.
+          administrator;maintain;listing - CRUD
+          administrator;maintain;immunization - R
+109.0:The administrator stores the CPT code and the name of the immunization.
+          administrator;store;cpt code - C
+          administrator;store;name - C
+          administrator;store;immunization - C
+110.0:The administrator maintains a listing of allowable diagnoses.
+          administrator;maintain;listing - DURC
+          administrator;maintain;diagnosis - R
+111.0:The administrator stores the ICD-9CM code, a classification and the name of the diagnosis.
+          administrator;store;icd-9cm code - C
+          administrator;store;classification - C
+          administrator;store;name - C
+112.0:The administrator maintains a listing of allowable drugs.
+          administrator;maintain;listing - UDCR
+          administrator;maintain;drug - R
+113.0:The administrator stores the National Drug Code.
+          administrator;store;national drug code - C
+114.0:The administrator maintains a listing of allowable physical services (including laboratory procedures) that an HCP can use.
+          administrator;maintain;listing - UDCR
+          hcp;use;physical service - R
+          administrator;maintain;physical service - R
+115.0:The administrator stores information of a LOINC code.
+          administrator;store;information - C
+          administrator;store;loinc code - C
+116.0:UC16 Identify Risk of Chronic Disease Use Case
+117.0:An LHCP chooses a chronic disease and a patient.
+          lhcp;choose;chronic disease - R
+          lhcp;choose;patient - R
+118.0:The data in the database is analyzed.
+119.0:Currently available risk factors for chronic diseases are defined for Diabetes and Type 1 and Type2 and Heart Disease.
+120.0:When the chosen patient satisfies the preconditions of the chosen chronic disease, the LHCP is provided with a warning message.
+          lhcp;provide;warning message - R
+          lhcp;provide;patient - R
+          lhcp;provide;chronic disease - R
+121.0:The message displays the risk factors that the patients exhibit.
+          message;display;risk factor - R
+122.0:UC17 Proactively Determine Needed Patient Care Use Case
+123.0:An HCP chooses Office Visit Reminders.
+          hcp;choose;office visit reminders - R
+124.0:An HCP identifies chronic patients who need an office visit, older patients who need a flu shot, or any patient who is overdue for an immunization.
+          hcp;identify;chronic patient - R
+          hcp;identify;patient - R
+          hcp;identify;patient - R
+125.0:System presents a listing of patients for whom they are a DLHCP who need care because of satisfying the one of preceding conditions.
+          system;present;listing - R
+          system;present;patient - R
+126.0:System presents patient's name and patient’s home phone number (so that reminder calls can be made).
+          system;present;name - R
+          system;present;home phone number - R
+127.0:The list is sorted based on the alphabetical order of the patients' last names, and then first names.
+          ;sort;list - R
+          ;sort;name - R
+          ;sort;name - R
+128.0:UC18 Maintain a Hospital Listing Use Case
+129.0:An administrator maintains the hospital listing.
+          administrator;maintain;hospital listing - CRUD
+130.0:The administrator stores hospital Id number for the hospital and the name of the hospital.
+          administrator;store;hospital id number - 
+          administrator;store;name - 
+131.0:The administrator adds a new entry for a hospital, or modify the hospital name in an existing entry.
+          administrator;add;entry - C
+          administrator;modify;hospital name - RU
+132.0:The administrator is not allowed to delete an existing entry.
+          administrator;delete;entry;NEG-not - D
+133.0:The administrator is not allowed to modify the hospital ID number in an existing entry.
+          administrator;modify;hospital id number;NEG-not - U
+134.0:UC19 View Prescription Report Use Case
+135.0:A patient, personal representative or LHCP views prescription reports.
+          patient;view;report - R
+          personal representative;view;report - R
+          lhcp;view;report - R
+136.0:A message is sent to the patient and their personal representative.
+          ;send;message - C
+          ;send;patient - R
+          ;send;personal representative - R
+137.0:The patient or the personal representative can view a list of their own prescriptions or the prescriptions for whom the user is a person representative by choosing one patient from a a list of these patients.
+          patient;view;list - R
+          patient;view;prescription - R
+          personal representative;view;list - R
+          personal representative;view;prescription - R
+          patient;choose;patient - R
+          patient;choose;list - R
+          patient;choose;patient - R
+          personal representative;choose;patient - R
+          personal representative;choose;list - R
+          personal representative;choose;patient - R
+138.0:A prescription list is then displayed.
+          ;display;prescription list - 
+139.0:A prescription list is sorted by start date.
+          ;sort;prescription list - R
+          ;sort;start date - R
+140.0:LHCP selects a patient from the list of requested reports.
+          lhcp;select;patient - R
+          lhcp;select;list - R
+          lhcp;select;report - R
+141.0:The LHCP can view a prescription list for that patient, sorted by start date.
+          lhcp;view;prescription list - R
+          lhcp;view;patient - R
+          lhcp;sort;start date - R
+142.0:The prescription report is titled with the patient name.
+          ;title;prescription report - R
+          ;title;patient name - R
+143.0:The prescription list includes medication, date prescribed, start date, end date for each prescription, and the name of the doctor who prescribed the medication.
+          ;include;prescription list - R
+          ;include;medication - R
+          ;include;date - R
+          ;include;date - R
+          ;include;end date - R
+          ;include;prescription - R
+          ;include;name - R
+          ;include;doctor - R
+          doctor;prescribe;medication - C
+          ;include;medication - R
+144.0:UC21 View Emergency Electronic Health Record Use Case
+145.0:A LHCP or ER views an emergency report and provides an MID.
+          lhcp;view;emergency report - R
+          er;view;emergency report - R
+146.0:The LHCP obtains a printable report.
+          lhcp;obtain;report - R
+147.0:The LHCP or ER enters a MID and confirms the input.
+          lhcp;enter;mid - 
+          er;enter;mid - 
+148.0:UC22 Flow of Events for the Schedule Appointments Use Case
+149.0:An administrator can manage a standardized list of appointment types.
+          administrator;manage;standardized list - CRUD
+150.0:An LHCP can schedule an appointment with a patient.
+          lhcp;schedule;appointment - C
+          lhcp;schedule;patient - R
+151.0:Both patients and LHCPs can view a list of their upcoming appointments.
+          patient;view;list - R
+          lhcp;view;list - R
+          patient;view;appointment - R
+          lhcp;view;appointment - R
+152.0:LHCP can edit future appointments.
+          lhcp;edit;future appointment - U
+153.0:LHCP can delete future appointments.
+          lhcp;delete;future appointment - D
+154.0:The administrator adds a new entry for an appointment type, including its type name with up to 30 alpha characters and duration in the unit of minutes.
+          administrator;add;entry - C
+155.0:The administrator modifies the duration in an existing entry.
+          administrator;modify;duration - U
+156.0:A new entry shall not have the same type name as that of any existing entry.
+157.0:The administrator is not allowed to delete an existing entry.
+          administrator;delete;entry;NEG-not - D
+158.0:The administrator is not allowed to modify the appointment type name in an existing entry.
+          administrator;modify;appointment type name;NEG-not - U
+159.0:The LHCP schedules an appointment with a patient.
+          lhcp;schedule;appointment - C
+          lhcp;schedule;patient - R
+160.0:The LHCP enters the patient MID, selects the type of appointment from a pull-down menu of the existing appointment types, enters the appointment date and time, enters comment (optional) up to 1000 characters such as reason for the appointment.
+          lhcp;enter;patient - C
+          lhcp;select;type - C
+          lhcp;enter;type - C
+          lhcp;enter;appointment date - C
+          lhcp;enter;time - C
+          lhcp;enter;comment - C
+161.0:An LHCP views a list of his upcoming appointments.
+          lhcp;view;list - R
+          lhcp;view;appointment - R
+162.0:A patient views a list of his upcoming appointments.
+          patient;view;list - R
+          patient;view;appointment - R
+163.0:The user opens his upcoming appointment list.
+          user;open;appointment list - R
+164.0:Each row in the list includes the appointment type, appointment date and time, duration, and the name of either the patient or the LHCP.
+          ;include;appointment date - R
+          ;include;time - R
+          ;include;duration - R
+          ;include;name - R
+          ;include;appointment type - R
+          ;include;patient - R
+          ;include;lhcp - R
+165.0:The appointments in the list shall be ordered by appointment date and time, the soonest upcoming first.
+          ;order;appointment - R
+          ;order;appointment date - R
+166.0:The row for each conflicting appointment is highlighted in bold.
+167.0:When viewing the calendar, the user selects an appointment from the list to read comment by clicking the "Read Comment" link beside the row for the appointment, and then the comment for the appointment shall be displayed in a new page.
+          user;view;calendar - R
+          user;select;appointment - R
+          user;display;comment - R
+          user;select;list - R
+          user;read;comment - R
+168.0:When an LHCP views a list of his upcoming appointments, system presents an option to edit or remove the appointment.
+          lhcp;view;list - R
+          system;present;option - R
+          lhcp;view;appointment - R
+          lhcp;edit;appointment - RU
+          lhcp;remove;appointment - D
+169.0:The LHCP is not able to edit any past appointments.
+          lhcp;edit;appointment;NEG-not - U
+170.0:The LHCP is not able to remove any past appointments.
+          lhcp;remove;appointment;NEG-not - D
+171.0:UC23 View Comprehensive Patient Report Use Case
+172.0:The LHCP requests a comprehensive patient report for a particular patient.
+          lhcp;request;comprehensive patient report - R
+          lhcp;request;patient - R
+173.0:The LHCP is able to view the comprehensive patient report.
+          lhcp;view;comprehensive patient report - R
+174.0:The LHCP enters a patient's MID and confirms his input.
+          lhcp;enter;mid - R
+175.0:The LHCP can view of the comprehensive patient report for the specified patient
+          lhcp;view;comprehensive patient report - R
+          lhcp;view;patient - R
+176.0:UC24 Take Satisfaction Survey Use Case
+177.0:A patient or personal representative can answer any of the following questions relative to a previous office visit.
+          patient;answer;any - C
+          personal representative;answer;any - C
+          patient;answer;office visit - R
+          personal representative;answer;office visit - R
+178.0:The answers to the survey are stored.
+          ;store;answer - C
+179.0:UC25 View Physician Satisfaction Survey Results Use Case
+180.0:A user views physician satisfaction survey results.
+          user;view;physician satisfaction survey result - R
+181.0:The user provides a zip code or a hospital code and an physician type.
+          user;provide;zip code - R
+          user;provide;hospital code - R
+          user;provide;type - R
+182.0:The patient is provided with the name for each physician.
+          patient;provide;name - R
+183.0:UC26 View or Edit Laboratory Procedure Status Use Case
+184.0:A patient, personal health representative or HCP views laboratory procedure status.
+          patient;view;laboratory procedure status - R
+          personal health representative;view;laboratory procedure status - R
+          hcp;view;laboratory procedure status - R
+185.0:A HCP edits a laboratory procedure.
+          hcp;edit;laboratory procedure - U
+186.0:A message is sent to the patient and their personal representative.
+          ;send;message - C
+          ;send;patient - R
+          ;send;personal representative - R
+187.0:The patient can view a list of laboratory procedures and status for their own records and the records for which the user is a personal representative.
+          patient;view;list - R
+          patient;view;laboratory procedure - R
+188.0:The reports are viewed under the "View My Records" tab.
+189.0:Only laboratory procedures for which the HCP has allowed viewing access are shown.
+          hcp;allow;access - C
+          ;show;laboratory procedure - R
+190.0:The list is sorted by date of the last status update, most recent first.
+          ;sort;list - R
+          ;sort;date - R
+191.0:The HCP enters a MID of a patient and confirms their input.
+          hcp;enter;mid - R
+192.0:The HCP can view a list of laboratory procedures and results, sorted by the date of the last status update, most recent first.
+          hcp;view;list - R
+          hcp;sort;date - R
+          hcp;view;laboratory procedure - R
+193.0:The HCP can allow viewing access to the laboratory results.
+          hcp;allow;access - C
+          hcp;allow;laboratory result - R
+194.0:The HCP can disallow viewing access to the laboratory results.
+          hcp;disallow;access - C
+          hcp;disallow;laboratory result - R
+195.0:The HCP can edit the office visit in which the laboratory procedure was ordered.
+          hcp;edit;office visit - U
+          hcp;edit;laboratory procedure - R
+196.0:The HCP enters a MID of a patient and confirms their input.
+          hcp;enter;mid - R
+197.0:The HCP can view a list of laboratory procedures and can update the status and comments.
+          hcp;view;list - R
+          hcp;update;status - U
+          hcp;update;comment - U
+          hcp;view;laboratory procedure - R
+198.0:The list is sorted by the dates of the last status update.
+          ;sort;list - R
+          ;sort;date - R
+199.0:An email notification is sent.
+          ;send;email notification - C
+200.0:UC27 Alert Users by Email Use Case
+201.0:An email alert is sent out to the iTrust user in the event of a changed password, status change in laboratory procedure, comprehensive report requested and generated.
+          ;send;email alert - C
+          ;change;password - U
+          ;status change;laboratory procedure - U
+          ;generate;report - R
+          ;request;report - R
+202.0:UC28 View Patients
+203.0:The LHCP views all patients with which he or she has ever had an office visit with.
+          lhcp;have;office visit - R
+          lhcp;view;patient - R
+204.0:System presents the patient’s name, patient’s address, and patient’s date of last office visit.
+          system;present;name - R
+          system;present;address - R
+          system;present;date - R
+205.0:The list is sorted by the date of the last office visit.
+          ;sort;list - R
+          ;sort;date - R
+206.0:UC29 Find LHCPs with Experience with a Diagnosis
+207.0:A patient finds the LHCPs who have handled that condition.
+          patient;find;lhcp - R
+          patient;find;condition - R
+208.0:The patient chooses My Diagnoses.
+          patient;choose;diagnosis - 
+209.0:System presents a listing of all their own diagnoses, sorted by diagnosis date (more recent first).
+          system;present;listing - R
+          system;sort;diagnosis date - R
+          system;present;diagnosis - R
+210.0:The patient can select a diagnosis.
+          patient;select;diagnosis - 
+211.0:System presents the LHCPs in the patient's living area (based upon the first three numbers of their zip code) who have handled this diagnosis in the last three years.
+          system;present;lhcp - R
+          system;present;living area - R
+          system;present;diagnosis - R
+212.0:The list is ranked by the quantity of patients the LHCP has treated for that diagnosis (each patient is only counted once regardless of the number of office visits).
+          ;rank;list - R
+          ;rank;quantity - R
+          ;rank;count - R
+213.0:UC30 Messaging Between LHCP and Patient
+214.0:An LHCP sends a message to a patient or the patient’s personal representative.
+          lhcp;send;message - C
+          lhcp;send;patient - R
+          lhcp;send;personal representative - R
+215.0:A patient's personal representative or a patient or personal representative sends a message to DLHCP or that of a person they are representing.
+          patient;send;message - C
+          representative;send;message - C
+          personal representative;send;message - C
+          personal representative;send;dlhcp - R
+          patient;send;dlhcp - R
+          representative;send;dlhcp - R
+216.0:LHCPs, patients and representatives may reply to messages.
+          lhcp;reply;message - CR
+          patient;reply;message - CR
+          representative;reply;message - CR
+217.0:An LHCP, patient and representative may view a message.
+          lhcp;view;message - R
+          patient;view;message - R
+          representative;view;message - R
+218.0:An LHCP, patient and representative can sort his message inbox and message outbox.
+          lhcp;sort;message inbox - R
+          lhcp;sort;message outbox - R
+          patient;sort;message inbox - R
+          patient;sort;message outbox - R
+          representative;sort;message inbox - R
+          representative;sort;message outbox - R
+219.0:An LHCP, patient and representative can modify and save his message displaying filter.
+          lhcp;modify;filter - CU
+          patient;modify;filter - CU
+          representative;modify;filter - CU
+          lhcp;save;filter - CU
+          patient;save;filter - CU
+          representative;save;filter - CU
+220.0:An LHCP views his message inbox.
+          lhcp;view;message inbox - 
+221.0:A patient or personal representative for a patient sends a message to an LHCP.
+          representative;send;message - C
+          patient;send;message - C
+          representative;send;lhcp - R
+          patient;send;lhcp - R
+222.0:System presents a menu of DLHCP.
+          system;present;menu - R
+223.0:The patient or representative chooses one of these DLHCP.
+          patient;choose;one - R
+          representative;choose;one - R
+224.0:The patient types the subject and the text of a message.
+          patient;type;subject - C
+          patient;type;text - C
+225.0:The representative types the subject and the text of a message.
+          representative;type;subject - C
+          representative;type;text - C
+226.0:The patient clicks the send button.
+227.0:The representative clicks the send button.
+228.0:A row for showing the message subject, the name of the recipient, and the timestamp (which includes both date and time) is then visible in the patient or representative’s message outbox.
+          patient;visible;message subject - R
+          patient;visible;name - R
+          patient;visible;timestamp - R
+          representative;visible;message subject - R
+          representative;visible;name - R
+          representative;visible;timestamp - R
+          patient;visible;row - R
+          representative;visible;row - R
+          patient;visible;message outbox - R
+          representative;visible;message outbox - R
+229.0:A bolded row for showing the message subject, the name of sender, and the timestamp is then visible in the LHCP's message inbox.
+          lhcp;visible;message subject - R
+          lhcp;visible;name - R
+          lhcp;visible;timestamp - R
+          lhcp;visible;message inbox - R
+230.0:A fake email is sent to the LHCP alerting the user that a new message has arrived.
+          ;send;fake email - C
+          ;send;lhcp - R
+231.0:After a message is sent, the patient or personal representative is directed to his message outbox.
+          patient;direct;message outbox - R
+          personal representative;direct;message outbox - R
+          ;send;message - C
+232.0:An LHCP sends a message to a patient or representative (no multiple recipients allowed in a single message).
+          lhcp;send;message - C
+          lhcp;send;patient - R
+          lhcp;send;representative - R
+233.0:The LHCP enters the patient's MID.
+          lhcp;enter;mid - R
+234.0:The LHCP confirms the patient's MID.
+          lhcp;confirm;mid - R
+235.0:The LHCP enters the representative's MID.
+          lhcp;enter;mid - R
+236.0:The LHCP confirms the representative's MID.
+          lhcp;confirm;mid - 
+237.0:The LHCP types the subject (up to 100 characters) and the text of a message (up to 1000 characters), and clicks the send button.
+          lhcp;type;subject - C
+          lhcp;type;text - C
+          lhcp;click;send button - E
+238.0:A row for showing the message subject, the name of the recipient, and the timestamp is then visible in the LHCP’s message outbox.
+          lhcp;visible;row - R
+          lhcp;visible;message outbox - R
+          lhcp;visible;message subject - R
+          lhcp;visible;name - R
+          lhcp;visible;timestamp - R
+239.0:A bolded row for showing the message subject, the name of the sender, and the timestamp is then visible in the patient or representative’s message inbox, and a fake email is sent to the patient or representative that indicates that he or she has a new message from an LHCP.
+          patient;visible;name - R
+          patient;visible;timestamp - R
+          representative;visible;message subject - R
+          representative;visible;name - R
+          representative;visible;timestamp - R
+          patient;visible;message subject - R
+          ;send;fake email - C
+          ;send;patient - R
+          ;send;representative - R
+240.0:After a message is sent, the LHCP is directed to his message outbox.
+          lhcp;direct;message outbox - 
+          lhcp;send;message - 
+241.0:The patient views his message inbox.
+          patient;view;message inbox - R
+242.0:The representative views his message inbox.
+          representative;view;message inbox - 
+243.0:The patient opens the message to which he or she wishes to reply, and then clicks the reply link above the message text.
+          patient;open;message - R
+244.0:The representative opens the message to which he or she wishes to reply, and then clicks the reply link above the message text.
+          representative;open;message - R
+245.0:The patient enters the text of the response message (up to 1000 characters), then clicks the send button.
+          patient;enter;text - C
+          patient;click;send button - E
+246.0:The representative enters the text of the response message (up to 1000 characters), then clicks the send button.
+          representative;enter;text - C
+          representative;click;send button - E
+247.0:A row for showing the message subject (now preceded by "RE:"), the name of the recipient, and the timestamp is then visible in the patient or representative’s message outbox.
+          patient;visible;row - R
+          representative;visible;row - R
+          patient;visible;message outbox - R
+          representative;visible;message outbox - R
+          patient;visible;message subject - R
+          patient;visible;name - R
+          patient;visible;timestamp - R
+          representative;visible;message subject - R
+          representative;visible;name - R
+          representative;visible;timestamp - R
+248.0:A bolded row for showing the message subject (now preceded by "RE:"), the name of the sender, and timestamp is then visible in the LHCP’s message inbox.
+          lhcp;visible;message subject - R
+          lhcp;visible;name - R
+          lhcp;visible;timestamp - R
+          lhcp;visible;message inbox - R
+249.0:A fake email is sent to the LHCP alerting the LHCP that a new message reply has arrived.
+          ;send;fake email - C
+          ;send;lhcp - R
+250.0:The LHCP views his message inbox.
+          lhcp;view;message inbox - R
+251.0:The LHCP opens the message to which he or she wishes to reply.
+          lhcp;open;message - 
+252.0:The LHCP clicks the reply link above the message text.
+          lhcp;click;reply link - 
+253.0:The LHCP enters the text of the response message (up to 1000 characters), then clicks the send button.
+          lhcp;send button; - C
+          lhcp;enter;text - C
+254.0:A row for showing the message subject (now preceded by "RE:"), the name of the recipient, and the timestamp are then visible in the LHCP’s message outbox.
+          lhcp;visible;message subject - R
+          lhcp;visible;name - R
+          lhcp;visible;timestamp - R
+          lhcp;visible;row - R
+          lhcp;visible;message outbox - R
+255.0:A bolded row for showing the message subject (now preceded by "RE:"), the name of sender, and timestamp are then visible in the patient’s message inbox.
+          patient;visible;message subject - R
+          patient;visible;name - R
+          patient;visible;timestamp - R
+256.0:A fake email is sent to the patient alerting the patient that a new message reply has arrived.
+          ;send;fake email - C
+          ;send;patient - R
+257.0:A patient, patient representative or LHCP opens his message inbox or outbox.
+          patient;open;message inbox - R
+          patient;open;outbox - R
+          representative;open;message inbox - R
+          representative;open;outbox - R
+          patient;open;message inbox - R
+          patient;open;outbox - R
+258.0:Each row in the message inbox or outbox includes the message subject, the name of either the sender (only for the case of inbox) or recipient (only for the case of outbox), and timestamp.
+          ;include;message subject - R
+          ;include;name - R
+          ;include;timestamp - R
+259.0:By default, the messages in the message inbox should be ordered by timestamp, the most recent first.
+          ;order;message - R
+          ;order;timestamp - R
+260.0:Each row for an unread message in the message inbox is bolded.
+          ;bold;unread message - R
+          ;bold;message inbox - R
+261.0:The user selects a message from the message inbox or outbox to read by clicking the "Read" link beside the row for the message, and then the message subject, the name of the sender, the name of the the recipient, timestamp, and the message text shall be displayed in a new page.
+          user;select;message - R
+          user;select;message inbox - R
+          user;display;subject - R
+          user;display;name - R
+          user;display;name - R
+          user;display;timestamp - R
+          user;display;recipient - R
+          user;display;message - R
+262.0:After a message in the message inbox is read (i.e., displayed in a new page), the row for the message in the message inbox is not bolded anymore.
+          ;read;message - R
+          ;read;message inbox - R
+263.0:A patient, patient representative, or LHCP can sort messages in his message inbox by either the sender's last name or timestamp (but not both) in either ascending or descending order (where timestamps in descending order would have the most recent first).
+          patient;sort;name - R
+          patient;sort;timestamp - R
+          patient;sort;message - R
+          patient;sort;message inbox - R
+          patient representative;sort;message inbox - R
+          patient representative;sort;message - R
+          patient representative;sort;name - R
+          patient representative;sort;timestamp - R
+          lhcp;sort;message inbox - R
+          lhcp;sort;message - R
+          lhcp;sort;name - R
+          lhcp;sort;timestamp - R
+264.0:A patient, patient representative, or LHCP can sort messages in his message outbox by the recipient's last name or timestamp (but not both) in either ascending or descending order.
+          patient;sort;message - R
+          patient;sort;message outbox - R
+          patient;sort;name - R
+          patient;sort;timestamp - R
+          patient representative;sort;message - R
+          patient representative;sort;message outbox - R
+          patient representative;sort;name - R
+          patient representative;sort;timestamp - R
+          lhcp;sort;message - R
+          lhcp;sort;message outbox - R
+          lhcp;sort;name - R
+          lhcp;sort;timestamp - R
+265.0:A patient, patient representative, or LHCP selects one option out of the "Sort by" labeled drop-down box (with options of "Sender or Recipient" or "Timestamp").
+          patient;select;option - E
+          patient representative;select;option - E
+          lhcp;select;option - E
+266.0:A patient, patient representative, or LHCP selects one option out of the "by order of" labeled drop-down box (with options of "ascending" or "descending").
+          patient;select;option - E
+          patient representative;select;option - E
+          lhcp;select;option - E
+267.0:A patient, patient representative, or LHCP then clicks the "Sort" button.
+          patient;click;sort button - E
+          patient representative;click;sort button - E
+          lhcp;click;sort button - E
+268.0:Sorted order is not saved for later viewing, after the message inbox or outbox is reopened again (where the default sorting is always used).
+          ;reopen;message inbox - R
+          ;reopen;outbox - R
+269.0:An LHCP, patient or representative can modify his "messagedisplayingfilter" by modifying the following filtering criteria.
+          lhcp;modify;messagedisplayingfilter - U
+          patient;modify;messagedisplayingfilter - U
+          representative;modify;messagedisplayingfilter - U
+270.0:A single filter includes values for these five filtering criteria (rather than five filters for these five filtering criteria) and a value could be an empty string, indicating that this criterion has no impact on filtering (i.e., imposing no constraints related to this criterion).
+271.0:The user interface shall be initially populated with the values of the filtering criteria from the previously saved filter.
+          ;populate;value - R
+272.0:The LHCP, the patient or the representative clicks the "Cancel" button to cancel the modifications of the filter (i.e., repopulate the user interface with the values of the filtering criteria from the previously saved filter).
+          lhcp;click;cancel button - E
+          patient;click;cancel button - E
+          representative;click;cancel button - E
+273.0:The LHCP, the patient or the representative clicks the "Test Search" button to search (i.e., displaying the message inbox including only the messages satisfying the specified filtering criteria).
+          lhcp;click display;message inbox - 
+          patient;click display;message inbox - R
+          representative;click display;message inbox - R
+          lhcp;click;button - E
+          patient;click;button - E
+          representative;click;button - E
+274.0:The LHCP, the patient or the representative clicks the "Save" button to save the modified filter.
+          lhcp;save;filter - RU
+          patient;save;filter - RU
+          representative;save;filter - RU
+275.0:Each user is associated with only one filter (being saved across login sessions) and applies only this saved filter.
+          user;associate apply;filter - 
+276.0:The user's associated filter initially has all empty inputs for the filtering criteria before the user modifies it.
+          user;modify;it - U
+277.0:UC31 Find LHCPs for Prescription Renewal Use Case
+278.0:A patient renews the patient's expired prescriptions (i.e., prescriptions' end dates are earlier than the current date) and therefore finds the LHCPs who earlier wrote the patient's expired prescriptions (it is assumed that the doctors who wrote prescriptions are all LHCPs so no LHCP checks on the prescription-writing doctors are needed).
+          patient;renew;prescription - C
+          patient;find;lhcp - R
+          doctor;write;lhcp - C
+279.0:The patient chooses prescription report.
+          patient;choose;prescription report - R
+280.0:System presents a list of the patient's expired prescriptions, sorted by start date (the later date is ranked earlier closer to the top).
+          system;present;list - R
+          system;sort;start date - R
+          system;present;prescription - R
+281.0:The patient can view contact information of a selected LHCP shown in the expired prescription list.
+          patient;view;contact information - R
+          patient;view;lhcp - R
+          patient;view show;prescription list - R
+282.0:UC33 Refer and Provide Consultations Use Case
+283.0:A LHCP refers a patient to another receiving LHCP.
+          lhcp;refer;patient - C
+          lhcp;refer;lhcp - R
+284.0:A HCP reviews consultations.
+          hcp;review;consultation - R
+285.0:A LHCP reviews the consultation.
+          lhcp;review;consultation - R
+286.0:An LHCP refers a patient to another receiving LHCP.
+          lhcp;refer;patient - C
+          lhcp;refer;lhcp - R
+287.0:System presents a menu of his patients and a menu of other LHCPs.
+          system;present;menu - R
+          system;present;menu - R
+288.0:When the patient and LHCP are chosen, system presents the MID of the patient that will be sent to the receiving HCP.
+          ;choose;patient - R
+          ;choose;lhcp - R
+          system;present;mid - R
+          ;send;hcp - R
+289.0:System presents a text box to HCP.
+          hcp;present;text box - 
+290.0:The LHCP then sends the request or to cancel.
+          lhcp;send;request - 
+291.0:The status of the consultation being sent is set as "pending".
+          ;set;consultation - U
+292.0:An LHCP reviews pending consultations.
+          lhcp;review;consultation - R
+293.0:System presents a list of pending referrals.
+          system;present;list - R
+          system;present;referral - R
+294.0:The LHCP then selects a referral to view details.
+          lhcp;select;referral - R
+295.0:System presents the MID of the sending LHCP, the patient MID, and the referral details.
+          system;present;mid - R
+          system;present;patient - R
+          system;present;referral detail - R
+296.0:System presents an option ("finish", "decline", "pending" with "pending" as default value) to mark the status of the consultation and a text box to enter the details of the consultation.
+          system;present;option - R
+          system;mark;status - C
+          system;enter;detail - C
+297.0:Then, the LHCP can confirm the status setting or consultation entering or cancel.
+          lhcp;confirm;status setting - R
+          lhcp;confirm;consultation - R
+298.0:UC34 Report Telemedicine Monitoring Details Use Case
+299.0:An LHCP or UAP creates a list of patients (by MID) for which he or she will monitor remotely.
+          lhcp;create;list - C
+          uap;create;list - C
+          lhcp;monitor;patient - C
+          uap;monitor;patient - C
+          lhcp;create;patient - R
+          uap;create;patient - R
+300.0:A patient inputs his blood pressure or glucose levels.
+          patient;input;blood pressure - C
+          patient;input;glucose level - C
+301.0:A patient inputs his weight, height or pedometer readings.
+          patient;input;reading - 
+302.0:An LHCP can see the blood pressure and glucose levels, weight, height, and pedometer readings for the patients he or she is monitoring, with two separate lists for physiologic and height or weight or pedometer readings.
+          lhcp;see;blood pressure - R
+          lhcp;see;glucose level - R
+          lhcp;see;weight - R
+          lhcp;see;height - R
+          lhcp;see;pedometer reading - R
+          lhcp;see;patient - R
+303.0:A UAP or patient representative can input the blood pressure, glucose levels, height, weight, or pedometer readings for a patient.
+          uap;input;blood pressure - C
+          uap;input;glucose level - C
+          uap;input;height - C
+          uap;input;weight - C
+          uap;input;pedometer reading - C
+          patient representative;input;blood pressure - C
+          patient representative;input;glucose level - C
+          patient representative;input;height - C
+          patient representative;input;weight - C
+          patient representative;input;pedometer reading - C
+304.0:A patient may have up to 10 physiologic data points in any one day, reported by him or herself, a UAP, or a personal representative.
+          patient;have;physiologic datum - C
+          he;report;physiologic datum - C
+          herself;report;physiologic datum - C
+          uap;report;physiologic datum - C
+          personal representative;report;physiologic datum - C
+305.0:A patient may have at most one height data point, one weight data point, and one pedometer data point in any one day, reported by him or herself, a UAP, or a personal representative.
+          patient;report;height datum - C
+          patient;report;datum - C
+          patient;report;datum - C
+          uap;report;height datum - C
+          uap;report;datum - C
+          uap;report;datum - C
+          representative;report;height datum - C
+          representative;report;datum - C
+          representative;report;datum - C
+306.0:An LHCP or UAP can add patients from his monitoring list.
+          lhcp;add;patient - R
+          uap;add;patient - R
+          lhcp;add;monitoring list - C
+          uap;add;monitoring list - C
+307.0:An LHCP or UAP can delete patients from his monitoring list.
+          lhcp;delete;patient - R
+          uap;delete;patient - R
+          lhcp;delete;monitoring list - D
+          uap;delete;monitoring list - D
+308.0:A patient is added to the list by the LHCP or UAP through typing in the patient's MID or name.
+          lhcp;add;list - C
+          uap;add;list - C
+          lhcp;add;patient - R
+          uap;add;patient - R
+309.0:An LHCP can delete a patient from his monitoring list by the LHCP typing the the patient's MID.
+          lhcp;delete;patient - R
+          lhcp;delete;monitoring list - D
+310.0:In both cases, system presents the name of the patient.
+          system;present;name - R
+311.0:The LHCP must confirm the add.
+          lhcp;confirm;add - C
+312.0:The LHCP must confirm the delete.
+          lhcp;confirm;delete - R
+313.0:For each patient from the monitoring list, the LHCP can edit blood pressure, glucose levels, height, weight and pedometer readings.
+          lhcp;edit;blood pressure - U
+          lhcp;edit;glucose level - U
+          lhcp;edit;height - U
+          lhcp;edit;weight - U
+          lhcp;edit;pedometer reading - U
+          lhcp;edit;patient - R
+          lhcp;edit;monitoring list - R
+314.0:By default, all types of information are selected for monitoring.
+          ;select;type - 
+315.0:A patient reports their physiologic data.
+          patient;report;physiologic datum - C
+316.0:He can report his blood pressure (systolic and diastolic) and glucose levels.
+          he;report;blood pressure - C
+          he;report;glucose level - C
+317.0:The input data, a timestamp and the fact are saved.
+          ;save;input datum - C
+          ;save;timestamp - C
+          ;save;fact - C
+318.0:An LHCP views the physiologic data monitoring details.
+          lhcp;view;physiologic datum - R
+319.0:System presents a listing of all his patients.
+          system;present;listing - R
+          system;present;patient - R
+320.0:Patients with no information for the current day are highlighted.
+          ;highlight;patient - R
+321.0:Patients with blood pressure or glucose level out of range are highlighted (normal blood pressure: systolic 90-140; diastolic 60-90; normal glucose 70-150).
+          ;highlight;patient - R
+          ;highlight;blood pressure - R
+          ;highlight;glucose level - R
+322.0:The LHCP can select a patient to obtain additional information about a patient.
+          lhcp;select;patient - R
+          lhcp;obtain;information - R
+323.0:An LHCP views additional information for a patient.
+          lhcp;view;information - R
+          lhcp;view;patient - R
+324.0:System presents a screen upon which he can choose a date range.
+          he;present;screen - R
+325.0:The LHCP can see the patient’s name, patient’s phone number, patient’s personal representative, patient’s blood pressure, patient’s glucose levels, patient’s height, patient’s weight, and patient’s pedometer readings as well as whom reported the data (patient, UAP name, personal representative name) for that date range.
+          lhcp;see;name - R
+          lhcp;see;phone number - R
+          lhcp;see;personal representative - R
+          lhcp;see;blood pressure - R
+          lhcp;see;glucose level - R
+          lhcp;see;height - R
+          lhcp;see;weight - R
+          lhcp;see;pedometer reading - R
+          lhcp;see;whom - R
+326.0:A UAP can report physiologic measurements.
+          uap;report;physiologic measurement - R
+327.0:System presents a list of the patients.
+          system;present;list - R
+          system;present;patient - R
+328.0:He can select a patient and then enter data.
+          he;enter;datum - C
+          he;select;patient - R
+329.0:He can report the blood pressure and glucose levels for the patient.
+          he;report;blood pressure - C
+          he;report;glucose level - C
+          he;report;patient - R
+330.0:The input data, a timestamp, and the fact and their MID are saved.
+          ;save;input datum - C
+          ;save;timestamp - C
+          ;save;fact - C
+          ;save;mid - C
+331.0:System displays only the applicable input entries to the UAP.
+          uap;display;input entry - R
+332.0:A patient can report physiologic measurements.
+          patient;report;physiologic measurement - C
+333.0:System presents a list of the patients.
+          system;present;list - R
+          system;present;patient - R
+334.0:He can select a patient and then enter data.
+          he;enter;datum - C
+          he;select;patient - R
+335.0:He can report the blood pressure and glucose levels for the patient.
+          he;report;blood pressure - C
+          he;report;glucose level - C
+          he;report;patient - R
+336.0:The input data and a timestamp and the fact and their MID are saved.
+          ;save;input datum - C
+          ;save;timestamp - C
+          ;save;fact - C
+          ;save;mid - C
+337.0:System displays only the applicable input entries to the patient.
+          patient;display;input entry - R
+338.0:A patient reports his height, weight and pedometer data.
+          patient;report;datum - 
+339.0:The input data, a timestamp and the fact are saved.
+          ;save;input datum - C
+          ;save;timestamp - C
+          ;save;fact - C
+340.0:System displays only the applicable input entries to the patient.
+          patient;display;input entry - R
+341.0:An LHCP views the height, weight and pedometer data monitoring details.
+          lhcp;view;datum - 
+342.0:System presents  a listing of all his patients.
+          system;present;listing - R
+          system;present;patient - R
+343.0:Patients with no information for the current day are highlighted in red.
+          ;highlight;patient - R
+344.0:Patients with a weight value 5% more or less than the immediate previously recorded weight value are highlighted.
+          ;highlight;patient - R
+          ;highlight;weight value - R
+345.0:The LHCP can obtain additional information about a patient.
+          lhcp;obtain;information - R
+346.0:A UAP can report height, weight and pedometer measurements.
+          uap;report;measurement - C
+347.0:System presents a list of the patients whose height, weight, or pedometer data type is specified to be under monitoring and for which he or she is allowed to report measurements.
+          ;present specify;height - R
+          ;present specify;weight - R
+          ;present specify;pedometer datum - R
+          system;present;list - R
+          he;report;measurement - C
+          she;report;measurement - C
+          system;present;patient - R
+348.0:He can select a patient and then enter data.
+          he;select enter;datum - C
+          he;select;patient - R
+349.0:He can report the height, weight and pedometer reading for the patient.
+          he;report;reading - C
+          he;report;patient - R
+350.0:The input data, a timestamp and the fact  and his MID are saved.
+          ;save;input datum - C
+          ;save;timestamp - C
+          ;save;fact - C
+          ;save;mid - C
+351.0:System displays only the applicable input entries to the UAP.
+          uap;display;input entry - R
+352.0:A patient can report height, weight and pedometer readings for those for whom he or she is a patient representative.
+          patient;report;reading - C
+          patient;report;patient representative - R
+353.0:System presents a list of the patients for which he is allowed to report measurements.
+          system;present;list - R
+          he;report;measurement - C
+          system;present;patient - R
+354.0:He can select a patient and then enter data.
+          he;enter;datum - C
+          he;select;patient - R
+355.0:He can report the height, weight and pedometer readings for the patient.
+          he;report;patient - R
+          he;report;reading - C
+356.0:The input data, a timestamp, and the fact and his MID are saved.
+          ;save;input datum - C
+          ;save;timestamp - C
+          ;save;fact - C
+          ;save;mid - C
+357.0:System displays only the applicable input entries to the patient.
+          patient;display;input entry - R
+358.0:UC35 Report Adverse Event Use Case
+359.0:A patient reports an event related to a prescription drug or immunization reaction.
+          patient;report;event - C
+          patient;report;prescription drug - R
+          patient;report;immunization reaction - R
+360.0:System presents a listing of all prescription drugs for which he has been prescribed and has taken in the last 12 months.
+          system;present;listing - R
+          system;present;prescription drug - R
+361.0:The patient chooses drugs for which to report the adverse event.
+          patient;choose;drug - R
+          patient;report;adverse event - C
+362.0:The patient is then able to write a textual description.
+          patient;write;textual description - C
+363.0:A fake email is sent to the LHCP who prescribed the medication indicating the patient name and MID, drug, and symptoms.
+          ;send;fake email - CR
+          ;send;lhcp - R
+          ;indicate;patient name - R
+          ;indicate;mid - R
+          ;indicate;drug - R
+          ;indicate;symptom - R
+          lhcp;prescribe;medication - C
+364.0:System presents a listing of all immunizations for which he has been administered in the last 12 months.
+          he;present;listing - R
+          system;present;listing - R
+          system;present;immunization - R
+365.0:The patient chooses the immunization for which to report the adverse event.
+          patient;choose;immunization - R
+366.0:The patient is then able to write a textual description.
+          patient;write;textual description - C
+367.0:A fake email is sent to the LHCP who administered the immunization indicating the patient name and MID, drug, and symptoms.
+          ;send;fake email - CR
+          ;administer;immunization - R
+          ;indicate;patient name - R
+          ;indicate;mid - R
+          ;indicate;drug - R
+          ;indicate;symptom - R
+          ;send;lhcp - R
+368.0:UC36 Monitor Adverse Event Use Case
+369.0:A public health agent selects a specific time period for which he would like to see a detailed listing of all adverse events related to prescription drugs or immunizations.
+          public health agent;select;time period - R
+          public health agent;see;detailed listing - R
+          public health agent;see;adverse event - R
+370.0:A public health agent sees trends in adverse events relate to prescription drugs or immunizations.
+          public health agent;see;prescription drug - R
+          public health agent;see;adverse event - R
+          public health agent;see;immunization - R
+371.0:System presents a listing of prescription drug-related adverse events for the time period that do not have a status of "removed", sorted by NDC.
+          system;present;listing - R
+          system;sort;ndc - R
+          system;present;prescription - R
+          system;present;drug-related adverse event - R
+          system;present;time period - R
+372.0:The public health agent can see the detail of a specific report.
+          public health agent;see;detail - R
+373.0:Upon reading the report, the public health agent can send a "fake email" message to the adverse event reporter to gain more information about the report.
+          public health agent;read;report - R
+          public health agent;send;fake email message - C
+          public health agent;send;adverse event reporter - R
+374.0:The public health agent may  remove an adverse event report (such as based upon communication with the reporter or because the report appears to be bogus).
+          public health agent;remove;adverse event report - D
+375.0:System presents a listing of immunization-related adverse events for the time period that do not have a status of "removed", sorted by CPT code .
+          system;present;listing - R
+          system;present;immunization-related adverse event - R
+          system;present;status - R
+          system;sort;cpt code - R
+376.0:The public health agent can see the detail of a specific report.
+          public health agent;see;detail - R
+377.0:Upon reading the report, the public health agent can send a "fake email" message to the adverse event reporter to gain more information about the report.
+          public health agent;read;report - R
+          public health agent;send;fake email message - C
+          public health agent;send;adverse event reporter - R
+378.0:Also, the public health agent may  remove an adverse event report (such as based upon communication with the reporter or because the report appears to be bogus).
+          public health agent;remove;adverse event report - D
+379.0:The adverse event report changes to a status of "removed."
+          ;change;adverse event report - U
+380.0:A message of the removal is sent to the adverse event reporter and to the LHCP.
+          ;send;message - RC
+          ;send;adverse event reporter - R
+          ;send;lhcp - R
+381.0:UC37 Safe Drug Prescription Use Case
+382.0:The HCP prescribes a patient a drug by selecting its NDC and name.
+          hcp;prescribe;drug - C
+          hcp;prescribe;patient - R
+          hcp;select;name - R
+          hcp;select;ndc - R
+383.0:The HCP must proceed with the prescription.
+          hcp;proceed;prescription - C
+384.0:The HCP must cancel the prescription.
+          hcp;cancel;prescription - D
+385.0:The HCP must remain on the office visit page.
+          hcp;remain;office visit page - R
+386.0:The administrator maintains the overriding reasons that an HCP can select from.
+          administrator;maintain;reason - CRUD
+          hcp;select;reason - R
+387.0:The drug is checked against the patient's drug allergies.
+          ;check;drug - R
+          ;check;drug allergy - R
+          ;check;patient - R
+388.0:The HCP is notified of drug allergy.
+          hcp;notify;drug allergy - C
+389.0:The drug is checked for interactions between other drugs currently taken by the patient.
+          ;check;drug - R
+          ;check;patient - R
+390.0:The HCP is notified of possible interactions.
+          hcp;notify;interaction - R
+391.0:The HCP selects reasons out from the nine reasons listed here for the overriding.
+          hcp;select;reason - R
+392.0:The patient is sent a "fake email".
+          ;send;patient - R
+          ;send;fake email - C
+393.0:The administrator is allowed to add a new entry for a reason.
+          administrator;add;entry - C
+394.0:The administrator is allowed to modify the reason name in an existing entry.
+          administrator;modify;reason name - RU
+395.0:The administrator is not allowed to delete an existing entry.
+          administrator;delete;entry;NEG-not - D
+396.0:The administrator is not allowed to modify the reason ID number in an existing entry.
+          administrator;modify;reason id number;NEG-not - U
+397.0:The system shall store reason id number for the reason and the name of the reason.
+          system;store;reason id number - CU
+          system;store;name - CU
+398.0:UC38 Maintain Drug Interaction Use Case
+399.0:The administrator records a drug interaction between two prescription drugs.
+          administrator;record;drug interaction - C
+          administrator;record;prescription drug - R
+400.0:The administrator deletes a drug interaction between two prescription drugs.
+          administrator;delete;drug interaction - D
+          administrator;delete;prescription drug - R
+401.0:System presents two lists of NDC codes or names.
+          system;present;list - R
+          system;present;ndc code - R
+          system;present;name - R
+402.0:The administrator chooses a drug from each list to record an interaction between the two drugs.
+          administrator;choose;drug - R
+          administrator;record;interaction - C
+          administrator;record;drug - R
+403.0:The two drugs and a textual description of the possible effects of the interaction are stored.
+          ;store;drug - C
+          ;store;textual description - C
+404.0:The administrator selects one drug.
+          administrator;select;drug - R
+405.0:System presents a listing of all drug interactions with that drug.
+          system;present;listing - R
+          system;present;drug - R
+          system;present;drug interaction - R
+406.0:The administrator can select a particular pair of drugs.
+          administrator;select;pair - 
+407.0:The administrator can delete the interaction between the two drugs.
+          administrator;delete;interaction - D
+408.0:UC40 View Schedule Calendar Use Case
+409.0:An LHCP or patient can click the "View Appointment Calendar" link to view his appointments in the current month.
+          lhcp;view;appointment - R
+          patient;view;appointment - R
+410.0:A patient can click the "View Full Calendar" link to view his appointments in the current month.
+          patient;view;appointment - R
+411.0:An LHCP views his appointments in the current month.
+          lhcp;view;appointment - 
+412.0:An patient views his appointments in the current month.
+          patient;view;appointment - R
+413.0:System displays his appointments in the current month.
+          system;display;appointment - R
+414.0:The user can select an appointment from the calendar to read the appointment's details.
+          user;select;appointment - R
+          user;select;calendar - R
+          user;read;detail - R
+415.0:A patient views his appointments in the current month together with his office visit dates, prescription dates, and lab procedure dates of the current month on a calendar for the current month.
+          patient;view;appointment - R
+          patient;view;office visit date - R
+          patient;view;prescription date - R
+          patient;view;lab procedure date - R
+416.0:System displays his appointments on the calendar.
+          system;display;appointment - R
+417.0:The user can select an appointment from the calendar to read the appointment's details.
+          user;select;appointment - R
+          user;select;calendar - R
+          user;read;detail - R
+418.0:In the calendar, the date entry with an office visit shall display a label as the diagnoses for the office visit.
+          ;display;label - R
+          ;display;date entry - R
+          ;display;diagnosis - R
+          ;display;office visit - R
+          ;display;calendar - R
+419.0:The user can select an office visit from the calendar to read the visit's details.
+          user;select;office visit - R
+          user;read;detail - R
+          user;select;calendar - R
+420.0:In the calendar, the date entry with a prescription date (i.e., the date of the office visit the medication was prescribed on) shall display a label for the medications prescribed (i.e., NDC, see Data Format 5.6) in the prescription.
+          ;display;label - R
+          ;display;medication - R
+          ;display;date entry - R
+          ;display;calendar - R
+421.0:The user can select a prescription from the calendar to read the prescription's details.
+          user;select;prescription - R
+          user;read;detail - R
+          user;select;calendar - R
+422.0:In the calendar, the date entry with a laboratory procedure (i.e., the entry of the its last status update date) shall display a label as the LOINC code for the laboratory procedure.
+          ;display;label - R
+          ;update;date - R
+          ;display;date entry - R
+          ;display;calendar - R
+423.0:The user can select a laboratory procedure from the calendar to read the laboratory procedure's details.
+          user;select;laboratory procedure - R
+          user;read;detail - R
+          user;select;calendar - R
+424.0:In the calendar, the date entry with an appointment shall display a label as the appointment type name for the appointment.
+          ;display;label - R
+          ;display;calendar - R
+          ;display;appointment type name - R
+          ;display;date entry - R
+425.0:The date entry including conflicting appointments is highlighted in bold (a conflicting appointment is one that has overlap in its appointment duration period with that of at least another appointment of the same user).
+          ;highlight;date entry - R
+          ;highlight;appointment - R
+426.0:The user selects an appointment from the calendar to read its details by clicking the "Read Details" link beside or below the appointment type name.
+          user;select;appointment - R
+          user;select;calendar - R
+          user;select;appointment type name - R
+          user;read;detail - R
+427.0:System displays the details for the appointment in a new page, including the appointment type, the appointment date and start time, comment, and the name of either the patient (only for the user being an LHCP) or the LHCP (only for the user being a patient).
+          ;display;detail - R
+          ;display;appointment - R
+          ;display;appointment type - R
+          ;display;date - R
+          ;display;time - R
+          ;display;comment - R
+          ;display;name - R
+428.0:The user selects an office visit from the calendar to read its details by clicking the "Read Details" link beside or below the ICD-9CM code (i.e., diagnose).
+          user;select;office visit - R
+          user;select;calendar - R
+          user;select;icd-9cm code - R
+429.0:System displays the details for the visit in a new page, including date of office visit, note text, diagnoses (i.e., ICD-9CM codes), medical procedures performed (i.e., CPT code) , lab procedures ordered (LOINC code, see Data Format 6.11), medications prescribed (i.e., NDC, see Data Format 5.6), immunizations given (i.e., CPT Code, see UC15, S1), and the name of the doctor who prescribed the medication.
+          system;display;detail - R
+          system;display;date - R
+          system;display;office visit - R
+          system;display;note - R
+          system;display;diagnosis - R
+          system;display;procedure - R
+          system;display;procedure - R
+          system;display;medication - R
+          system;display;immunization - R
+          doctor;prescribe;medication - C
+430.0:The user selects a prescription from the calendar to read its details by clicking the "Read Details" link beside or below the medication displayed for the prescription.
+          user;select;prescription - R
+          user;select;calendar - R
+          user;select;medication - R
+          user;select;prescription - R
+431.0:System displays the details for the prescription in a new page, including the medications prescribed.
+          system;display;detail - R
+          system;display;medication - R
+432.0:The user selects a laboratory procedure from the calendar to read its details by clicking the "Read Details" link beside or below the LOINC code displayed for the laboratory procedure.
+          user;select;laboratory procedure - R
+          user;select;calendar - R
+          user;select;laboratory procedure - R
+433.0:System displays the details for the laboratory procedure in a new page.
+          system;display;detail - RC
+434.0:UC42 View Notifications Use Case
+435.0:An LHCP views his iTrust homepage.
+          lhcp;view;itrust homepage - R
+436.0:On the LHCP homepage, the LHCP views a notification center with a list of his upcoming appointments for the current date, number of physiologic data monitoring reports of his patients for the current date, number of weight or pedometer data monitoring reports of his patients for the current date, number of unread messages from his message inbox.
+          lhcp;view;lhcp homepage - R
+          lhcp;view;notification center - R
+          lhcp;view;list - R
+          lhcp;view;appointment - R
+          lhcp;view;date - R
+          lhcp;view;number - R
+          lhcp;view;physiologic datum - R
+          lhcp;view;patient - R
+          lhcp;view;weight - R
+          lhcp;view;patient - R
+          lhcp;view;date - R
+          lhcp;view;number - R
+          lhcp;view;unread message - R
+          lhcp;view;message inbox - R
+          lhcp;view;pedometer - R
+437.0:The event is logged.
+          ;log;event - C
+438.0:A patient or personal health representative views his iTrust homepage.
+          patient;view;itrust homepage - R
+          personal health representative;view;itrust homepage - R
+439.0:On the patient homepage, the Patient views a notification center.
+          patient;view;notification center - R
+440.0:The notification center displays the message (You haven't entered remote monitoring information for today yet!)
+          notification center;display;message - R
+441.0:The notification center also displays a list of the patient and patient representee upcoming appointments, the information of his designated HCP, and the number of unread messages from his message inbox.
+          notification center;display;list - R
+          notification center;display;information - R
+          notification center;display;number - R
+          notification center;display;message inbox - R
+          notification center;display;representee - R
+          notification center;display;patient - R
+          notification center;display;appointment - R
+          notification center;display;hcp - R
+          notification center;display;unread message - R
+442.0:An LHCP views a list of his upcoming appointments for the current date, with each appointment displayed in the format "HH:MM AM or PM - AppointmentType".
+          lhcp;view;list - R
+          lhcp;view;appointment - R
+          lhcp;view;date - R
+443.0:The LHCP views an appointment.
+          lhcp;view;appointment - 
+444.0:The appointment details display the appointment type, appointment date and the start time, duration, the name of the patient, and appointment comments.
+          ;display;appointment date - R
+          ;display;time - R
+          ;display;duration - R
+          ;display;name - R
+          ;display;appointment comment - R
+          ;display;appointment type - R
+445.0:A patient or personal health representative can view a list of his upcoming appointments for himself or herself, as well as appointments for the patients he represents.
+          patient;view;list - R
+          personal health representative;view;list - R
+          patient;view;appointment - R
+          personal health representative;view;appointment - R
+446.0:The appointments are listed in the format "MM/DD/YYYY - AppointmentType".
+          ;list;appointment - R
+447.0:The patient or personal health representative views an appointment.
+          patient;view;appointment - R
+          personal health representative;view;appointment - R
+448.0:The appointment details include the appointment type, the appointment date, the appointment start time, the duration, the name of the LHCP, and the appointment comments.
+          ;include;appointment type - R
+          ;include;appointment date - R
+          ;include;appointment start time - R
+          ;include;duration - R
+          ;include;name - R
+          ;include;appointment comment - R
+          ;include;lhcp - R
+449.0:An LHCP views the number of submitted physiologic data monitoring reports of his patients for the current date.
+          lhcp;view;number - R
+          lhcp;view;patient - R
+450.0:The LHCP views the physiologic data monitoring details of his patients for the current date.
+          lhcp;view;physiologic datum - R
+          lhcp;view;patient - R
+451.0:System presents a listing of all his patients to view physiologic data reported during the current date.
+          system;present;listing - R
+          ;view;physiologic datum - R
+          system;present;patient - R
+452.0:Each row in the list includes their blood pressure and glucose levels, recording timestamp, and whom reported the data (patient, UAP name, personal representative name).
+          ;include;blood pressure - R
+          ;include;glucose level - R
+          ;include;timestamp - R
+          whom;report;datum - C
+          ;include;whom - R
+453.0:An LHCP views the number of submitted weight data monitoring reports of his patients for the current date.
+          lhcp;view;number - R
+          lhcp;view;patient - R
+454.0:The LHCP views the weight or pedometer monitoring details of his patients for the current date.
+          lhcp;view;weight - R
+          lhcp;view;pedometer monitoring detail - R
+          lhcp;view;patient - R
+455.0:System presents a listing of all his patients to view weight or pedometer data reported during the current date.
+          ;view;datum - R
+          system;present;listing - R
+          system;present;patient - R
+456.0:Each row in the list includes their weight and pedometer reading numbers levels, recording timestamp, and whom reported the data (patient, UAP name, personal representative name).
+          ;include;weight - R
+          ;include;pedometer reading number level - R
+          ;include;whom - R
+          ;include;timestamp - R
+          whom;report;datum - C
+457.0:A patient, patient representative, or LHCP views the number of unread messages from his message inbox.
+          patient;view;number - R
+          patient;view;message inbox - R
+          patient representative;view;number - R
+          patient representative;view;message inbox - R
+          lhcp;view;number - R
+          lhcp;view;message inbox - R
+458.0:A patient, patient representative, or LHCP clicks this number to view his message inbox.
+          patient;view;message inbox - R
+          patient representative;view;message inbox - R
+          lhcp;view;message inbox - R
+459.0:System presents a list of his messages in the message inbox.
+          system;present;list - R
+          system;present;message inbox - R
+          system;present;message - R
+460.0:Each row in the list includes the message subject, the name of the sender, and timestamp.
+          ;include;message subject - R
+          ;include;name - R
+          ;include;timestamp - R
+461.0:By default, the messages in the list should be ordered by timestamp, the most recent first.
+          ;order;message - R
+          ;order;timestamp - R
+462.0:The user selects a message from the list to read by clicking the "Read" link beside the row for the message, and then the message subject, the name of the sender, the name of the the recipient, timestamp, and the message text shall be displayed in a new page.
+          user;select;message - R
+          user;display;name - R
+          user;display;subject - R
+          user;display;message - R
+          user;display;timestamp - R
+          user;display;recipient - R
+          user;select;list - R
+463.0:A patient views basic information about his designated LHCPs, including the name, phone number, and contact email information.
+          patient;view;basic information - R
+464.0:A personal health representative views basic information about his designated LHCPs, including the name, phone number, and contact email information.
+          personal health representative;view;basic information - R
+465.0:UC43 View Activity Feed Use Case
+466.0:An activity feed is displayed.
+          ;display;activity feed - R
+467.0:Only the most recent 20 activities are listed in the user page after login.
+          ;list;activity - R
+468.0:A link of "Older Activities" shall be displayed.
+          ;display;link - R
+469.0:The patient can click this link.
+          patient;click;link - 
+470.0:The system shall append 20 more activities to the end of the currently listed activities on the same page.
+          system;append;activity - R
+471.0:Similarly a link of "Older Activities" shall be further displayed and so on.
+          ;display;link - 

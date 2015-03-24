@@ -1,0 +1,400 @@
+1.0:Employees ranked as professors or tenured assistant professors can select from, insert into, and delete from graduate admission related tables in the database.
+          professor;select;graduate admission - R
+          professor;insert;graduate admission - C
+          professor;delete;graduate admission - D
+          tenured assistant professor;select;graduate admission - R
+          tenured assistant professor;insert;graduate admission - C
+          tenured assistant professor;delete;graduate admission - D
+2.0:Customer Service Reps, Pharmacists, and Billing Reps can collect and use customer name and date of birth to help confirm identity.
+          customer service rep;use;customer name - 
+          customer service rep;use;date - 
+          pharmacist;use;customer name - 
+          pharmacist;use;date - 
+          billing rep;use;customer name - 
+          billing rep;use;date - 
+          customer service rep;collect;customer name - 
+          customer service rep;collect;date - 
+          pharmacist;collect;customer name - 
+          pharmacist;collect;date - 
+          billing rep;collect;customer name - 
+          billing rep;collect;date - 
+          customer service rep;confirm;identity - 
+          pharmacist;confirm;identity - 
+          billing rep;confirm;identity - 
+3.0:Customer service reps can use credit card number for the purpose of updating records if requested by a patient.
+          customer service rep;update;record - U
+          customer service rep;use;credit card number - R
+          patient;request update;record - C
+4.0:Customer Service Reps, Pharmacists, and Billing Reps can collect and use customer name and e-mail addresses.
+          customer service rep;collect;customer name - 
+          customer service rep;collect;e-mail address - 
+          customer service rep;use;customer name - 
+          customer service rep;use;e-mail address - 
+          pharmacist;collect;customer name - 
+          pharmacist;collect;e-mail address - 
+          pharmacist;use;customer name - 
+          pharmacist;use;e-mail address - 
+          billing rep;collect;customer name - 
+          billing rep;collect;e-mail address - 
+          billing rep;use;customer name - 
+          billing rep;use;e-mail address - 
+5.0:Shipping Reps can use customer name and customer mailing addresses to ship orders.
+          rep;use;customer name - R
+          rep;use;customer mailing address - R
+          rep;ship;order - C
+6.0:Billing Reps can use credit card numbers for order processing.
+          billing rep;use;credit card number - R
+          billing rep;use;order processing - C
+7.0:Customer Service Reps can modify credit card numbers for order processing, if the customer is notified by email of the change.
+          customer service rep;modify;order processing - U
+          customer service rep;modify;credit card number - U
+          customer service rep;notify;customer - C
+8.0:Customer service reps, ducks or Lawyers can use credit card number for the purpose of making treatment decisions if customer has opted-in.
+          customer service rep;use;credit card number - R
+          duck;use;credit card number - R
+          lawyer;use;credit card number - R
+          customer service rep;make;treatment decision - C
+          customer;have;opted-in - C
+          duck;make;treatment decision - C
+          lawyer;make;treatment decision - C
+9.0:Admission nurses use SSN for reviewing eligibility if requested by a patient who is returning.
+          admission nurse;use;ssn - R
+          admission nurse;review;eligibility - R
+          admission nurse;use;patient - R
+10.0:Customer service reps and managers may collect and use name and social security number for the purpose of confirming identity.
+          customer service rep;collect;security number - C
+          manager;collect;security number - C
+          customer service rep;use;security number - R
+          manager;use;security number - R
+          customer service rep;collect;name - C
+          manager;collect;name - C
+          customer service rep;use;name - R
+          manager;use;name - R
+          customer service rep;confirm;identity - R
+          manager;confirm;identity - R
+11.0:The organisation may use email addresses to answer inquiries.
+          organization;use;email address - R
+          organization;answer;inquiry - R
+12.0:Supervisors can collect personal information if required by law.
+          supervisors;collect;personal information - C
+13.0:Financial consultants can collect and use customer name for the purpose of confirming identity.
+          financial consultant;collect;customer name - C
+          financial consultant;use;customer name - R
+          financial consultant;confirm;identity - R
+14.0:Financial analysts can use customer accounts to make loan decisions.
+          financial analyst;use;customer account - R
+          financial analyst;make;loan decision - C
+15.0:Management can report customer transactions if required by law.
+          management;report;customer transaction - 
+16.0:It is used to enforce authorisation rules on bonus allocation among the employees of a company.
+17.0:A bonus package with a fixed number of options, such as a-day-off, is available for employees.
+18.0:The director chooses options from the package to give to all employees.
+          director;choose;option - R
+          director;give;employee - R
+19.0:He or she also can read the information about the distribution of options.
+          he;read;information - R
+20.0:The director can promote an employee to be a  manager.
+          director;promote;employee - U
+21.0:Managers can read and set ordinary employees’ bonuses, but not those of other managers or the director.
+          manager;read;bonus - R
+          manager;set;bonus - C
+          manager;read;those;NEG-those - R
+          manager;set;those;NEG-those - C
+22.0:An employee can appoint another employee to be his advocate, and have read access to his bonus information – for example, this might be useful if he needs help from a trade union.
+          employee;appoint;advocate - C
+          employee;appoint;employee - R
+          advocate;read;bonus information - R
+23.0:Use cases such as record invoice arrival, verify invoice validity, authorize payment and write a check are to be applied in the specified order.
+24.0:Each use case should be executed by an actor playing an authorized role(s) as shown in Figure 1.
+24.0:For example, write a check use case should be invoked by (authorized to) clerk role.
+          clerk role;invoke;check use case - C
+24.0:In addition, the role hierarchy implicitly authorizes a specialized role to inherit permissions.
+24.0:For example, according to Figure 2, supervisor role inherits purchasing officer’s permissions and purchasing officer inherits clerk’s permissions.
+25.0:Supervisor can not  execute the write a check use case.
+          supervisor;case;check;NEG-not - R
+26.0:No user should perform more than one use case on each object.
+26.0:This one type of Dynamic Separation of Duty (DSOD) policy.
+26.0:For example, a user should not record and verify the same invoice.
+          user;record verify;invoice;NEG-not - CR
+26.0:This policy is claimed to prevent fraud and errors.
+27.0:If the invoice’s total amount exceeds one million, then two different supervisors must authorize the invoice.
+          supervisor;authorize;invoice - U
+28.0:A subject cannot belong to more than one role.
+29.0:Every subject in the hierarchy except the business office manager can submit a project.
+          subject;submit;project - C
+          business office manager;submit;project;NEG-business office manager - C
+30.0:Every professor, except assistant professors, can review a project.
+          professor;review;project - R
+          assistant professor;review;project;NEG-assistant professor - R
+31.0:A subject cannot review a project he or she has submitted.
+          subject;review;project;NEG-not - R
+          subject;submit;project - C
+32.0:A professor can review the same project at most one time.
+          professor;review;project - R
+33.0:Only the business office manager and the dean can approve a project.
+          business office manager;approve;project - U
+          dean;approve;project - U
+34.0:A subject cannot approve projects he or she has reviewed or submitted.
+          subject;approve;project;NEG-not - U
+          subject;submit;project - C
+          subject;review;project - U
+35.0:PC members and authors of papers are known to everybody.
+          everybody;know;pc member - R
+          everybody;know;author - R
+35.0:Authors of papers cannot be changed.
+          ;change;author;NEG-not - U
+36.0:The PC chair appoints the PC members.
+          pc chair;appoint;pc member - C
+36.0:A PC member can resign his membership.
+          pc member;resign;membership - U
+37.0:The PC chair can assign a paper to a PC member for reviewing, except if he is one of its authors.
+          pc chair;assign;paper - R
+          pc chair;assign;pc member - C
+          pc chair;assign;author - R
+38.0:All PC members, except the author(s) of a paper can know who are the reviewers for this paper.
+          pc member;know;reviewer - R
+          pc member;know;paper - R
+          author;know;reviewer;NEG-author - R
+39.0:The reviewer of a paper can assign the paper to be sub-reviewed by an agent who is not an author of the paper and has not been assigned the same paper by another reviewer.
+          reviewer;assign;agent - C
+          reviewer;assign;paper - R
+40.0:A reviewer of a paper can resign, unless he has already appointed a sub-reviewer for the paper.
+          reviewer;resign;paper - U
+          reviewer;appoint;sub-reviewer - C
+          reviewer;resign appoint;paper - R
+41.0:Subreviewers are known to all PC members who are not authors of the respective papers.
+          pc member;know;subreviewer - R
+42.0:A sub-reviewer can resign, unless he has already submitted his review.
+          sub-reviewer;submit;review - C
+          sub-reviewer;resign; - U
+43.0:There do not exist members of Student who can Assign ExternalGrades.
+          member;assign;externalgrade;NEG-not - C
+          student;assign;externalgrade;NEG-not - C
+44.0:All members of Faculty can Assign both InternalGrades and ExternalGrades.
+          member;assign;internalgrades - C
+          member;assign;externalgrades - C
+45.0:No combination of roles exists such that a user with those roles can both Receive and Assign the resource ExternalGrades.
+          user;receive assign;resource externalgrade;NEG-no - CRUD
+46.0:Requests for students to Receive ExternalGrades, and for faculty to Assign and View both InternalGrades and ExternalGrades, will succeed.
+          student;receive;externalgrade - R
+          faculty;assign;internalgrades - C
+          faculty;view;internalgrades - C
+          faculty;assign;externalgrades - C
+          faculty;view;externalgrades - C
+47.0:The sole counter-example shows that a student with the freedom to assign external grades is also a ta but not a faculty member.
+          ta;assign;external grade - C
+48.0:TA can view and assign InternalGrades but not ExternalGrades (since faculty must take final responsibility for all external grades), combined with Pol3.
+          ta;view;internalgrade - R
+          ta;view;externalgrade - R
+          ta;assign;internalgrade - C
+          ta;assign;externalgrade - C
+          faculty;take;final responsibility - C
+          faculty;take;external grade - C
+49.0:All members of role Faculty Family can receive External-Grades.
+          member;receive;external-grade - R
+50.0:If the subject is a faculty member, then permit that subject to assign grades.
+          member;assign;grade - 
+51.0:If the subject is a student, then do not permit that subject to assign grades.
+          student;assign;grade;NEG-not - C
+52.0:If the subject is not a faculty member, then permit that subject to enroll in courses.
+          subject;enroll;course - C
+          faculty;enroll;course;NEG-not - C
+53.0:The manager has the broadest access to the information, including access to personal, financial, clinical and medical information about each resident.
+          manager;access;information - R
+          manager;access;resident - R
+          manager;access;information - R
+          manager;access;financial - R
+          manager;access;clinical - R
+          manager;access;medical - R
+54.0:This does not mean, however, that she has unrestricted access.
+          she;have;unrestricted access;NEG-not - CRUD
+55.0:Although she can enter the past medical records when a resident is admitted, she cannot subsequently add medical entries to the system.
+          she;enter;medical record - C
+          she;add;medical entry;NEG-not - C
+56.0:In the current paper-based system, this is prevented by requiring that any new entry be signed by the doctor making that entry.
+57.0:Also, she cannot view the private notes of doctors and clearly she cannot sign the legal agreement on behalf of a resident.
+          she;view;private note;NEG-not - R
+58.0:Only the manager is allowed to add a new resident to the system and to start or update the care plan of a resident.
+          manager;allow add;resident - 
+          manager;start;care plan - 
+          manager;update;care plan - 
+59.0:The care plan is updated in consultation with the resident or the responsible person.
+          resident;update;care plan - U
+          responsible person;update;care plan - U
+60.0:Only the manager is allowed to delete the information about a resident but here also that right is restricted.
+          manager;delete;information - D
+61.0:Privacy laws require that the information be held for a certain period after a resident leaves the facility.
+62.0:This period is seven years for someone who is not of Aboriginal or Torres Strait Islander descent and nine years for someone who is.
+63.0:The health care workers are required to sign a confidentiality agreement before they have access to any resident data.
+          health care worker;sign;confidentiality agreement - C
+          health care worker;have access;resident datum - R
+64.0:Their main form of access is to view the care plan for each resident and to add progress note entries based on their observations.
+          ;view;resident - R
+          ;view;each - R
+          ;to;on - C
+65.0:Access to emergency details is available for all staff.
+          staff;available;emergency detail - R
+66.0:Health care workers can view recent medical records of residents (up to one year old) but cannot normally view older medical information.
+          health;view;care worker - R
+          health;view;medical record - R
+67.0:For a special purpose, access to an older medical record can be sought and obtained from the manager.
+          manager;obtain;access - C
+68.0:Because of the physical access control in the current paper system, the manager has an overview of who has accessed what information.
+69.0:In an electronic system this overview must be supplied by some form of logging of accesses and access attempts.
+70.0:Clearly, the manager does not wish to be informed about every access but some logging is still necessary.
+71.0:So, for example, the manager should be made aware of repeated attempts by a health care worker to access information beyond their rights.
+          worker;make aware;manager - C
+72.0:A visiting doctor has access to all the medical information of residents who are his or her patients and can add entries to their medical records.
+          doctor;add;entry - C
+          doctor;add;medical record - R
+          doctor;have;medical information - R
+73.0:Doctors also can add private notes about a resident, which, on the basis of doctor-patient confidentiality, are not visible to health care staff or the manager.
+          doctor;add;private note - C
+          doctor;add;resident - R
+          health care staff;visible;private note;NEG-not - R
+          manager;visible;private note;NEG-not - R
+74.0:Doctors need not sign a confidentiality agreement since they are bound by a code of professional conduct.
+75.0:Occasionally, due to pressing circumstances, it may be necessary for a visiting doctor to examine a resident who is not normally his or her patient.
+          doctor;examine;resident - R
+76.0:This is permitted with the consent of the resident or the responsible person and the notification of the manager.
+          resident;consent;this - C
+          responsible person;consent;this - C
+77.0:The doctor then has temporary access to the resident’s medical records (but not to the private notes of the resident’s usual doctor).
+          doctor;have;medical record - R
+          doctor;have;private note;NEG-not - R
+78.0:The principals involved in an information system are usually thought of as staff members of a certain organisation.
+79.0:Privacy laws require, however, that a person should have full access to any information stored about them (unless the well-being of a third party would be jeopardised by revealing the information).
+          person;have;information - R
+80.0:In our case study this means that the residents themselves must also be regarded as principals for whom we define access rights.
+81.0:In the current paper system, all the information stored about a resident is accessible to the resident by arrangement with the manager.
+82.0:The need to make this arrangement is only to allow the manager and resident to set a time that is convenient to both of them.
+83.0:In an electronic system we can allow residents to hook into the network at any time as long as they can view only their own data and cannot make arbitrary changes.
+          resident;view;datum - R
+          resident;make;arbitrary change;NEG-not - CUD
+84.0:This includes the right to view even the private notes entered by a doctor.
+          doctor;enter;private note - C
+          ;view;private note - R
+85.0:Loading medicines to medicine dispenser, creating medicine order and picking medicines from the medicine dispenser are operations forming a critical task.
+86.0:This critical task should not be performed by a single user.
+          user;perform;critical task;NEG-not - C
+87.0:A user should already grant diagnosing right to create medicine orders.
+          user;create;medicine order - C
+88.0:Only one user, here is the Pharmacy System, can load medicines to the medicine dispenser.
+          user;load;medicine - R
+          user;load;medicine dispenser - C
+89.0:Pharmacy System may get reports and status information of the medicine dispenser.
+          pharmacy system;get;report - R
+          pharmacy system;get;status information - R
+          pharmacy system;get;medicine dispenser - R
+90.0:However, it should not perform these operations when it is loading medicines to the medicine dispenser.
+          it;perform;operation;NEG-not - R
+91.0:Pharmacy System can load medicines to the dispenser only at a time interval 12:00-13:00 in a day.
+          pharmacy system;load;medicine - R
+          pharmacy system;load;dispenser - C
+92.0:Only Doctors and Nurses can read patient records.
+          doctor;read;patient record - R
+          nurse;read;patient record - R
+93.0:Pharmacy System should not read patient records even if it can read patient medicine orders.
+          pharmacy system;read;patient record;NEG-not - R
+          it;read;patient medicine order - R
+94.0:Any subject with an e-mail name in the med.example.com domain can perform any action on any resource.
+          subject;perform;resource - CRUDE
+          subject;perform;action - CRUDE
+95.0:A person, identified by his or her patient number, may read any record for which he or she is the designated patient.
+          patient;read;record - R
+96.0:A person may read any record for which he or she is the designated parent or guardian, and for which the patient is under 16 years of age.
+          parent;read;record - R
+          guardian;read;record - R
+97.0:A physician may write to any medical element for which he or she is the designated primary care physician, provided an email is sent to the patient.
+          physician;write;medical element - CU
+          physician;send;patient - C
+98.0:An administrator shall not be permitted to read or write to medical elements of a patient record.
+          administrator;read;medical element;NEG-not - R
+          administrator;write;medical element;NEG-not - CUD
+99.0:Administrators can access only the administrative pages
+          administrators;access;administrative page - R
+100.0:Guests can access all the public areas of the site
+          guest;access;public area - R
+          guest;access;site - R
+101.0:Owners can access their account, move funds, and review transactions.
+          owner;access;account - R
+          owner;move;fund - U
+          owner;review;transaction - R
+102.0:Users can view an Owner's account, but not make changes
+          user;view;account - R
+          user;make;account;NEG-make - CUD
+103.0:Planners can access the sites financial planning and tax preparation functions
+          planner;access;planning - R
+          planner;access;function - R
+104.0:Payers can use the site's bill paying function .
+          payer;use;bill function - 
+105.0:Data Owners can transfer ownership of information to other users.
+          datum owner;transfer;ownership - C
+          datum owner;transfer;user - R
+106.0:Data Owners can determine the type of access given to other users (read, write, copy, etc.).
+          datum owner;determine;type - CRUD
+          datum owner;determine;user - R
+107.0:Repetitive authorization failures to access the same resource or object generates an alarm possibly and possibly restricts the user's access
+108.0:Special add-on or plug-in software required to apply to an HTTP client to prevent indiscriminant copying by users ("cutting and pasting" of information)
+109.0:Users who do not have access to information should not be able to determine its characteristics (file size, file name, directory path, etc.)
+          user;determine;characteristic;NEG-not - R
+110.0:Access to information is determined based on authorizations to access control lists based on user identifier and group membership.
+111.0:Only administrators, not data owners, make changes to a resource's security label.
+          administrator;make change;security label - U
+          datum owner;make change;security label;NEG-not - U
+112.0:All data is assigned security level that reflects its relative sensitivity, confidentiality, and protection value.
+113.0:All users can read from a lower classification than the one they are granted (A "secret" user can read an unclassified document).
+          user;read;classification - 
+114.0:All users can write to a higher classification (A "secret" user can post information to a Top Secret resource).
+          user;write;classification - C
+115.0:All users are given read or write access to objects only of the same classification (a "secret" user can only read or write to a secret document).
+          user;give write;object - C
+          user;give read;object - R
+116.0:Access is authorized or restricted to objects based on the time of day depending on the labeling on the resource and the user's credentials (driven by policy).
+117.0:Access is authorized or restricted to objects based on the security characteristics of the HTTP client (e.g. SSL bit length, version information, originating IP address or domain, etc.)
+118.0:Staff can print on HP Laserjet 1.
+          staff;print;hp laserjet - C
+119.0:David can assign the manager role to Alice.
+          david;assign;manager role - C
+          david;assign;alice - R
+120.0:John can assign clerk to users from department A
+          john;assign;clerk - C
+          john;assign;user - R
+121.0:Clerk can read from database.
+          clerk;read;database - R
+122.0:Owners can read Name.
+          owner;read;name - R
+123.0:Clerks can add and change the Name, the date of birth, the Address and the Postcode.
+          clerk;add;name - C
+          clerk;add;date - C
+          clerk;add;address - C
+          clerk;add;postcode - C
+124.0:Owners cannot change any data but can read it all.
+          owner;change;datum;NEG-not - U
+          owner;read;all - R
+125.0:There do not exist members of STUDENT who can ASSIGN EXTERNALGRADES.
+          student;assign;externalgrade;NEG-not - C
+          member;assign;externalgrade;NEG-not - C
+126.0:All members of FACULTY can ASSIGN both INTERNALGRADES and EXTERNALGRADES.
+          member;assign;internalgrade - 
+          member;assign;externalgrade - 
+127.0:There exists no combination of roles such that a user with those roles can both RECEIVE and ASSIGN the resource EXTERNALGRADES.
+          such;can assign;resource externalgrade;NEG-combination - R
+128.0:All members of STUDENT can RECEIVE EXTERNALGRADES.
+          member;receive;externalgrade - R
+129.0:If a subject is not a pc-chair or admin, then he or she may not set the meeting flag.
+          he;set;meeting flag;NEG-not - U
+          she;set;meeting flag;NEG-not - U
+130.0:If someone is not a pc-chair or admin, then he or she can never see paper-review-rc for which he or she is conflicted.
+          he;see conflict;paper-review-rc;NEG-never - R
+          she;see conflict;paper-review-rc;NEG-never - R
+131.0:During the submission phase, an author may submit a paper.
+          author;submit;paper - C
+132.0:During the review phase, reviewer may submit a review for paper if reviewer is assigned to review paper.
+          reviewer;submit;review - C
+          reviewer;assign;paper - R
+133.0:During the meeting phase, reviewer can read the scores for paper if reviewer has submitted a review for paper.
+          reviewer;read submit;review - R
+          reviewer;read;score - R
+134.0:Authors may never read scores.
+          author;read;score;NEG-never - R

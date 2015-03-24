@@ -1,0 +1,860 @@
+﻿OCS in an Hour
+An Introduction to Open Conference Systems Version 2.1
+Last Updated: September 2, 2008  
+
+Open Conference Systems is a research and development initiative of the PublicKnowledge Project at the University of British Columbia. Its continuing development is currently overseen by a partnership among UBC's PublicKnowledge Project, the Canadian Center for Studies in Publishing, and the Simon Fraser University Library. 
+For more information, see the Public Knowledge Project web site: http://pkp.sfu.ca 
+This work is licensed under the Creative Commons Attribution-Share Alike 2.5 Canada License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/2.5/ca/ or send a letter to Creative Commons, 559 Nathan Abbott Way, Stanford, California 94305, USA. 
+
+
+Overview
+Open Conference Systems (OCS) is an open source solution to managing and publishing scholarly conferences online. OCS is a highly flexible management and publishing system that can be downloaded for free and installed on a localWeb server. 
+It has been designed to reduce the time and energy devoted to the clerical and managerial tasks associated with managing a conference, while improving the record-keeping and efficiency of editorial processes. It seeks to improve the scholarly and public quality of conference publishing through a number of innovations, from making policies more transparent to improving indexing. 
+
+OCS Features 
+Open Conference Systems is a free Web publishing tool that will create acomplete Web presence for your scholarly conference. OCS will allow you to: 
+1. Create a conference Web site 
+2. Manage conferences that occur more than once (e.g., yearly) 
+3. Compose and send a call for papers
+4. Electronically accept paper and abstract submissions
+5. Allow paper submitters to edit their work
+6. Conduct peer reviews
+7. Post conference proceedings and papers in a searchable format
+8. Schedule a Conference 
+9. Post, if you wish, the original data sets
+10. Register participants, including accepting payments
+11. Integrate post-conference online discussions
+12. Utilize an e-mail template system
+13. Support multiple languages with localization files
+14. Take advantage of more customizable, scalable and secure code 
+
+A Quick Look 
+The following image is a screenshot of an OCS Conference Home Page: 
+
+
+OCS Workflow Chart 
+COPY IN TEXT FROM PAGE 8
+
+OCS Workflow Chart
+
+Conference Managers
+Set Up Website
+Once OCS is downloaded and installed on a local web server, conference manager sets up website and creates the
+first scheduled instance of the conference.
+
+Schedule a Conference
+Assign directors; setup tracks and timeline, as well as submission types and review policies, guidelines, etc.
+
+Manage Registration
+With variable fee structure and timing (early bird) for individuals, memberships, etc.
+
+Enable Presentations
+With online indexing (Google Scholar) commenting options, reading tools, access policies for attendees/public.
+
+Hold Conference
+Export registrant list and link in third-party blogs
+
+Conference 
+Archive Conference 
+Content available, with access and commenting options; OCS can be used to publish refereed proceedings 
+
+Conference Directors
+
+Organize Conference
+Decide on scope, tracks, timeline, and policies; recruit track directors, reviewers, etc.
+
+Prepare Call for Papers
+Invite submissions for conference’s various tracks
+
+Select Reviewers
+Invite reviewers from database to review submissions
+
+Adjudicate Submissions
+Consult reviews, notify authors, schedule sessions; with options for inviting papers, further review, etc.
+
+Hold Conference
+Pod-casts and web-casts can be added to presentations
+
+Authors, Reviewers, Participants
+Authors
+Logs into website to upload abstract and/or file for review.
+
+Reviewers
+Receives one-step log-in for conducting review on the site.
+
+Conference Attendees
+Can use credit card, PayPal, or invoice to cover registration.
+
+Authors
+Can submit full papers, slides, data sets, etc. after initial acceptance.
+
+Attendees and Public
+Depending on access policies, can comment and blog, in addition to on-site activities.
+
+Readers
+Depending on access policies, can search and view content.
+
+System Requirements  
+A server environment meeting the following requirements is recommended: 
+• PHP >= 4.2.x (including PHP 5.x); Microsoft IIS requires PHP 5.x 
+• MySQL >= 3.23.23 (including MySQL 4.x) or PostgreSQL >= 7.1 (includingPostgreSQL 8.x) 
+• Apache >= 1.3.2x or >= 2.0.4x or Microsoft IIS 6 
+• Operating system: Any OS that supports the above software, includingLinux, BSD, Solaris, Mac OS X, Windows 
+
+As PKP does not have the resources to test every possible combination of software versions and platforms, no guarantee of correct operation or support is implied. We welcome feedback from users who have deployed OCS on systems other than those listed above. 
+
+Help Documentation 
+Open Conference Systems has a help document that is contextually embedded within OCS, with the relevant pages coming up depending on where the user is when requesting Conference Help. 
+The Help document can be viewed athttp://pkp.sfu.ca/ocs/demo/present/index.php/index/help/. 
+Further documentation can also be found at http://pkp.sfu.ca/ocs_documentation. 
+
+Community Contributions 
+The OCS team encourages contributions from the developer community. If you are interested in getting involved in making OCS even better, we welcome your participation. 
+
+Test-Drive OCS.2.1 
+A demonstration conference utilizing OCS 2.1 will be set up online athttp://pkp.sfu.ca/ocs/demo. 
+In addition, potential users of OCS may take the software out for a test-drive – as a Conference Director, a Track Director, or a Reviewer – at a second demonstration site that will be set up for this purpose athttp://pkp.sfu.ca/ocs2/demo/testdrive/. 
+Log in using admin as the username and testdrive as the password, and select one of the available roles in the management process, and explore how it operates. 
+Also feel free to submit a test manuscript to see what authors experience, or assign submissions to reviewers, and come in as a reviewer. 
+Please note that any changes made to the Test-Drive Conference will be cleared every Monday (8:00 GMT). 
+
+Roles. 
+OCS 2.1 is based largely on the pre-existing code used for Open Journal Systems 
+2.x. As a result, you will notice many features from OJS, including the use of roles, and the ability to support multiple conferences, and multiple years for each conference, from a single installation. For those having used our OJS software,the concept of Roles will be very familiar. For those new to our software, it is important to remember that any one person may fulfill multiple roles, for different conferences. 
+• Site Administrator: Oversees the entire installation, and sets up any new conference sites hosted on the installation. 
+• Conference Manager: Oversees a conference site on the installation (e.g., the Important Music Association Conference site or the Important BiologyAssociation Conference site), including all of the user accounts for that site. The CM configures the conference site and sets up any of the individual conference sites (e.g., Important Music Conference 2006, Important Music Conference 2007). 
+• Director: Manages the proposal submission, editing, and publication process for one of the conferences (e.g., Important Music Conference 2007). The Director also sets the conference timeline (starting dates, ending dates, etc.). 
+• Registration Manager: Responsible for the conference registrations. 
+• Track Director: Responsible for managing the presentation submissions for their track (or stream, category, etc.), seeing them through the review and editing process, and accepting or rejecting them for their conference. 
+• Reviewer: Provides peer-review of the submissions for the conference. They will recommend for or against the inclusion of the submission to the conference. 
+• Author: Submits their proposals to the conference, and participate in the review and editing process. 
+• Reader: Users that can register to read the proceedings. Some conferences do not require registration to read the proceedings, however. 
+
+Site Administrator
+Once OCS is installed, the Site Administrator can generate as many conference sites as required from the single installation, and oversee the administration of each conference site that is created. 
+OCS is designed to allow you to host a single, one-time conference, or to be a complete multiple conference management system, allowing you to run several conferences from the single installation, each of which may occur repeatedly over several years. For example, the University of Important Ideas might use OCS to host the conference sites for the Important Biology Association conferences (2004,2005, 2006, 2007), the Important Historical Association conferences (2005, 2006),and the Important Music conferences (2007, 2008). 
+In all, they have one central OCS conference site, supporting 3 conferences, each of which has one or more occurrences. It is important to keep this larger view of conference management in mind, because if the system is seen only from the perspective of a single, one-time conference, many of the features may seem overly complex or confusing. 
+
+Getting Started 
+Log in to your OCS account and select your role as ‘Site Administrator’. 
+
+Figure 3: Selecting your role as Site Administrator 
+This will take you to the menu options for the Site Administrator. 
+
+
+Site Management
+The Site Administrator’s Site Management menu provides a set of links to begin the initial configuration of the conference site. 
+
+Figure 4: Site Management 
+
+Site Settings
+This section will allow you to add information regarding your overall OCS installation, not individual conferences. This includes the name of your site, an introductory statement about your site, a redirect option, a description of your site, contact information, a minimum password length for registered users, and indexing registration. You will have the opportunity to provide details about your individual conference(s) at a later stage. 
+The redirect option is useful if you will only have a single hosted conference, and would like to direct users directly to that conference, rather than to the main site page. Once your hosted conference is set up (see later in this manual), it will appear in the redirect field as a dropdown option to select. If your site will host multiple conferences, or if you wish to have users first come to the site page, leave the redirect field as it is. At this point, you may wish to simply ignore this option and return to it once your conference or conferences are set up. 
+
+
+Figure 5: Site Settings 
+Once you have made your changes, use the Save button to update the system. You will then be presented with a link to return you to the Site Administrator menu. 
+
+Hosted.Conferences. 
+To create a hosted conference, click the Hosted Conferences link. On the resulting page, select Create Conference. Fill in the fields as appropriate (be sure to check “Enable this conference to appear publicly on the site”). The ‘path’ should be a single word or abbreviation that will be unique for this conference. It will also be part of your conference’s URL, so choose carefully. In the figure below, we have added the conference title “PKP Scholarly Publishing Conference” and the abbreviation “spc” for the path. We did not specify a year, however, because we may want to hold the event annually. Each year’s conference event would be created by the Conference Manager, under Scheduled Conferences (later in this manual). 
+
+
+Figure 6: Conference Settings 
+It is also possible for this single OCS installation to host more than one conference series. For example, in the figure above, the Public Knowledge Project has created a Scholarly Publishing Conference (which may run every year), butthe PKP may also wish to run a conference (or annual set of conferences) on OAI Harvesting technologies. This new conference would also be created by the Site Administrator here. 
+
+Figure 7: Conferences 
+Using the Order arrows, the Site Administrator can adjust the order in which thedifferent conferences appear on the website: 
+
+
+Figure 8: Conference Listings 
+
+Languages. 
+OCS is designed to be a multilingual system, allowing conferences supporting a wide variety of languages to be hosted under a single site. The Site Administrator can specify the default language of the site and install additional locales as they become available. 
+The next step in administering your OCS site is to select the languages to be used. English is enabled by default. Select the default language for your conference from the drop down menu. You can also check other languages, to provide a multilingual interface for your conference. 
+
+Figure 9: Languages 
+
+If additional languages are not showing under “Supported Locales”, scroll down the page to the Manage Locales section. From here, you can check each additional language you would like for your conference, and then click “Install”. Then you can scroll back up the page and check the languages for your conference. 
+
+For further information on installing and supporting other languages, see the document titled Translating OJS and OCS, available in HTML at http://pkp.sfu.ca/files/docs/translating/index.html and in PDF at http://pkp.sfu.ca/files/docs/translating/translating.pdf. 
+
+Authentication.Sources. 
+By default, the OCS user database is used for authentication. Currently, this isthe only authentication source available, however, alternative methods, such as LDAP, may be developed. 
+
+System Information  
+Under Administrative Functions, you will find a variety of options to administer your conference site. Selecting System Information provides information on the version of OCS you are running, the availability of any software updates, the ability to edit your OCS configuration file, and a range of other server settings at a glance. 
+
+
+Expire User Sessions 
+This clears all active user sessions in the system, requiring any user that is currently logged in to sign in to the system again. 
+
+
+Clear Data Caches
+Clears all cached data. This function may be useful to force data to be reloaded after customizations have been made. 
+
+Clear Template Cache 
+Clears all cached versions of HTML templates. This function may be useful to force templates to be reloaded after customizations have been made. 
+
+
+Conference Manager
+The next step in setting up your conference site is to log in as the Conference Manager. If you are also the Site Administrator, this role will have been automatically created for you. If not, contact the Site Administrator for your username and password. 
+
+Once logged in, you will see a variety of menu options: 
+
+Website Management
+Following the steps outlined, start with Website Management. This will take you through the six steps to set up the web site for your conference. 
+
+Step 1: About the Conference. 
+This section consists of a series of steps to describe your conference site. 
+1.1 Title. 
+Enter the title of your conference website here. 
+
+1.2 Conference.Description. 
+Sections 1.1 and 1.2 should be automatically filled in by information provided by the Site Administrator when they set up the Hosted Conference (see previous section). 
+
+1.3 Principal.Contact.for.Conference.Website. 
+Use this section to add the details for contacting the conference organizer. 
+
+1.4 Copyright.Notice. 
+A sample copyright notice is provided by default, but you can make any required changes here. 
+
+You can also elect to require authors to agree to the copyright notice as part of the submission process, and whether or not to post the Creative Commons license logo on your website. 
+
+
+1.5 Archive Access Policy  
+This option allows you to decide whether or not to require user registration for accessing the abstracts and presentations. 
+You may also decide whether to allow for reader comments on the presentations. 
+
+
+1.6 Privacy Statement
+A default privacy statement is included here, but you may modify this as appropriate. 
+
+
+1.7 Add Item to Appear in "About the Conference". 
+If you need to include any additional information about your conference, use this section to create a new entry on the About page. It is possible to add multiple entries using the “Add About Item” button. 
+
+Step 2: Additional Website Content. 
+2.1 Scheduled Conference Redirect. 
+This will redirect the requests to the conference website to the scheduled conference. Typically this setting is used when the conference holds a single scheduled conference. 
+
+2.2 Homepage. 
+Each conference hosted on your website can have a unique homepage image, to provide additional visual interest or convey extra information. Use this section to upload an image of your choice, and additional text, if desired. 
+
+2.3 Information for Users  
+By default, information for your Readers and Authors has been included in the system. This information appears in the "Information" section of the sidebar. Use this section to make any necessary modifications. 
+
+2.4 Announcements
+You can also add Announcements to your conference homepage, to help keep your audience up to date on conference developments. Use this section to activate Announcements, and to decide how many to display by default. 
+
+2.5 Access to Conference Presentations  
+Next, use this section to determine the access to your online presentations. You can choose between allowing access to the presentations to anyone, requiring an account with your conference website to view the presentations, or to limit access to the presentations to registered conference participants. 
+
+
+Step 3: Website Headers, Footers, Lists and  Navigation Bar  
+3.1 Conference Homepage Header  
+Use this section to add a conference homepage header to your site, either as text-based title or as an image. You can also include a logo, if appropriate. 
+
+3.2 Website Header
+In addition to adding a header to your conference homepage, you can also add a header that will appear throughout your conference site. You can add the text or upload the image and/or logo here. 
+
+3.3 Website Footer.
+Next, you can use this section to also include a footer throughout your website. 
+
+3.4 Navigation Bar. 
+Use this section to add a new link to the top navigation bar.  You can specify the link name in the first text field, and the URL in the following field. You can use a path relative to your OCS install, or point to a website elsewhere. You can also add more than one additional link to your navigation bar. 
+
+
+3.5.Lists. 
+Use this section to control the number of items that appear on a page, such asusers or submissions. The default figure is 25. If more than 25 items appear, a second page of items would automatically be created, with the appropriate links to navigate between the pages. This section also allows you to determine the number of page links to display on each page. The default is 10. 
+
+A good example of this would be your list of users. If, for example, a conference had 256 users, the above options would create 11 pages of users, with 25 users listed on each page. You would navigate through those pages with linked numbers (1, 2, 3…). The settings above would also result in 10 pages links, and a More link ( > ) to take you to the 11th page. If you reduced the Page Links number above to 5, you would only see 5 page links, and require you to use the More link to see the 6th, 7th, and higher pages: 
+
+
+
+Step 4: Conference Style
+Use this section to choose a packaged theme or upload a customized stylesheet for your conference, changing, for example, the background colour or font face.A list of alternative themes is available on the PKP web site, and themes can be used in conjunction with a custom stylesheet. Additionally, the interface can be customized to be presented differently by selecting and moving blocks of information. 
+
+
+
+Step 5: Logging and Auditing 
+OCS allows you to maintain a record of actions and materials for your conference. You can activate these in this section. 
+
+
+Step 6: Conference Indexing 
+This section will help better index your conference website, and help people  better find your information. 
+6.1.Search.Engine.Indexing. 
+First, by adding a description, some keywords, and any useful HTML tags (e.g.,META tags), you will enhance the visibility of your site in search engines. 
+
+
+6.2 Register Conference for Indexing (Metadata, Harvesting)		 
+Next, you have the option of registering your site with the PKP MetadataHarvester, an online database of scholarly content from a variety of international sources. This section will also assist you in adding your conference papers and presentations to other harvesting tools or OAI archives. This can be an important way to easily archive your conference’s papers and presentations, especially if you do not plan to maintain the conference website once the event is completed. 
+
+Your conference site has now been set up; it may entail a single scheduled conference, an annual conference, or a series of scheduled conferences, all of which can be managed from this conference site. 
+In order to schedule a specific instance of this conference, you will need to go toScheduled Conferences, using the link provided on the page, or by returning to the Conference Manager homepage. 
+
+
+Scheduled Conferences 
+From the menu of General Management options, choose Scheduled Conferences. On the resulting page, choose “Create a Scheduled Conference”. 
+
+You will then need to fill in some additional details about the scheduled conference. In the example below, we have added the year to the title, to differentiate it from later annual conferences that will be held. 
+
+This sets up your individual conference events (whether it is a single conference or a series of conferences to run each year). You can return to this page at anytime to modify the details provided about this conference, or to add an additional event. 
+Return to the Conference Site Management page. You should now see your scheduled conference listed. 
+
+
+
+Setup
+From the conference menu, choose Setup. This will take you through the three steps: Details, Submissions, and Review. 
+
+Step 1: Details 
+This first step will allow you to describe the scheduled conference. 
+
+1.1 Scheduled Conference Description. 
+Use this section to provide a brief description and conference overview, which will appear on the website. 
+
+
+1.2 Scheduled Conference Location. 
+This section allows you to provide information on the location of the scheduled conference. 
+
+
+1.3 Principal Contact for Scheduled Conference. 
+Add details for the principal contact for the scheduled conference. This may or may not be the same as for the overall conference series. 
+
+1.4 Technical Support Contact
+You may also want to specify a different person as the technical support contact, to deal with any website issues. 
+
+
+1.5 Email Identification 
+You can add a customized email signature to all of the email messages sent out from the system. A default signature is created for you, but you can make any necessary changes here. 
+
+In addition, with the assistance of the Site Administrator, you can specify a“bounce address”, where a notification of any undeliverable email messages willbe sent. This can be useful if you plan to send out email messages to a large group of users, some of whom may have incorrectly entered their email information or changed their email address. 
+
+
+1.6 Sponsoring Organizations
+Use this section to add information about your sponsors, which will appear on your website. Notice the “Add Sponsoring Organization” button, which allows you to create as many entries as you will need. 
+
+1.7 Sources of Support. 
+In addition, you can also specify any sources of support, which will also appear on your website. 
+
+As with the Sponsoring Organizations above, you can add as many contributors as necessary, using the “Add Contributor” button. 
+
+Step 2: Submissions
+This section will allow you to determine how submissions can be made to your conference. 
+2.1 Submission Process 
+You can set your conference to allow authors to submit abstracts (short descriptions of the proposed presentation) and/or longer proposals (e.g., papers,PowerPoint slides, etc.) for a scheduled conference. The submissions can be for a single presentation (with one or more authors) and/or for a multiple presentation session, submitted by the session organizer. In addition, authors can include supplementary files (e.g., data sets, source materials, related paper) with their abstracts and/or presentations. 
+
+You can also choose to have a copy of the acknowledgement email sent to submitters also sent to the conference primary contact or an alternate email address of your choice. This can be very useful for keeping track of new submissions without having to login to the website. 
+
+2.2.Call.for.Papers.(CFP). 
+Use this section to create a Call for Papers message for your website. 
+
+2.3.Author.Guidelines. 
+This section allows you to set some guidelines for your authors to follow whensubmitting their proposals. You can add information in the text box. 
+
+In addition, a set of submission checklist items has been automatically generated, which the author will need to agree to as part of their submission. You can modify these items, re-order them, delete them, or add new ones. 
+
+2.4.Submission.Indexing.. 
+In OCS, authors can index their own submissions. This section allows you to provide some guidance in terms of keywords and classification systems. 
+
+2.5.Identification.of.Conference.Content. 
+You can also choose to use an identification system, such as DOIs, to uniquely identify the conference presentations. 
+
+
+Step 3: Review 
+This section will allow you to define the review process for your conference. 
+
+3.1 Review Policy  
+Use this section to outline the conference's review policy and processes for readers and authors, including the number of reviewers typically used in reviewing a submission, the criteria by which reviewers are asked to judge submissions, typical time taken to conduct the reviews, and the principles for recruiting reviewers. This will appear in About the Conference. 
+
+
+3.2 Peer Review 
+This section allows you to configure several aspects of your conference’s peer review system, including additional instructions, email reminders, and the option for “one-click” review access, where reviewers do not need to login to the system to conduct their review. This option allows you to send Reviewers an email message that contains a link which will take them directly into OCS, without the need to enter a username or password. This is desirable when potential reviewers may be hesitant to create an account by themselves. 
+
+
+3.3 Director Decision
+This section allows you to decide if the notification email goes to all co-authors or to the submitter only. Save your changes and return to the Conference SiteManagement page. You will now want to set the Conference Timeline. 
+
+Conference Timeline. 
+The Conference Timeline is a critical step in setting up your scheduled conference. It will activate and deactivate different aspects of your site based on the dates you select here. 
+
+
+Use the Save button to record your changes and return to the Conference Site Management page. 
+
+Conference Tracks 
+From the scheduled conference menu, choose Conference Tracks. 
+
+From the Conference Tracks page, create all of the tracks required for your conference. 
+
+At this point, you may not have anyone enrolled as a Track Director and available for assigning to your new track. Once you have enrolled one or more Track Directors (see the section on enrolling users) however, you can return to this section to assign them to their appropriate tracks. Save your changes and return to the Conference Site Management page. 
+
+Organizing Team
+From the Conference Menu, choose Organizing Team. 
+
+
+The Organizing Team members will appear on your conference’s About page.This section gives you the option of having a list of people automatically generated by the system, based on their roles in OCS. 
+You can also choose to specify your own list of people and titles, if the automatic feature is not appropriate. To do this, change the default radio button, and then press the Record button. 
+To create the members of your customized Organizing Team, select Create Organizing Team Title. This will take you to a page where you can create a new team title. 
+
+Once you have saved this new entry, you can add individuals to it by selecting the Membership link. 
+
+Use this section to add members from your list of existing users. You may need to return to this section after you have created the appropriate user accounts. 
+
+Program. 
+From the Conference Menu, choose Program. Use this section to add your program text, or upload a text file. 
+
+Import/Export.Data. 
+Currently, there are two import/export plugins: User XML Plugin can be used toimport and export users; NLM XML Export Plugin can be used to export conference data in the NLM Meeting Abstracts XML format for indexing. More importing and exporting options will be developed for future versions of OCS. 
+
+
+Stats&Reports. 
+From the Conference Menu, choose Stats & Reports. This section provides information on usage statistics and reports on your conference. 
+Select the tracks you wish to include in your peer-review statistics and Record the changes. 
+
+Next, you can decide which statistics to make publicly available on your site by checking off your choices, and pressing the Record button. 
+
+You can also choose from a variety of reports, which are generated in .csv format. 
+
+Registration. 
+From the Conference Management menu, select Registration. Once your conference is publicly available and open for registration, you will see your list of registrants appear here. 
+
+
+Registration Types. 
+On the Registration page, choose Registration Types. This will take you to theRegistration Types page, where you can select Create New Registration Type, to add new types (e.g., Students, Regular) to your scheduled conference. 
+
+Notice that you can also set the dates for when the registration type is open and closed (useful for early registration options), as well the access options, such as for online only access to the presentations and papers, or physical access to the conference itself (or both). A variety of authentication options can also be made Available to limit access to registered users, if so desired. 
+
+Registration Policies
+Next, under Registration Policies, you can add a Registration Manager. 
+
+Registration Information. 
+Additional registration information can also be added further down the page. 
+
+Registration Expiry Reminders. 
+Automated email reminders are available in the Registration Policies section.You can configure the text of the messages in the Prepared Email section (seelater in this manual). You will need to work with the Site Administrator to activate these options. 
+
+Open Access Options for Registration Conferences 
+Use this section to provide "delayed open access" and/or "author self-archiving" (which increase readership and citation of content). The text for the selected policies will appear in About the Conference. 
+
+Scheduler. 
+The Conference Manager can use Scheduler to make arrangements of times and locations regarding conference presentations and any other events. 
+
+You can also create a special event with Scheduler, indicating time and locationfor that event. (Special events don’t need to be scheduled against an already-created room, which is handy if you have an off-site event – a banquet, for example.) 
+
+
+Payment Methods 
+From the Conference Management menu, choose Payment Methods. This will allow you to determine how registrants will pay to attend your conference.Currently, OCS supports Manual Payment and Paypal Payments. 
+
+Manual Payment
+With Manual Payment, payments must be submitted outside of OCS (e.g.,cheques, money orders, credit card information submitted by mail, telephone,etc.) and requires the Conference Manager to validate before the registration is active. 
+The contents of the Registration Information field in Registration Policy Management (see above) will be shown to the registrants and should provide information on how to proceed with a manual registration submission. 
+
+PayPal Payment.
+With this option, registrants can use all major credit cards, as well as eChecks. This option does NOT require PayPal membership from the registrants, but DOES require conference organizers to set up a PayPal Business Account(http://www.paypal.com). 
+
+
+Once the PayPal Business Account has been activated, you will receive your IPNURL and Seller Account information to add to this section. 
+
+
+Accommodation. 
+Hotel reservations, airport and transportation information, driving directions,tour guides, etc., can be provided here. 
+
+Roles. 
+From the Conference Management menu, choose Roles. This will take you to a list of all of your users and the roles they fulfill. 
+
+If the only account you see is your own (see figure above), you will need to create some new users and enroll them in various tasks. Users do have the option to create their own accounts (using the Account link at the top of the conference page), and you could ask them to do so. If you wish to begin creating new accounts immediately however (to begin assigning roles such as Track Directors),you can proceed by selecting the Create New User link. 
+
+Enroll a User from this Site in this  Conference  
+Once you do have some user accounts in your conference site, you can also enroll them into additional roles, using the Enroll a User from this Site in this Conference link. 
+
+Create New User 
+As the Conference Manager, you can create new users and assign them to any role you wish. 
+
+Be sure to use the Save button to record your changes. 
+
+Synchronize Enrollment. 
+You may also enroll all users enrolled in the specified role in the specified conference into the same role in this conference. 
+
+Email Users 
+Returning to your list of user accounts, you can also take advantage of the EmailUsers option to send a message to selected people associated with your conference. First, select the user. Next, press the Send Email button. This will result in an email composition screen, in which you can add your message andsend the email. 
+
+
+Log In As a User
+Another useful feature of OCS is the ability of the Site Administrator totemporarily log in as another user, to complete a required task or to provide some assistance. To do this, return to the list of users, and use the Log In As link next to the appropriate account. 
+
+Announcements. 
+OCS allows you post announcements to your conference website. To set this up, return to the Conference Site Management page. Scroll up to the GeneralManagement menu items and choose Announcements. First, create a newAnnouncement Type, such as General. 
+
+Next, you can create and post an announcement using Create NewAnnouncement. 
+
+This announcement will now be visible on the conference website, and remain there until the expiry date selected. 
+
+Prepared Emails
+Return to the General Management menu and select Prepared Emails. As a conference management system, OCS provides several pre-written messages to send out to your various users. 
+
+These messages can be modified in this section, using the Edit link next to each one. 
+
+
+When editing an email template, be careful not to change the embedded coding,which will automatically fill in the appropriate names and related information provided in the message (e.g., {$directorUsername}). 
+
+Reading Tools. 
+Reading Tools are intended to assist both expert and novice readers of the conference papers in building a context for interpreting, evaluating and utilizing the research they are reading. 
+Reading Tools have been developed for a wide range of academic disciplines, and from which the Conference Manager can select, as well as update and edit,in supporting the reading environment for the papers. The Reading Tools also enable Readers to join relevant forums, as well as contact the author or share the item with another Reader. 
+The Tools provide Readers with access to the item's indexing information, print version, and author biographical statement. The Tools enable Readers to look up words in the item (by double clicking on any work in the HTML version of the item), to email the author or another Reader, or to comment on the article. All of these features can create a much more interact reading environment. 
+
+The Tools are also designed to take the first two keywords from the item and feed them into the search engines of open access databases and other resources grouped under Research Studies, Author's Other Works, Press and Media,Government Websites, Instructional Resources, Discussions and Forums, and other categories, depending on the set of Tools selected. Readers are also able to access background information on each of the selected resources. In each category, whether Studies, Media, on Instruction, the Tools provide multiple choices or databases to consult, while allowing the Reader to learn more about each database by providing a link to an About page for the resource. 
+The Conference Manager is able to activate, edit, or delete existing resources and add new ones as well. 
+The Reading Tools are turned off by default, but can be activated by selecting Reading Tools from the General Management menu on the Conference SiteManagement page. 
+
+Reading Tool Settings. 
+On the Reading Tools page, select Reading Tool Settings, check “Enable Reading Tools for designated tracks of conference”, and optionally pick the appropriate discipline for your conference. You can also enable optional tools, such as abstract and about the author links, links to indexing metadata, and so on. 
+
+
+You can also modify the Reading Tool for your selected discipline by returning to the Reading Tools page and selecting Versions. 
+
+Versions.
+On clicking the Versions link you will be presented with a list of Reading ToolsVersions. From this page you can edit any version, create new versions, and restore all versions to the default as shipped with the system. 
+
+Contexts. 
+Selecting Contexts will show you some of the options that will be available for that version. 
+
+Searches. 
+Next, selecting Searches will show you the various resources that will be made available for each context. These resources will be made available to readers on the site. 
+
+It is important to note that for the Searches, Contexts, and Versions, you are always able to remove entries, or add new ones, making the Reading Tools a highly flexible feature of OCS. 
+
+
+Files Browser
+The Files Browser is an advanced feature that allows the files and directories associated with a conference to be viewed and manipulated directly. 
+
+Figure 100: Files Browser 
+
+Note the ability to upload files directly and to create new directories. Also, although this feature may be used to delete directories and files, the delete function should not be used lightly, and you should understand that deleting a file here will not delete its database record. 
+
+
+Languages
+Languages can be selected to be installed as new locales. Enabling two or more languages will allow users to toggle between languages on the right sidebar of interface; also, whenever a form allows for multilingual input, users will be ableto switch between languages on the page itself. 
+
+Figure 101: Languages 
+
+Event.Log. 
+The Event Log allows you to review changes made to the system. 
+
+
+Figure 102: Event Log 
+
+System Plugins 
+System plugins allow OCS to expand its functionality without altering the core of the program. If you are interested in writing a plugin for OCS, please contact us using the OCS Development Forum at http://pkp.sfu.ca/support/forum. 
+As a Conference Manager, you can decide which plugins to add to your site, and which to leave out. As more plugins are contributed to OCS, they will appear in this section or on the forum at http://pkp.sfu.ca/support/forum/viewforum.php?f=28. 
+
+
+Figure 103: Plugins 
+Plugins are too wide-ranging to cover in this document; however, you should be able to look in the plugin’s subdirectory (found in /plugins/{plugin category}/{plugin name}) for instructions and READMEs.  
+
+Registration.Manager. 
+Although not a separate Role in OCS, the Conference Manager may assign the task of registration management to another individual. The Registration Manager would be responsible for maintaining the list of registrants, following up on required payments, and any other communications with the registrants. 
+When logged in as a Conference Manager, the Registration Manager would choose Registrations from the user menu: 
+
+Figure 104: Registration Management 
+The resulting page will list all of the conference’s registrants: 
+
+Figure 105: Registrants 
+From the list, you can quickly see their names, which Registration Types they have chosen, when they registered, and if they have paid. Choosing the Deletelink will remove them from the system, and Edit will allow you to make changes to their registration: 
+
+
+Figure 106: Registration Editing 
+From here, you can change their Registration Type, send them an email with their username and registration details, enter any membership information, add any authentication details for non-open access conferences, include any new special requests, and finally, mark them as paid. Use the Save button to record the changes. 
+
+
+Director. 
+Once the conference website configuration is completed, the Director takes over, overseeing the submission, review, and publication of conference presentations and papers. In some cases, this may be the same person as the ConferenceManager, or it may be a different individual. 
+Login to your OCS account and select your role as Director. This may be the only available role, or there may be others to choose from. 
+
+Figure 107: Logging in as Director 
+This will take you to your Director Homepage. 
+
+Figure 108: Director Homepage 
+Assigning.Submissions. 
+From here, you can quickly see how many unassigned submissions are in the queue (e.g., 1 in the example above), how many are in the review process, how many have been accepted (under Presentations), and an archive of all submissions. 
+Under Unassigned, you will see a list of the unassigned submissions. 
+
+
+Figure 109: Unassigned Submissions 
+To assign a submission, click on its title. This will take you to the submission summary page, where you can quickly review the author names, title,submission files (if they were required upon the initial submission), and more. 
+
+Figure 110: Summary Page 
+Scrolling down the page, you will see the section for adding yourself, a Track Director, or another Director to guide the submission through the review andeditorial process. You can choose the best option for your own conference’s workflow. 
+
+Figure 111: Selecting Directors 
+
+Adding a Track Director
+To add a Track Director, click on the Add Track Director link. 
+
+
+Figure 112: Selecting a Track Director 
+You may have a number of Directors to choose from, or only one (as in the example above). To select one, click the Assign link to the right of their entry, under Action. This will generate an email message from you, addressed to them,with the content filled in based on the prepared email template (see earlier section). 
+
+Figure 113: Send Mail 
+Upon sending the message, the Track Director is now assigned to the submission. 
+
+Figure 114: Assigned Track Editor 
+
+You are now able to continue reviewing the Submission Summary. The next section provides the Status of the submission, which is now considered to be InReview. 
+
+Figure 115: Status 
+
+Archive Submission. 
+The Status section also provides you with the opportunity to reject the submission before it moves any further ahead in the process. Clicking theArchive Submission link will generate an email rejecting the submission. 
+
+Figure 116: Archive Submission 
+Remember, all email templates can be modified in the Prepared Email Section by the Conference Manager. The archived submission can be restored by clickingRestore to Active List link. 
+Next, you can review the submission’s metadata and make any necessary changes. 
+
+
+Figure 117: Submission Metadata 
+The submission is now ready for the Track Director to assign a Reviewer (see theTrack Director section below). 
+
+Editing.a.Paper. 
+Once the submission has been accepted, you will need to prepare it for publication on your website. 
+
+Uploading Submission Galleys. 
+• Login as the Director 
+• Choose In Review 
+• Select the linked title of your sample submission 
+• Under Layout, select Galley and use the upload tool to upload a sample file 
+
+
+Track Director
+
+Requesting a Review 
+The Track Director’s responsibility is to guide the submissions in their track through the peer review process. To begin, login as a Track Director. 
+
+Figure 118: Logging in as Track Director 
+
+From the Track Director Homepage, select the linked title of the submission. 
+
+
+Figure 119: Submissions in Review 
+On the resulting page, the Track Director should review the submission information, and select a Reviewer. 
+
+Figure 120: Selecting Reviewer 
+From the list of available reviewers, assign one using the Assign link. 
+
+
+Figure 121: Assigning Reviewer 
+Next, use the email icon (under REQUEST in the figure below) to send theassigned reviewer a Request message. 
+
+Figure 122: Requesting the Review 
+Sending the message will set the review to being underway. 
+
+Figure 123: Request Review Message 
+Remember, it is possible to assign more than one reviewer to each submission. 
+
+Responding to the Review. 
+The next step will be to await the Reviewer’s recommendation for the submission. The Review may recommend that the submission be accepted,revised, submitted elsewhere, or declined. 
+Return to the submission by logging in, selecting Track Director, and clicking on the linked title of the submission. 
+
+Figure 124: Reviewer Report 
+Use the Acknowledge email icon and send the message thanking the Reviewer for their contribution to the conference. 
+Next, look at the Reviewer’s recommendation and click the Review icon to read the comments. 
+
+Depending on the configuration of the conference setup, you may also have the opportunity to rate the Reviewer’s contribution on a scale of 1 to 5. 
+Under Director Decision, you can choose to accept the submission, send it back for revisions, or rejection. Use the email icon to notify the Author of your decision. 
+
+Figure 125: Director Decision 
+Use the Record Decision button to mark the review as complete. You will now have the option to accept the presentation file as it currently exists, or to move itto Layout for any required changes, such as conversion to PDF or HTML. 
+
+Figure 126: Move to Layout 
+If you have sent the submission to Layout, it will appear in this section. 
+
+
+Figure 127: Layout 
+You can upload an edited version of the paper or presentation file as a Galley. This will automatically update the file visible on your website. 
+
+Figure 128: Galley Files 
+If changes are discovered at a later date, you can upload a revised version here,using the Edit link. 
+
+Figure 129: Edit Galley Files 
+Use the Complete button to move the submission to your list of accepted presentations. 
+
+Figure 130: Complete 
+Then it is for the Conference Manager to schedule the presentation by Scheduler to set the date, time and location of the presentation. 
+
+
+Figure 131: Scheduling Presentation 
+The presentation will now be visible on the conference web site, underPresentations and Authors. 
+
+Figure 132: Presentations and Authors 
+The presentation can also be viewed under Conference Schedule. 
+
+Figure 133: Conference Schedule 
+
+Reviewers
+
+Reviewing a Submission
+
+To begin reviewing a submission, log in as a Reviewer. 
+
+Figure 134: Logging in as Reviewer 
+From the Reviewer Homepage, select the linked title of the submission. 
+
+Figure 135: Selecting the Submission 
+In the first section, you can review the submission metadata. 
+
+Figure 136: Submission Summary 
+Next, you can view the Review Schedule. 
+
+Figure 137: Review Schedule 
+Finally, you can see the Review steps you must follow to complete the review. 
+
+
+Figure 138: Review Steps 
+The first step is to use the email icon to inform the Track Director that you will do the review, or are unable to do the review. 
+
+Figure 139: Respond to Track Director 
+
+The second step is to review the submission. This could be an abstract or a full paper, depending on the submission policies of the conference. 
+The third step is to type your review. Use the Review icon to bring up two textboxes. This allows the Reviewer to communicate directly with both the TrackDirector and the Author or with the Track Director only. 
+
+Figure 140: Enter Review 
+The fourth step allows you to upload a separate file for the Track Director and/or the Author. 
+The fifth and final step is to advise the Track Director of your recommendation,which could be to Accept Submission, Revisions Required, Submit Elsewhere, Decline Submission, or See Comments. Use the dropdown menu to make your selection, and use the Submit Review to Director to submit it. 
+
+Figure 141: Select Recommendation 
+
+If the recommendation is to Accept Submission, Submit Elsewhere, Decline Submission, or See Comments, your job is finished. If the recommendation is forRevisions Required, you may be involved in another round of reviewing. 
+
+Authors. 
+
+Registering.as.an.Author. 
+When an author is interested in submitting a proposal for your conference, they will need to visit your website, and select Proposal Submission. 
+
+Figure 142: Proposal Submission 
+This will take them to a login page, where they can enter their existing account information, or if they are new to your site, register for a user account before they can proceed. 
+
+Figure 143: Log In 
+Registration requires filling in a few brief fields on the web form. 
+
+
+
+Figure 144: Author Registration 
+Upon completion of the form, they will be taken directly to the proposal submission section. They could also choose to logout and submit their paper at alater date. 
+
+Submitting.a.Proposal. 
+To submit a proposal, the user will need to be logged in as an Author (seeprevious section). From the User Home page, under Roles, select Authors. 
+
+Figure 145: Logging in Author 
+Once logged in, the author should follow the steps by clicking on the link under“Start here to submit a paper to this conference”. 
+
+
+Figure 146: Start Here to Submit a Paper to This Conference 
+Step.1:.Starting.the.Submission. 
+First, the author must select the most appropriate track for their proposal. 
+
+Figure 147: Selecting the Track 
+It also requires the author to agree to the submission checklist (setup previouslyby the Conference Manager). 
+
+Figure 148: Submission Checklist 
+If any of the items are not checked, the submission cannot proceed. Next, the author must agree to the Copyright Notice (as setup previously). 
+
+
+Figure 149: Copyright Notice 
+If the Notice is not checked, the submission cannot proceed. Finally, the author can add any additional comments. 
+
+Figure 150: Author Comments 
+When this first stage is completed, the author selects Save and Continue to moveon to Step 2. 
+
+Step 2: Entering the Submission's Metadata  
+
+Information about the author is automatically pulled in from the user’s account. 
+
+Figure 151: Author Information 
+
+Using the Add Author button, additional authors can be added to the submission. However, the author filling in the form (in the above example, LucyWhite), will be considered the primary author. 
+Next, the author must specify the type of submission (e.g., Single presentation,Panel Presentation). 
+
+Figure 152: Submission Type 
+The next section allows the author to enter the title and abstract for their proposal. 
+
+Figure 153: Title and Abstract 
+Next, the author would add their preferred indexing terms. 
+
+
+Figure 154: Indexing 
+Finally, the author would enter any supporting agencies that provided funding for their research. 
+
+When this stage is completed, the author selects Save and Continue to complete their submission (if the conference is set up to initially only accept abstracts) ormove on to Step 3, to upload their submission file. 
+
+Step.3:.Uploading.the.Submission. 
+
+Figure 156: Uploading the Submission 
+Use the upload tool and select Save and Continue. 
+
+
+Step.4:.Uploading.Supplementary.Files. 
+If permitted in the conference setup, authors may also be given the option to upload supplementary files, such as data sets. 
+
+
+Figure 157: Uploading Supplementary Files 
+The author is required to fill in metadata about the supplementary files. 
+
+
+Figure 158: Add a Supplementary File 
+
+Step.5:.Confirming.the.Submission. 
+Finally, the author is given the opportunity confirm their submission. 
+
+
+Figure 159: Confirming the Submission 
+Upon selecting the Finish Submission button, the author needs to click on Active Submissions to have the information sent to the conference for consideration. 
+
+After the proposal has been successfully submitted, the author can log in again to see the status of their proposal. In the example below, the proposal is currentlyAwaiting Assignment. They can also submit another proposal, if desired. 
+
+Figure 161: Status of Submissions 
+
+ 
+Responding to Reviews
+You can return to your account at any time to see the progress of yoursubmission. The status will change from Awaiting Assignment to Paper inReview. You will be notified via a system email of the decision. 
+Your submission may be declined for the conference, or it may be suggested that you submit it to another conference. Your submission may also be sent back forrevisions based on Reviewer comments, in which case you would need to make the changes and resubmit for final approval. Lastly, your submission may be accepted without revisions. 
+
+If resubmitting the revised submission, the author should use “Browse” and “Upload” buttons next to Upload Author Version under Director Decision on the Review Page. 
+
+Figure 162: Upload Author Version 
+If the conference is set up to only collect abstracts or if you submitted the paper or presentation file during the initial submission process, that will be the end of your tasks. However, if the conference is set up to first collect your abstract and requires you to later submit your paper or presentation files (see the Setup section for the Conference Manager), you will be asked to do so (see the Author’sStep 3: Uploading the Submission). 
+
+
+
+Readers. 
+Viewing the Conference Site  
+Once all of the configuration steps have been completed, a fully functional conference site will be available to Readers. Initially the site will primarily consist of information describing the conference, including the Announcements,Overview, Call for Papers, Proposal Submission, Track Policies, Program, Presentations and Authors, Conference Schedule, Registration, Accommodation,Organizers and Partners, and Timeline. 
+
+Figure 163: Conference Information 
+Once you begin to accept submissions, however, the Presentations and Authors section will also begin to contain the full papers or presentation files for your Readers. 
+
+If your conference is open access, the papers will be available to a global audience. If you have chosen a closed access conference, only your registered readers will be able to read the papers. 
+
+Registrants
+Anyone interested in registering to attend the conference will need to use theRegistration link on the conference web site. First they will see any registration information that has been posted (see Scheduled Conference Setup), and a list of conference fees: 
+
+Figure 164: Conference Fees 
+The above figure demonstrates how some fee options (e.g., Early Registration)can be automatically disabled based on the date (see Registration setup options). 
+A new registrant would choose from the available options. Notice the option to include a fee code, which would have been provided to the registrant at an earlier date. This may be a special code designated for registrants who are also speaking at the conference or, for some other reason, will receive a discount or fee waiver. 
+Next, they would fill in their personal information: 
+
+
+Figure 165: User Account Information 
+They would also have the option to enter any special requests, such as dietary restrictions: 
+
+Figure 166: Special Requests 
+
+Contact information for Registration Manager, and finally, the Register button are also provided. 
+If the Manual Payment option has been selected, the registrant would submit a cheque or money order to the Registration Manager, and the registration process would be completed. 
+If the PayPal Payment option was chosen, a page will display directing the registrant to the secure PayPal site: 
+
+Figure 167: Paypal Payment 
+Selecting Continue takes the registrant to the Conference PayPal account, allowing them to make their payment online, and completing the registration process. 
+
+
+Conclusion. 
+If you have followed all of the steps outlined in this document, you should now have a working conference management system in place. 
+As new features are added to OCS, and the software in upgraded, we will be updating this document. 
+If you have any suggestions for revisions or additional content to add to OCS in an Hour, please let us know at: pkp-support@sfu.ca 

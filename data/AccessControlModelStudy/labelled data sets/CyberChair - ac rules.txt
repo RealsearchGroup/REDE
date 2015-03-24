@@ -1,0 +1,689 @@
+1.0:Nowadays it is common practise to use electronic submissions for conferences, workshops and journals.
+2.0:Usually, people are allowed to send their submission by email.
+3.0:Although, compared to sending hardcopies by surface mail, this is a big step forward, it may still be quite cumbersome to maintain the administration.
+4.0:Moreover, collecting, maintaining and comparing reviews by the program committee chair may also become quite tedious, if not troublesome, due to the large amount of material, even when submitted by email.
+5.0:A very important issue for the conference organization is that using CyberChair will save them a lot of money on copying papers and mailing the papers to the reviewers (which might open up room to delegate the management of the submission and review process - see below).
+6.0:In short, CyberChair fully supports all activities that come with the review process: the abstract and (camera-ready) paper submission, the reviewer assignment (based on the reviewers' preferences and expertise), the review submission process, the notifications of acceptance and rejection, the preparation of the proceedings (according to the Springer-Verlag procedure), and the abstracts for the conference website and program booklet.
+7.0:It was first developed for ECOOP'97, and has been extended since, based on new ideas and the suggestions and remarks of its users (the chairs, the reviewers and submitters).
+8.0:Here is an overview of the activities CyberChair supports or carries out.
+9.0:CyberChair is based on the paper Identify the Champion, an organisational pattern language for programme committees, by Professor Oscar Nierstrasz (University of Berne, Switzerland).
+10.0:CyberChair's functionality is described in detail in a paper, which is titled CyberChair: A Web-Based Groupware Application to Facilitate the Paper Reviewing Process.
+11.0:Jean-Guy Schneider, Markus Lumpe and Oscar Nierstrasz describe CyberChair in Agent Coordination via Scripting Languages, Chapter 6 of the book Coordination of Internet Agents: Models, Technologies and Applications, Andrea Omic, Fanco Zambonelli, Matthias Klusch and Robert Tolksdorf (Eds.)
+12.0:, Springer, March 2001 (section 6.4.1, page 168).
+13.0:Below is a description of the latest version of CyberChair.
+14.0:You may also want to take a look at 2 posters: an overview (, 140 Kb) and a picture containing screenshots (, 1.71 Mb).
+15.0:The original poster is in B1 format, so you may need to zoom in to read all details.
+16.0:You may try a demonstration version of CyberChair, by acting as:
+17.0:1) Author - This only allows submission of abstracts.
+18.0:The submission form in phase 2 is the same as the submission form in phase 1, except that authors must use it to upload their full paper file.
+          author;upload;full paper file - 
+19.0:To avoid 'pollution' of the demo data, uploading of files has been blocked.
+20.0:2) Reviewer - Use the first and last name (in lowercase) as login and password, respectively.
+21.0:You can submit reviews and find out what happens.
+          you;submit;review - 
+          you;find;happen what - 
+22.0:Please put or leave the 'Would you like to receive a copy of your review per e-mail?'
+23.0:at 'No', because each 'reviewer' has been assigned a bogus email address, which will bounce.
+24.0:Please note that when you click on a paper number, this causes files to be copied, and generation of links to those files.
+          ;click;paper number - E
+          ;copy;file - C
+          ;generation;link - C
+25.0:Depending on how busy our webserver is, the copying may not be completed before you click on a link.
+26.0:Just retry a few seconds later if this happens.
+27.0:3) Chair -  Use chair or chair as login & password combination.
+28.0:You will see a list of overviews that are available to the chair.
+          you;see;list - R
+          you;see;overview - R
+29.0:These overviews are currently updated at 5 minutes before the hour.
+          ;update;overview - 
+30.0:Authors can submit their abstracts and papers using the web (uploading).
+          author;submit;abstract - C
+          author;submit;papers - R
+31.0:CyberChair provides web pages for the reviewers to indicate their preference for papers they would like to review.
+          reviewer;indicate;preference - C
+          reviewer;indicate;papers - R
+          reviewer;review;papers - C
+32.0:Based on the preferences and the reviewers' expertise, CyberChair calculates a paper assignment proposal for the chair, where as many as possible preferences of the reviewers are honored, provided that all papers are assigned to an equal number of reviewers (so also the papers that did not get any preferences), and all reviewers are assigned as much as possible an equal number of papers.
+          cyberchair;assign;papers - R
+          cyberchair;calculate;paper assignment proposal - R
+          cyberchair;assign;reviewer - R
+          cyberchair;assign;papers - R
+33.0:When done by hand, the paper assignment usually is a very time consuming job.
+34.0:Each reviewer gets a personal, password-protected webpage, that contains links to the papers (s)he is assigned to review, so they can be downloaded.
+          reviewer;get;password-protected webpage - R
+          reviewer;download;papers - R
+          ;assign;he - R
+35.0:Reviews can either be submitted via a webpage, or filled in off-line and emailed.
+          ;submit;review - C
+36.0:After submission of a review, reviewers will be able to read the other reviewers' reviews and prepare for the PC meeting.
+          reviewer;submission;review - C
+          reviewer;read;review - R
+          reviewer;prepare;pc meeting - R
+          reviewer;read;reviewer - R
+37.0:The reviewers' pages are regenerated frequently in order to reflect changes (such as conflicting reviews).
+          ;regenerate;page - 
+38.0:Downloading of papers by the reviewers can start as soon as papers are submitted.
+          reviewer;download;papers - R
+39.0:There is no need to wait until the submission process has finished.
+40.0:The level of agreement among reviewers is indicated on each reviewer's personal page, using a coloring scheme.
+          reviewer;indicate;level agreement - R
+41.0:When the level of agreement differs too much, the reviewers and chair may give it special attention, even before the PC meeting takes place.
+42.0:Reviews can be updated.
+          ;update;review - R
+43.0:The review process can be monitored by the chair.
+44.0:Papers are classified, using the highest and the lowest classification given by the reviewers (A to D), as described in the paper mentioned above.
+          ;classify;papers - 
+45.0:After the program committee meeting has taken place, and papers have been selected, the (anonymous) comments can be automatically sent to the authors.
+          ;send;comment - C
+          ;send;author - R
+46.0:CyberChair provides direct reflection on submitted reviews (for easy comparison with the other reviewers' opinions), without the maintainer's interference.
+          ;provide;direct reflection - R
+          ;provide;review - R
+47.0:Furthermore, there is support for the preparation of the proceedings.
+48.0:The Table of Contents and Author Index are automatically generated.
+49.0:The resulting TeX file is according to Springer's editor's instructions.
+50.0:Other formats will be included in future versions of CyberChair.
+51.0:There is also support for the preparation of the proceedings (using the format required for Springer Verlag, the publisher of the proceedings of ECOOP).
+52.0:The result is a significant decrease of the work-load of the program chair and the ease of submitting author information, papers and reviews instantly in electronic form.
+53.0:Although CyberChair is not something to sit in (please refer to www.cyberchair.com if you are looking for that), when you are a program chair, you can sit back, relax and watch the progress of the submission and review process.
+54.0:All you have to do is prepare the PC meeting, write acceptance and rejection messages, and the preface of the proceedings.
+55.0:CyberChair takes care of the rest.
+56.0:CyberChair is written in the Python programming language.
+57.0:It is known to run on versions 1.5.2, 2.0.1 and 2.1.3, be it that the latter may cause deprication warnings (2.1 does not, while 2.2.1 does for sure).
+58.0:(Deprication warnings indicate that certain language constructs may no longer be supported in next versions of the language.)
+59.0:Until approx.
+60.0:March 2000, CyberChair was regularly updated to include new ideas, and suggestions by its users.
+61.0:After that, only bugfixes were made.
+62.0:The version that is currently available for download was introduced for ECOOP 2000.
+63.0:Other conferences and workshops that use(d) CyberChair can be found on an overview.
+64.0:If you'd like to use CyberChair, which is free software (GNU General Public License), please fill in a customization form.
+65.0:If you'd like to use CyberChair, but would rather not be bugged by installing and customizing CyberChair yourself (and use the latest, greatest version of CyberChairPRO, which is easier to work with, which has more tools, and streamlined versions of existing tools), you might want to consider delegating the submission and review process organization to a spin-off company specialized in managing this process, set up by the author of CyberChair: Borbala Online Conference Services.
+66.0:CyberChair: A Web-Based Groupware Application to
+67.0:Facilitate the Paper Reviewing Process
+68.0:Richard van de Stadt
+69.0:Department of Computer Science
+70.0:University of Twente
+71.0:P.O. Box 217, NL-7500 AE  Enschede, The Netherlands
+72.0:+31 53 489 3731
+73.0:stadt@cs.utwente.nl
+74.0:ABSTRACT
+75.0:In this paper we describe CyberChair, a web-based group­ware application that supports the review process for technical contributions to conferences.
+76.0:CyberChair deals with most administrative tasks that are involved in the review process, such as storing author information, abstracts, (camera-ready) papers and reviews.
+          cyberchair;store;author information - C
+          cyberchair;store;abstract - C
+          cyberchair;store;papers - C
+          cyberchair;store;review - C
+77.0:It generates several overviews based on the reviews which support the Program Committee (PC) in selecting the best papers.
+          it;generate;overview - C
+          it;generate;review - R
+78.0:CyberChair points out conflicting reviews and offers the reviewers means to easily communicate to solve these conflicts.
+          cyberchair;point;review - R
+79.0:In his paper Identify the Champion , O. Nierstrasz describes this review process in terms of a pattern language.
+80.0:CyberChair supports PCs by using these patterns in its implementation.
+81.0:Keywords
+82.0:CSCW, Group Decision Support, Collaborative Authoring, Shared Workspace, Paper Submission, Review process, Program Committee, Proceedings, WWW
+83.0:INTRODUCTION
+84.0:The review process for contributions for conferences can be rather tedious because of the administrative tasks that come with the process.
+85.0:Up until its 1996 edition, the European Conference on Object-Oriented Programming (ECOOP) used hard-copy review forms.
+86.0:We decided to automate this and provide electronic review forms, by using the World Wide Web (WWW), since all reviewers were now able to use this emerging technology.
+87.0:The result turned out to be very fruitful.
+88.0:The next years the system was improved and more features, such as uploading of papers, were included in the system to support the process.
+89.0:The current version of CyberChair supports all phases of the review process, including preparation of the proceedings in the electronic format prescribed by the publisher.
+90.0:The version described in this paper was used for ECOOP 2000 and  the International Workshop on Software Specification and  Design (IWSSD-10).
+91.0:Other conferences have used older versions of CyberChair.
+92.0:THE REVIEW  PROCESS
+93.0:Generally, the review process for technical contributions to conferences is as follows.
+94.0:To enter the review process, authors must send their paper to the Program Committee Chair (PCC).
+          must;send;they - C
+          must;send;pcc - R
+95.0:When all submissions have arrived, suitable members of the Program Committee (PC) must be selected to review each paper.
+          member;review;paper - C
+96.0:The PCC sends the papers and review forms to the reviewers, who must fill in the review forms and send these to the PCC.
+          pcc;send;papers - C
+          pcc;send;review form - C
+          pcc;send;reviewer - R
+          reviewer;fill;review form - C
+          reviewer;send;these - C
+          reviewer;send;pcc - R
+97.0:Typically, the review process ends by organizing a Program Committee meeting, prepared by the PCC, where papers are discussed and accepted or rejected for presentation at the conference.
+98.0:After the meeting, the reviewers’ comments are sent back to the authors, so that they can improve their paper.
+          ;send;author - R
+          ;send;comment - C
+99.0:The authors of accepted papers may submit a brushed-up version of their paper, in so-called camera-ready format to the PCC, who will send them, together with the preface and the table of contents to the publisher to have the proceedings printed.
+          author;submit;paper - C
+          author;submit;brushed-up version - C
+100.0:ADMINSTRATIVE TASKS
+101.0:The following administrative tasks can be identified during a typical review process: Author information, abstract and paper submission, paper-to-reviewer assignment, paper distribution, filling in and sending review forms, collecting review forms and ordering them, preparing the PC meeting, returning the reviewers’ comments to the authors, camera-ready paper submission and preparation of proceedings.
+102.0:Members of the PC are also called ’reviewers’
+103.0:When email is used for the submission of papers and reviews, the physical distribution of papers, which is still used for many conferences, is no longer needed.
+104.0:However, the administrative tasks are still necessary.
+105.0:The tasks mentioned above have been automated by CyberChair.
+106.0:Using the WWW, a commonality these days, the ones involved in the process can collaboratively use CyberChair to store possibly and possibly retrieve data from password-protected areas controlled by CyberChair.
+          one;store;datum - C
+          involve;retrieve;datum - R
+107.0:USING CYBERCHAIR
+108.0:This section explains how the CyberChair handles the administration and supports its users during the complete reviewing process.
+109.0:This is done by showing the options for the kinds of users of CyberChair: the maintainer, the authors, the PCC and the reviewers.
+110.0:The Maintainer
+111.0:The maintainer (who might be the same person as the PCC) installs CyberChair.
+112.0:This includes editing the files that contain the templates for the PCC and reviewer information, the file containing the main topics of the conference, and setting up a website.
+113.0:The maintainer also makes sure that overviews are generated at regular intervals.
+114.0:Further, the maintainer may need to convert submitted papers to other formats, or ask the authors to submit the paper in another format.
+115.0:The maintainer should make sure that enough disk space is available to store the papers.
+116.0:After the review process, the maintainer makes sure that the notifications of acceptance and rejections, including the reviewers’ remarks, are sent to the authors.
+          ;send;author - R
+          ;send;notification - C
+          ;send;remark - R
+117.0:Finally, after the camera-ready papers have been submitted, the proceedings must be prepared by the maintainer by entering the conference sessions and the numbers of the papers within those sections in a specific template file.
+          maintainer;enter;conference session - C
+          maintainer;enter;number - R
+          maintainer;enter;papers - R
+118.0:If the publisher allows electronic versions, the maintainer should send or upload the proceedings, for further preparation by the publisher.
+          maintainer;upload;proceedings - R
+          maintainer;send;proceedings - R
+119.0:The Authors
+120.0:Authors must submit their paper in two steps.
+          author;submit;paper - C
+121.0:CyberChair assigns a unique identification to the submission and sends a login and password combination for step 2 to the contact person’s email address.
+          cyberchair;assign;unique identification - C
+          cyberchair;assign;submission - C
+          cyberchair;send;login - R
+          cyberchair;send;password - R
+          cyberchair;send;email address - R
+122.0:In the first step, authors must fill in a webform shown by figures 1 and 2, on which they state their names and contact information, the title of their paper, an abstract of the paper, and indicate which conference topics their paper covers.
+          author;fill;webform - C
+          author;state;name - C
+          author;state;contact information - C
+          author;state;title - C
+          author;state;paper - C
+          author;state;abstract - C
+          author;state;paper - C
+          author;indicate;conference topic - C
+          author;indicate;paper - C
+123.0:In step 2, the full paper must be submitted by uploading it.
+          ;submit;full paper - C
+          ;upload;it - C
+124.0:The authors must use the login and password combination sent after phase 1.
+125.0:The authors may make corrections or changes to the  information that was submitted in step 1.
+          author;make;correction - U
+          author;make;change - U
+          author;make;information - R
+126.0:After the review process, the authors of submitted papers should submit a camera-ready version of their paper, analogous to step 2.
+          author;submit;camera-ready version - C
+          author;submit;paper - R
+127.0:Figure 2 - Submission form for authors, conference topics
+128.0:The Reviewers
+129.0:Identifying the right reviewers for papers is a difficult task.
+130.0:Following the patterns Experts Review Papers and Champions Review Papers , papers should be matched to domain experts in the PC.
+          ;match;papers - R
+          ;match;domain expert - R
+131.0:This can be done by letting the reviewers indicate which papers they would like to review (also called ’bidding’).
+          reviewer;indicate;papers - C
+          reviewer;review;papers - R
+132.0:Papers that have not received enough bids should be assigned based on the expertise of the reviewers.
+          ;assign;papers - 
+          ;assign;expertise - R
+          ;assign;reviewer - R
+133.0:Bidding support
+134.0:To support reviewers with making choices, CyberChair provides them with several webpages containing overviews of  the submitted abstracts.
+          reviewer;make;choice - C
+          ;provide;abstract - R
+          ;provide;overview - R
+135.0:Reviewers can browse the overviews by conference topic, to quickly identify the papers that match their interest  and expertise (Figure 3).
+          reviewer;browse;overview - R
+          reviewer;browse;conference topic - R
+          reviewer;identify;quickly - C
+136.0:Clicking on a topic will show a list of all abstracts of papers that cover that topic, which can then easily be browsed.
+          ;click;topic - E
+          ;show;list - R
+          ;show;abstract - R
+          ;show;papers - R
+137.0:For each paper that a reviewer would like to review, the corresponding checkbox in the left part of the window should be marked.
+          reviewer;mark;checkbox - E
+          reviewer;review;paper - R
+138.0:Further, a high or low priority should be chosen, to indicate how eager they are to review the paper.
+          ;choose;priority - C
+          ;review;paper - R
+139.0:Reviewers may bid in several stages.
+          reviewer;bid; - C
+140.0:The submitted bids are accumulated.
+          ;accumulate;bid - 
+141.0:Further, overviews are available that contain, per conference topic, all abstracts, and an overview that contains all abstracts.
+          ;available;overview - R
+          ;available;conference topic - R
+          ;available;abstract - R
+          ;available;overview - R
+          ;available;abstract - R
+142.0:These overviews can be printed in case reviewers want to read the abstracts offline.
+          ;print;overview - R
+143.0:For this process to work smoothly, the abstracts should be submitted at least one week  before the full paper is submitted.
+          ;submit;full paper - C
+          ;submit;abstract - C
+144.0:Reviewers are also asked to inform the maintainer of papers they do not want to review because of a conflict of interest.
+          reviewer;inform;maintainer - R
+          reviewer;inform;papers - R
+          reviewer;inform;conflict interest - C
+145.0:Figure 3 - Bidding for papers
+146.0:Reviewers’ expertise
+147.0:The reviewers are asked to indicated their expertise of the conference topics and their willingness to review papers on those topics.
+          reviewer;indicate;expertise - C
+          reviewer;indicate;conference topic - R
+          reviewer;indicate;willingness - C
+          reviewer;review;papers - C
+148.0:This information is used for the paper distribution.
+149.0:Reviewers can indicate whether they are an expert on the topic (X), no expert, but knowledgable in the subject area (Y), or an informed outsider (Z).
+          reviewer;indicate;expert - C
+          reviewer;indicate;expert - C
+          reviewer;indicate;informed outsider - C
+          reviewer;indicate;topic - R
+150.0:For the willingness to review papers of certain topics the reviewers can indicate whether they would rather not review such papers (R), or will not review such papers (W).
+          reviewer;indicate;such papers - R
+          reviewer;indicate;topic - R
+151.0:For each topic, either X, Y or Z should be indicated, followed by an optional R or W.
+          ;indicate;topic - R
+          ;indicate;x - C
+          ;indicate;y - C
+          ;indicate;z - C
+152.0:Reviewers’ webpages
+153.0:After the paper distribution, CyberChair generates a personal, password-protected webpage for each reviewer.
+          cyberchair;generate;password-protected webpage - C
+          reviewer;generate;password-protected webpage - R
+154.0:This page consists of several dynamically generated HTML frames.
+155.0:The top frame shows, in colored boxes, the numbers of all papers that have been assigned to the reviewer.
+          top frame;show;number - R
+          top frame;show;papers - R
+          ;assign;reviewer - R
+156.0:The colored boxes indicate the state of the reviews, which is determined each time a review is submitted by any of the reviewers.
+          box;indicate;review - R
+          box;indicate;state - R
+          reviewer;submit;review - C
+157.0:The state is based on the classification given to papers by the reviewers.
+          reviewer;give;classification - C
+          reviewer;give;papers - R
+158.0:The rest of the webpage is initially empty.
+159.0:After clicking on a paper number several hyperlinks are generated to allow the paper to be downloaded, to display the abstract and to submit or update a review.
+          ;click;paper number - E
+          ;generate;hyperlink - R
+          ;download;paper - R
+          ;display;abstract - R
+          ;submit;review - C
+          ;update;review - U
+160.0:When a reviewer has submitted all his reviews and has time to review more papers, he may look at the overview containing all papers and select papers for which conflicting reviews exist.
+          reviewer;submit;review - C
+          he;look;overview - R
+          he;look;papers - R
+          he;look;select papers - R
+          he;look;conflicting review - R
+161.0:The reviewer can be added to the list of reviewers for that paper.
+          ;add;reviewer - R
+          ;add;list - CRU
+          ;add;reviewer - R
+          ;add;paper - R
+162.0:His or her personal webpage will then be updated automatically.
+          ;update;personal webpage - U
+163.0:Figure 4 - A reviewer’s page
+164.0:In case a reviewer has already submitted a review of the selected paper, hyperlinks to the reviews of the other reviewers are shown, so that the reviewer can read their opinion.
+          reviewer;submit;review - C
+          reviewer;submit;paper - R
+          reviewer;show;hyperlink - R
+          reviewer;show;review - R
+          reviewer;read;opinion - R
+165.0:In case conflicting reviews exist, the reviewers can use the hyperlink that enables easy communication to the other reviewers by email.
+          reviewer;use;hyperlink - E
+          reviewer;use enable;easy communication - C
+          reviewer;use enable;reviewer - R
+          reviewer;use enable;email - C
+166.0:A copy of the message is sent to the PCC.
+          ;send;message - C
+          ;send;pcc - R
+167.0:Further, links are provided that contain all reviews of the reviewer, and all reviews of all reviewers of the paper, respectively.
+          ;provide;link - E
+          ;contain;review - R
+          ;contain;reviewer - R
+          ;contain;review - R
+          ;contain;reviewer - R
+          ;contain;paper - R
+168.0:The top frame is automatically updated every 5 minutes, to reflect the current state of the reviews of the papers.
+          ;reflect;current state - R
+          ;reflect;review - R
+          ;reflect;papers - R
+          ;update;top frame - R
+169.0:Classifcation of papers
+170.0:Following Nierstrasz’s pattern Make Champions Explicit , the reviewers are asked to fill in the classification of papers on the review form.
+          reviewer;fill;classification - C
+          reviewer;be;papers - R
+          reviewer;fill;review form - C
+171.0:The following classifications are used:
+          ;use;classification - R
+172.0:1) "I will champion this paper at the PC meeting (Advocate or Accept)".
+          ;use;classification - R
+173.0:2) "I can accept this paper, but I will not champion it (accept, but could reject)".
+          ;use;classification - R
+174.0:3) "This paper should be rejected, though I will not fight strongly against it (reject, but could accept)".
+          ;use;classification - R
+175.0:4) "Serious problems,  I will argue to reject this paper (Detractor)".
+          ;use;classification - R
+176.0:In addition, the reviewers must indicate their overall expertise on the topics that a paper covers.
+          reviewer;indicate;overall expertise - C
+          reviewer;indicate;topic - R
+          reviewer;indicate;paper - R
+177.0:This is used to discover papers that have only been reviewed by non-experts, so that the PCC may ask another reviewer to review the paper.
+          reviewer;review;paper - R
+          pcc;ask;reviewer - C
+          pcc;discover;papers - R
+178.0:Conflict detection
+179.0:The pattern Identify the Conflicts  is used to determine the state of the reviews.
+180.0:The highest and lowest classification given to a paper are taken into account.
+          ;take;classification - R
+          ;take;paper - R
+181.0:Using a coloring scheme, the state of reviews is indicated.
+          ;indicate;state - R
+          ;indicate;review - R
+182.0:The following colors are used to indicate the state of the reviews on the reviewers’ webpages:
+          ;indicate;state - R
+          ;indicate;review - R
+183.0:- White: You have not yet submitted your review
+          ;indicate;review - R
+          ;indicate;state - R
+          you;submit;review - C
+184.0:- Pink: Only your review has been submitted.
+          ;indicate;review - R
+          ;indicate;state - R
+          ;submit;review - C
+185.0:- Light green: No classification conflict - A and B only
+          ;indicate;review - R
+          ;indicate;state - R
+186.0:- Orange: No classification conflict - B and C only
+          ;indicate;review - R
+          ;indicate;state - R
+187.0:- Green: No classification conflict - C and D only
+          ;indicate;review - R
+          ;indicate;state - R
+188.0:- Light yellow: Classification conflict - both A and C
+          ;indicate;review - R
+          ;indicate;state - R
+189.0:- Yellow: Classification conflict - both B and D
+          ;indicate;review - R
+          ;indicate;state - R
+190.0:- Red: Serious classification conflict - both A and D
+          ;indicate;review - R
+          ;indicate;state - R
+191.0:- Gold: Accepted Paper
+          ;indicate;review - R
+          ;indicate;state - R
+192.0:The PCC
+193.0:The PCC’s tasks are drastically diminished when Cyber-Chair is used, so that he or she can fully focus on the preparation of the PC meeting.
+194.0:CyberChair can handle the paper distribution, collects and categorizes all reviews and prepares overviews of reviews which can be used during the PC meeting.
+          cyberchair;collect;review - C
+          cyberchair;categorize;review - C
+          cyberchair;prepare;overview - C
+          cyberchair;prepare;review - C
+195.0:The table of contents and author index of the proceedings are generated by CyberChair and the camera-ready papers are prepared for electronic delivery to the publisher.
+          cyberchair;generate;table contents - C
+          cyberchair;generate;prepare - C
+          cyberchair;prepare;camera-ready papers - C
+196.0:Paper distribution
+197.0:As soon as the full paper deadline has passed, the papers can be assigned to the reviewers.
+          ;assign;papers - C
+          ;assign;reviewer - R
+198.0:CyberChair generates a paper distribution proposal for the PCC.
+          cyberchair;generate;paper distribution proposal - 
+199.0:This is done by combining the reviewers’ expertise and willingness to review papers on certain topics with the preferences the reviewers indicated by bidding for papers.
+          ;do;expertise - R
+          ;do;willingness - R
+          reviewer;indicate;preference - C
+200.0:Monitoring the review process
+201.0:The PCC can monitor the review process by using several overviews, which are generated at regular intervals:
+          pcc;monitor;process - R
+          pcc;use;overview - R
+          ;generate;overview - C
+202.0:- The number of reviews submitted by each reviewer.
+          pcc;use;overview - R
+          pcc;monitor;process - R
+          ;generate;overview - C
+          ;generate;number - C
+          ;generate;review - R
+          reviewer;submit;review - R
+203.0:- A one-page overview of all reviews and their state, with hyperlinks to the reviews (figure 5).
+          pcc;use;overview - R
+          pcc;monitor;process - R
+          ;generate;overview - C
+          ;generate;one-page overview - C
+          ;generate;review - R
+          ;generate;state - R
+204.0:- An overview with categories of papers, based on their classification (figure 6).
+          pcc;use;overview - R
+          pcc;monitor;process - R
+          ;generate;overview - C
+          ;generate;overview - C
+          ;generate;category - R
+          ;generate;papers - R
+          ;generate;classification - R
+205.0:- An overview of ’champions’ of papers, i.e. reviewers who indicate they would like these papers to be accepted.
+          pcc;use;overview - R
+          pcc;monitor;process - R
+          ;generate;overview - C
+          ;generate;overview - C
+          ;generate;champion - R
+          ;generate;papers - R
+          reviewer;indicate;papers - C
+206.0:- Low expertise reviews: Papers that have only been reviewed by reviewers who indicated that they are no expert on the topics the paper covers; The chair may ask additional reviewers to read the paper and submit a review.
+          pcc;use;overview - R
+          pcc;monitor;process - R
+          ;generate;overview - C
+          ;submit;review - C
+          ;generate;low expertise review - C
+          reviewer;indicate;expert - C
+207.0:This is also available to all reviewers, which might speed up the review process.
+          reviewer;available;this - R
+208.0:After the PC meeting, the PCC must inform the maintainer about the accepted papers, so that the notifications can be sent to the authors.
+          ;send;author - R
+          ;send;notification - C
+209.0:IMPLEMENTATION
+210.0:CyberChair is composed of a set of Common Gateway Interface (CGI) scripts, which are activated by the webforms that are used by the authors and reviewers.
+          author;use;webform - E
+          reviewer;use;webform - E
+211.0:Other scripts are so-called administrative scripts which are either started by the maintainer or automatically at regular intervals by the system (e.g. crontab on Unix systems).
+          maintainer;start;so-called administrative script - E
+212.0:The CGI scripts have been written in Python, a very powerful, easy-to-learn programming language, which allows rapid implementation.
+213.0:Like Java it runs on a virtual machine and is available for many platforms.
+214.0:The implementation of some parts of CyberChair is not that trivial.
+215.0:Those parts are explained in this section.
+216.0:Paper Distribution
+217.0:The current implementation collects the preferences (bids), expertise levels and willingness to review papers on certain topics and the conflicts of interest of the reviewers.
+          implementation;collect;preference - C
+          implementation;collect;expertise level - C
+          implementation;collect;willingness - C
+          implementation;collect;conflict interest - 
+218.0:Currently the script is tuned to assign as much as possible papers to reviewers based on their preferences, provided that all papers are assigned to exactly 4 reviewers and all reviewers are assigned approximately the same number of papers.
+          ;assign;reviewer - R
+          ;assign;papers - C
+          ;assign;reviewer - C
+          ;assign;preference - R
+219.0:Graph theory (nodes with labeled edges) is used to solve this assignment problem.
+220.0:For each paper, a list of the reviewers who indicated a high preference for the paper is generated.
+          ;generate;list - R
+          ;generate;reviewer - R
+          ;generate;high preference - R
+          ;generate;paper - R
+          reviewer;indicate;paper - R
+          reviewer;indicate;high preference - C
+221.0:This list is sorted, based on the number of papers the reviewers have already been assigned so far.
+          ;assign;reviewer - C
+          ;sort;list - R
+          ;sort;number - R
+          ;sort;papers - R
+222.0:The 4 reviewers with the least number of papers assigned so far ’get’ the paper.
+          ;assign;papers - R
+          ;assign;reviewer - R
+          ;assign;paper - U
+223.0:In case there are less than 4 reviewers, this process is repeated with the list of reviewers who indicated a low preference for the paper.
+          ;be;reviewer - R
+          process;repeat;list - R
+          process;repeat;reviewer - R
+          reviewer;indicate;low preference - R
+          reviewer;indicate;paper - R
+224.0:If there are still not enough reviewers for the paper, the expertise level of reviewers of all topics the paper covers is calculated and the paper is assigned to the reviewers with the highest overall expertise.
+          ;assign;reviewer - R
+          ;calculate;expertise level - R
+          ;calculate;reviewer - R
+          ;calculate;topic - R
+          ;calculate;paper - R
+          ;assign;paper - C
+225.0:In case the ’expertise-value’ is equal, the reviewer with the least number of papers assigned so far ’gets’ the paper.
+          ;assign;paper - U
+          ;assign;reviewer - R
+          ;assign;papers - R
+226.0:Note that reviewers may have indicated that they do not want to review papers that cover certain conference topics, while they also indicated a preference for certain papers that cover just those topics.
+          reviewer;indicate;want - C
+          reviewer;indicate;preference - C
+          reviewer;indicate;papers - R
+          reviewer;indicate;topic - R
+227.0:The preference ’wins’ in such cases.
+228.0:In case not enough reviewers can be found to review a paper, this is an indication that the script should be better tuned.
+          ;review;paper - R
+          ;find;reviewer - R
+229.0:Apparently the pool of experts is not full enough.
+230.0:The size of this pool is influenced by the maximum number of papers that is assigned to reviewers based on their preferences.
+          ;assign;reviewer - R
+          ;assign;preference - R
+231.0:When a reviewer reaches this maximum, he or she will not be part of the preference lists, because apparently his or her expertise is needed to review ’less popular’ papers.
+          reviewer;reach;maximum - R
+          reviewer;review;popular papers - C
+232.0:The script is currently optimally tuned for ECOOP 2000.
+233.0:For each conference or workshop the tuning should be considered carefully, since it heavily depends on the number of submissions, the number of reviewers, their expertise and the number of papers per reviewer.
+234.0:Figure 7 shows a part of a paper distribution as generated by CyberChair.
+235.0:In general, either a large percentage of preferences is assigned (in case reviewers selected enough papers that were indeed submitted), or the number of preferences that was assigned is high (in case a reviewer indicated more papers than the maximum number of papers assigned to reviewers).
+          ;assign;reviewer - R
+          ;assign;papers - R
+          ;assign;preference - C
+          reviewer;select;papers - C
+          reviewer;indicate;papers - C
+236.0:Reviewers’ pages
+237.0:The pages of the reviewers are generated once by the maintainer when the paper distribution has been done.
+          maintainer;generate;reviewer page - C
+          ;do;paper distribution - C
+238.0:As mentioned before, a reviewer’s page consists of several frames (a frame set).
+239.0:The top frame, containing the paper numbers in colored boxes, is updated every 5 minutes by using a so-called meta tag containing the ’refresh’ option.
+240.0:This allows automatic reloading of a page of which the Universal Resource Location (URL) is indicated in the same meta tag.
+241.0:For the frame to display the current state of reviews, the URL is not the name of a file, but the name of a CGI script which recalculates the state of all papers and ’prints’ its output in the frame.
+242.0:Figure 7 - Paper distribution overview
+243.0:When the reviewer clicks on a paper number, this causes the activation of a CGI script that in its turn generates a frameset, consisting of 3 frames (See figure 4).
+          reviewer;click;paper number - R
+244.0:Each of these frames is filled by using the name of a CGI script in the SRC tag of the frame definition.
+245.0:The left frame will contain a list of hyperlinks for downloading a paper, displaying the abstract, submitting a review, or looking at other reviewers’ reviews.
+          ;display;abstract - R
+          ;submit;review - C
+          ;download;paper - R
+          ;look;review - R
+          ;look;reviewer - R
+246.0:The frame in the middle of the browser window will contain the paper title and the names of the authors of the paper.
+          ;contain;paper title - R
+          ;contain;name - R
+          ;contain;author - R
+          ;contain;paper - R
+247.0:The lower right frame initially contains the abstract of the paper.
+          ;contain;abstract - R
+          ;contain;paper - R
+248.0:As soon as the reviewer has submitted his or her review, the review will be the default to be displayed in this frame when the reviewer clicks on the paper number in the top frame.
+          reviewer;click;paper number - R
+          reviewer;submit;review - C
+249.0:We are aware that the pages could also have been created by using tables.
+250.0:Sites like Amazon  use this style and regenerate a complete new page after every mouse click.
+251.0:This is quite inefficient, because much of the data that did not change is also regenerated.
+252.0:Using frames allows for updates on specific parts of the screen, so that only data that has changed can be updated without the need to refresh the complete screen.
+253.0:Moreover, since we chose to regenerate the state of all papers displayed on the reviewer’s webpage every 5 minutes, this would make it almost impossible for reviewers to enter a review form.
+          ;display;state - R
+          ;display;papers - R
+          reviewer;enter;review - C
+254.0:Especially that part of the browser window must be left as is while the reviewer is filling in the review form.
+          reviewer;fill;review form - C
+255.0:After filling in a review form, the reviewer is asked to click on a button labeled ’Continue’.
+          reviewer;fill;review form - C
+          reviewer;click;button - E
+256.0:This causes a regeneration of the frameset, which will now show hyperlinks to the reviews of other reviewers.
+          ;show;hyperlink - R
+          ;show;review - R
+          ;show;reviewer - R
+257.0:Not all reviewers like to fill in review forms on-line.
+258.0:Therefore, a template is provided to the reviewers which they can use to fill in reviews off-line and send them by email.
+259.0:CyberChair checks the review forms for correctness and transforms them into a format that can be used for display in a browser.
+          cyberchair;check;form - R
+          cyberchair;transform;format - C
+260.0:To be able to protect the reviews from outsiders, each reviewer gets his or her own directory on the webserver.
+          reviewer;get;directory - R
+261.0:Access is controlled by a file called "htaccess"
+262.0:This file contains the login names of those who are allowed to access the files in that directory.
+          who;access;file - R
+          ;access;directory - R
+263.0:All review files a reviewer needs, such as the review form and other reviewers’ reviews, are written in the reviewer’s directory.
+          reviewer;need;file - R
+          reviewer;need;review form - R
+          reviewer;need;reviewer - R
+          ;write;directory - C
+264.0:Each time the reviewer clicks on a paper number in the top frame, CyberChair checks if the reviewer has already submitted his or her review.
+          reviewer;click;paper number - R
+          reviewer;submit;review - C
+          cyberchair;check;submit - R
+265.0:If this is the case, then the reviews of the other reviewers for this paper are copied into the reviewer’s directory.
+          ;copy;review - C
+          ;copy;reviewer - R
+          ;copy;directory - 
+266.0:This way, the reviewer can always look at the latest version of the reviews.
+          reviewer;look;version - R
+          reviewer;look;review - R
+267.0:When displaying a review, the date and time of the last update of the review is shown as extra check.
+          ;display;review - R
+          ;show;date - R
+          ;show;time - R
+          ;show;review - R
+268.0:RELATED WORK
+269.0:Although more conference management systems exist  and many conferences use electronic uploading and some kind of reviewing system, no such system was found in the literature.
+270.0:A commonality between BSCW  and CyberChair is that both provide a shared workspace.
+271.0:BSCW could therefore be used to store abstracts, papers and reviews.
+272.0:It is not clear to us if BSCW could also be used to create a dynamic review system.
+273.0:From personal communication with its creator we know that the conference on Object-Oriented Programming, Systems, Languages and Applications (OOPSLA) uses a system like CyberChair, which is implemented with so-called Java servlets.
+274.0:The Artefact Framework  uses html frames like Cyber-Chair.
+275.0:The authors claim that there is no provision for a server to send asynchronous updates.
+276.0:We showed that browsers of today are able to send requests without the user taking action.
+277.0:The problematic use of groupware applications, as reported in several publications  is not affecting CyberChair.
+278.0:One reason is that users like the system.
+279.0:Other reasons are that authors are forced to use it to submit their paper.
+          author;submit;paper - C
+280.0:For reviewers, the features available to them are options.
+281.0:If a reviewer wishes, he or she may send reviews by email, and never look at his or her webpage.
+282.0:Further, a reason for easy acceptance by its users is that CyberChair is in fact merely an automation of a fairly simple, well known process.
+283.0:In The Information Lens  the authors focus on sharing information among a group of people to solve problems.
+284.0:This problem is handled by CyberChair by the conflict detection mechanism and availability of other reviewers’ reviews.
+285.0:In doing so, the PC can prepare themselves optimally for the PC meeting, thereby avoiding the problems mentioned by Stefik et al. , who provide groupware support for collaboration and problem solving during meetings.
+286.0:A commonality between CyberChair and gIBIS  is that both systems provide means to make high-quality decisions by providing the group members’ arguments to each other.
+287.0:We hope, by describing CyberChair, to have answered
+288.0:A. Dix’s questions about the usefulness of the web for CSCW .
+289.0:CONCLUSIONS
+290.0:CyberChair significantly reduces the workload of the PC, by doing all necessary bookkeeping.
+291.0:It eases the submission of author information, papers and reviews instantly in electronic form, using the web.
+292.0:The reviewers’ reviews are compared to the other reviews to detect conflicts.
+          ;detect;conflict - R
+          ;compare;review - R
+          ;compare;review - R
+293.0:Further, it allows reviewers to learn about each other’s opinions, which provides means for good preparation for the PC meeting.
+          reviewer;learn;opinion - R
+294.0:CyberChair supports preparation of the proceedings by generating the table of contents and author index, based on the input of the authors.
+          cyberchair;support;preparation proceedings - C
+          cyberchair;generate;table contents - C
+          cyberchair;generate;author index - C
+295.0:More conference management systems exist , although we could not find publications about them in the litterature.
+296.0:As far as we know from the comments of its users, CyberChair is the only system that has implemented the patterns identified by Nierstrasz.
+297.0:The conflict detection and coloring scheme used to indicate the state of reviews has, as far as we know, not been used in other systems that handle review processes.
+298.0:The paper distribution problem addressed by CyberChair is using theory from another discipline: Mathematics.
+299.0:CyberChair collects abstracts, papers and reviews and can therefore be regarded as a system that provides a shared workspace.
+          cyberchair;collect;abstract - C
+          cyberchair;collect;papers - C
+          cyberchair;collect;review - C
+          cyberchair;provide;shared workspace - E
+300.0:It helps the PC to select the best papers for the conference, which makes it a group decision support system.
+          pc;select;papers - C
+          pc;select;conference - R
+301.0:Since the authors and the PC are working together towards the proceedings, it can also be seen as a collaborative authoring system.
+302.0:As of this writing, CyberChair has been used successfully for 10 conferences or workshops, while currently half a dozen other conferences are planning to use it.
+303.0:A demonstration system of CyberChair is available at its homepage .

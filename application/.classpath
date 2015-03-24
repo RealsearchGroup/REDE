@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/JavaWordNetInterface"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="jackson-annotations-2.0.4.jar"/>
+	<classpathentry kind="lib" path="jackson-core-2.0.4.jar"/>
+	<classpathentry kind="lib" path="jackson-databind-2.0.4.jar"/>
+	<classpathentry kind="lib" path="commons-io-2.4.jar"/>
+	<classpathentry kind="lib" path="forms-1.3.0.jar" sourcepath="forms-1.3.0-src.zip"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/Stanford_CoreNLP_20140114"/>
+	<classpathentry kind="lib" path="/Weka37/java-cup.jar"/>
+	<classpathentry kind="lib" path="/Weka37/JFlex.jar"/>
+	<classpathentry kind="lib" path="/Weka37/junit.jar"/>
+	<classpathentry kind="lib" path="/Stanford_CoreNLP_20140114/joda-time.jar"/>
+	<classpathentry kind="lib" path="/Stanford_CoreNLP_20140114/jollyday.jar"/>
+	<classpathentry kind="lib" path="/Stanford_CoreNLP_20140114/stanford-corenlp-3.3.1-models.jar"/>
+	<classpathentry kind="lib" path="/Stanford_CoreNLP_20140114/xom.jar"/>
+	<classpathentry kind="lib" path="weka.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
